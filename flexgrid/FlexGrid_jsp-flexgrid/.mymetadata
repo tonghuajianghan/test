@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="jq-flexgrid"
+  id="myeclipse.1213328552281"
+  context-root="/jq-flexgrid"
+  j2ee-spec="1.4"
+  archive="jq-flexgrid.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

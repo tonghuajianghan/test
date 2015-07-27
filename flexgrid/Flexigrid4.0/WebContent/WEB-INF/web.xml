@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <servlet>
+    <description></description>
+    <display-name>ServletManager</display-name>
+    <servlet-name>ServletManager</servlet-name>
+    <servlet-class>cust.servlet.control.ServletManager</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletManager</servlet-name>
+    <url-pattern>/ServletManager</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>controlHtest</display-name>
+    <servlet-name>controlHtest</servlet-name>
+    <servlet-class>cust.servlet.control.Htest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>controlHtest</servlet-name>
+    <url-pattern>/H_test</url-pattern>
+  </servlet-mapping>
+</web-app>

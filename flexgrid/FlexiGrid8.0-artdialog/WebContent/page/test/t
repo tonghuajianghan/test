@@ -1,0 +1,18 @@
+<table id="artdialogtable"><tr><th>«Î ‰»Î£∫</th></tr><tr><td>id:</td><td><input style="width:200px;" id="M_dfd0" type="text" value="" /></td></tr><tr><td>name:</td><td><input style="width:200px;" id="M_dfd1" type="text" value="" /></td></tr><tr><td>age:</td><td><input style="width:200px;" id="M_dfd2" type="text" value="" /></td></tr></table>
+
+
+<table id="artdialogtable">
+  <tr><th>«Î ‰»Î£∫</th></tr>
+  <tr>
+      <td>id:</td>
+      <td><input style="width:200px;" id="M_dfd0" type="text" value="" /></td>
+  </tr>
+  <tr>
+      <td>name:</td>
+      <td><input style="width:200px;" id="M_dfd1" type="text" value="" /></td>
+  </tr>
+  <tr>
+      <td>age:</td>
+      <td><input style="width:200px;" id="M_dfd2" type="text" value="" /></td>
+  </tr>
+</table>
