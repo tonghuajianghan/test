@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+
+	<Resource name="jdbc/eduxm" auth="Container" type="javax.sql.DataSource"
+		maxActive="10" maxIdle="3" maxWait="10000" username="eduxm"
+		password="cust_214" driverClassName="oracle.jdbc.driver.OracleDriver"
+		url="jdbc:oracle:thin:@210.47.0.215:1521:orcl" />
+</Context>

@@ -1,0 +1,88 @@
+package cn.edu.cust.eduxm.group.domain;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Group {
+	
+	private int id;
+	
+	private String groupName;
+	
+	private String groupField;
+	
+	private String year;
+	
+	private int headman;
+	
+	private String groupExplain;
+	
+	private String remark;
+
+	public String getGroupName() {
+		return groupName;
+	}
+
+	public void setGroupName(String groupName) {
+		this.groupName = groupName;
+	}
+
+	public String getGroupField() {
+		return groupField;
+	}
+
+	public void setGroupField(String groupField) {
+		this.groupField = groupField;
+	}
+
+	public String getYear() {
+		return year;
+	}
+
+	public void setYear(String year) {
+		this.year = year;
+	}
+
+	public String getGroupExplain() {
+		return groupExplain;
+	}
+
+	public void setGroupExplain(String groupExplain) {
+		this.groupExplain = groupExplain;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+	
+	public void setFields(ResultSet rs) throws SQLException{
+		this.id=rs.getInt("C_ZJZ_ID");
+		this.groupName=rs.getString("C_ZJZMC");
+		this.groupField=rs.getString("C_ZYLY");
+		this.year=rs.getString("C_ND");
+		this.headman=rs.getInt("C_ZZ");
+		this.groupExplain=rs.getString("C_ZJZSM");
+		this.remark=rs.getString("C_BZ");
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getHeadman() {
+		return headman;
+	}
+
+	public void setHeadman(int headman) {
+		this.headman = headman;
+	}
+	
+}

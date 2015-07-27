@@ -1,0 +1,9 @@
+使用了新的cust-util
+1.action继承CommonAction2，action里不用再定义构造函数了。
+action里可以直接使用log输出日志；
+action里如果需要JdbcTemplate，请调用JdbcTool.getJdbcTemplate()获取；
+action里如果需要TransactionTemplate，请调用JdbcTool.getTransactionTemplate()获取；
+
+2.dao继承DAOTemplate2，dao里的方法不再需要JdbcTemplate参数，直接使用jt即可。
+
+3.项目里不再需要定义类：DataSourceFactoryImpl

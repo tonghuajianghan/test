@@ -1,0 +1,11 @@
+package cn.edu.cust.rbac.domain;
+
+import org.apache.shiro.SecurityUtils;
+
+public class Org {
+	
+	public static String getOrgCodeFromSession(){
+		return (String)SecurityUtils.getSubject().getSession().getAttribute("");
+	}
+
+}

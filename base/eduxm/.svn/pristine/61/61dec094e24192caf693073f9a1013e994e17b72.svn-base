@@ -1,0 +1,259 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.text.*, java.util.*" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<% String cp = request.getContextPath(); %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>分配项目</title>
+	<link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css"/>
+	<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../js/jquery.form.js"></script>
+	<script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/comm.js"></script> 
+	<script type="text/javascript" src="../../js/search.js"></script> 
+<%-- 	<script type="text/javascript" src="group.js"></script> --%>
+	
+	<script type="text/javascript">
+		<%
+			int groupId =Integer.parseInt(request.getParameter("GroupId"));
+			String groupField =(String)request.getParameter("GroupField");
+		%>
+		//注意:type=1表示非组内项目
+
+		var arrMatch=[
+			new Match("c_xmmc","项目名称","textfunction")
+		]; 
+
+		window.onload=function(){
+			initTable();
+		}
+		
+		function initTable(){
+			loadSearchTable('assginXMInfoTableid', arrMatch);
+			loadSearchTable('assginXMedInfoTableid', arrMatch);
+			$('#assginXMInfoTable').datagrid({    
+				title:'非组内项目',
+		 		fitColumns:true,
+		 		url:'AssignProject_list.action?search.columns=-&type=1&groupField='+<%=groupField%>+'&groupId='+<%=groupId%>,
+			    pageSize:10,
+			    pageList:[10,20,50],
+			    columns:[[  
+			        {field:'ok',checkbox:true},   
+			        {field:'xmmc',title:'项目名称',width:fixWidth(0.2)}
+			    ]],
+			    toolbar:[
+			        {text:'选择', iconCls:'icon-add', handler: add },
+			    ],
+			    pagination: true,
+		  		rownumbers: false,
+		  		onLoadSuccess:function (data) { //数据加载成功后需要设置linkbutton的样式，
+		  			setLinkbuttonStyle();
+		  		}
+			});
+			
+// 			$("#assginXMedInfoTableid").datagrid({	
+// 		 		singleSelect:true,
+// 		 		fitColumns:true,
+		 		
+// 		 		columns:[[
+// 		 		    {field:'way',title:'',width:fixWidth(0)},	
+// 		 		    {field:'target',title:'检索项',width:fixWidth(0.2)},
+// 		 		    {field:'content',title:'内容',width:fixWidth(0.2)},
+// 		 		    {field:'dos',title:'操作',width:fixWidth(0.1)}
+// 		 		]]
+// 		 	});
+			$('#assginXMedInfoTable').datagrid({    
+				title:'组内项目',
+		 		fitColumns:true,
+			    url:'AssignProject_list.action?search.columns=-&type=2&groupField='+<%=groupField%>+'&groupId='+<%=groupId%>,
+			    pageSize:10,
+			    pageList:[10,20,50],
+			    columns:[[  
+			        {field:'ok',checkbox:true},   
+			        {field:'xmmc',title:'项目名称',width:fixWidth(0.2)}
+			    ]],
+			    toolbar:[
+			        {text:'删除', iconCls:'icon-cancel', handler: del}
+			    ],
+			    pagination: true,
+		  		rownumbers: false,
+		  		onLoadSuccess:function (data) { //数据加载成功后需要设置linkbutton的样式，
+		  			setLinkbuttonStyle();
+		  		}
+			});
+		}
+		
+		function add(){
+			var groupId=<%=groupId%>;
+			//alert(groupId);
+			var rows = $("#assginXMInfoTable").datagrid("getSelections");
+			if(rows.length == 0) {
+				$.messager.alert("提示","请选择项目");
+				return ;
+			}
+			loading("传输数据中，请稍后。。。");
+			var ids = [];
+			 for(i = 0 ; i < rows.length ; i++ ) {
+				 var row = rows[i];
+				ids.push(row.xm_id);
+			 }
+			 if(ids.length>0){
+				 //判断是否有要删除的id，没有就不执行下列代码
+				 $.post("AssignProject_add.action",$.param({ids:ids,groupId:groupId}, true),function (callbackData) {
+					 showResult(obtainTextInTag(callbackData,"<title>"),$(callbackData).find("#msg").text());
+					 $("#assginXMInfoTable").datagrid("reload");
+					 $("#assginXMedInfoTable").datagrid("reload");
+				 }); 
+			 }
+			 unloading();
+			 alert(parent.$('#groupInfoTable').html());
+		}
+		
+		function del(){
+			var groupId=<%=groupId%>;
+			var rows = $("#assginXMedInfoTable").datagrid("getSelections");
+			if(rows.length == 0) {
+				$.messager.alert("提示","请选择项目");
+				return ;
+			}
+			loading("传输数据中，请稍后。。。");
+			var ids = [];
+			 for(i = 0 ; i < rows.length ; i++ ) {
+				 var row = rows[i];
+				ids.push(row.xm_id);
+			 }
+			 if(ids.length>0){
+				 //判断是否有要删除的id，没有就不执行下列代码
+				 $.post("AssignProject_del.action",$.param({ids:ids,groupId:groupId}, true),function (callbackData) {
+					 showResult(obtainTextInTag(callbackData,"<title>"),$(callbackData).find("#msg").text());
+					 $("#assginXMedInfoTable").datagrid("reload");
+					 $("#assginXMInfoTable").datagrid("reload");
+				 }); 
+			 }
+			 unloading();
+		}
+		
+		function submitSerachAssign(pageNumber,type) {
+			loading("获取数据中。。。。。。");
+			if(pageNumber == 1) {//重新点击了查询按钮，这时候从第一页开始显示，但是分页显示的可能不是第一页 ，所以需要重新设置下pagination显示的当前页数
+				var pg = $("#assginXMInfoTable").datagrid("getPager");
+				pg.pagination({pageNumber:1});
+			} 
+			psize = $("#p_size").val();
+			if(psize==""||psize==null){
+				psize=10;
+			}
+			var options;
+			var url ='AssignProject_list.action?rows='+psize+'&page='+pageNumber+'&groupField='+<%=groupField%>+'&groupId='+<%=groupId%>+'&type='+type;
+			if(type=="1"){//1表示是对未分组专家的操作，2表示对已分组专家的操作
+				options = {
+					url  	:url,
+					success	:	reloadAssignXMTable,
+					//error	:	errorTip,
+					dataType:	'json'
+				};
+			    $("#searchForm_XM").ajaxSubmit(options);
+			}else{
+				options = {
+						url  	:url,
+						success	:	reloadAssignXMedTable,
+						//error	:	errorTip,
+						dataType:	'json'
+					};
+			    $("#searchForm_XMed").ajaxSubmit(options);
+			}
+			// alert($('#searchCol_crew').val());
+		    //uploading();
+		    
+		}
+		
+		function reloadAssignXMTable(responseXML, statusText, xhr, form) {
+			$('#assginXMInfoTable').datagrid('loadData', responseXML); 
+			setLinkbuttonStyle();
+			unloading();
+		}
+		
+		function reloadAssignXMedTable(responseXML, statusText, xhr, form) {
+			$('#assginXMedInfoTable').datagrid('loadData', responseXML); 
+			setLinkbuttonStyle();
+			unloading();
+		}
+		
+		
+		
+	</script>
+</head>
+<body>
+<div class="easyui-panel" >
+	<div style="width:50%;height:100%;float:left;">
+		<form id="searchForm_XM" action="../../group/Group_list.action" method="post">
+			<table id="assginXMInfoTableid">
+<!-- 					<tr> -->
+<!-- 						<td> -->
+<!-- 							<input type="hidden" name="search.logicalopts" value="and" style="width:0px;"/> -->
+<!-- 							<input type="hidden" name="search.operators" value="like" /> -->
+<!-- 							<input type="hidden" name="search.orders" value="desc" /> -->
+<!-- 						</td> -->
+<!-- 						<td>	 -->
+<%-- 							<select id="searchCol_crew" name="search.columns" onchange="change(this,'assginXMInfoTableid')"> --%>
+<!-- 								<option value="-">-请选择要检索的单元-</option> -->
+<!-- 								<option value="c_xmmc">项目名称</option> -->
+<%-- 							</select> --%>
+<!-- 						</td> -->
+	
+<!-- 						<td id="td_0"><input id="searchVal" name="search.values" type="text" /></td> -->
+						
+<!-- 						<td> -->
+<!-- 							 <a class="easyui-linkbutton" iconCls='icon-add' href="javascript:addSelect('assginXMInfoTableid');">添加检索项</a> -->
+<!-- 						</td> -->
+<!-- 					</tr> -->
+			</table>
+		</form>
+		<div style="height:40px; width:100%;">
+		<div style="width:100%;  top:68px; right:20px; font-size:12px; text-align:right; color:#020e30;">
+			<a class='easyui-linkbutton' href="javascript:void(0);" iconCls='icon-search' onclick="submitSerachAssign(1,1);">开始检索</a>
+		</div>
+	</div>
+		<table id="assginXMInfoTable" style="position: fixed; top:10px;"></table>
+	</div>
+	<div style="width:50%;height:100%;float:left;">
+		<form id="searchForm_XMed" action="../../group/Group_list.action" method="post">
+			<table id="assginXMedInfoTableid">
+					<tr>
+						<td>
+							<input type="hidden" name="search.logicalopts" value="and" style="width:0px;"/>
+							<input type="hidden" name="search.operators" value="like" />
+							<input type="hidden" name="search.orders" value="desc" />
+						</td>
+						<td>
+							<select id="searchCol_project" name="search.columns" onchange="change(this,'assginXMedInfoTableid')">
+								<option value="-">-请选择要检索的单元-</option>
+								<option value="c_xmmc">项目名称</option>
+							</select>
+						</td>
+	
+						<td id="td_0"><input id="searchVal" name="search.values" type="text" /></td>
+						
+						<td>
+							 <a class="easyui-linkbutton" iconCls='icon-add' href="javascript:addSelect('assginXMedInfoTableid');">添加检索项</a>
+						</td>
+					</tr>
+			</table>
+		</form>
+		<div style="height:40px; width:100%;">
+		<div style="width:100%;  top:68px; right:20px; font-size:12px; text-align:right; color:#020e30;">
+			<a class='easyui-linkbutton' href="javascript:void(0);" iconCls='icon-search' onclick="submitSerachAssign(1,2);">开始检索</a>
+		</div>
+	</div>
+		<table id="assginXMedInfoTable" style="position: fixed; top:10px;"></table>
+	</div>
+
+</div>
+</body>
+</html>
