@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;add.jsp&apos; to &apos;test&apos;&#x0D;&#x0A;- Original project: &apos;FlexGrid_jsp-flexgrid&apos;&#x0D;&#x0A;- Destination element: &apos;test&apos;&#x0D;&#x0A;- Original element: &apos;add.jsp&apos;" description="Copy file" element1="WebRoot/add.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1374391839188" target="/Flexigrid4.0/WebContent/page/test" units="0" version="1.0"/>
+</session>

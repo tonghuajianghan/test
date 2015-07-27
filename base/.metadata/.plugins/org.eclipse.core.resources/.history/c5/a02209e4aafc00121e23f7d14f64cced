@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.4" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+
+  <servlet>    	  
+    <servlet-name>action</servlet-name>
+    <servlet-class>kyc.action.MyActionServlet</servlet-class>
+    <init-param>
+      <param-name>config</param-name>
+      <param-value>/WEB-INF/struts-config.xml</param-value>
+    </init-param>
+    <init-param>
+      <param-name>debug</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <init-param>
+      <param-name>detail</param-name>
+      <param-value>3</param-value>
+    </init-param>
+    <load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <!-- 只用于读取全局数据 -->
+  <servlet>
+  	<servlet-name>readGlobalData</servlet-name>
+  	<servlet-class>kyc.util.ReadGlobalDataServlet</servlet-class>
+  	<load-on-startup>0</load-on-startup>
+  </servlet>
+  
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>GetIncomeServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.GetIncomeServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>teacherGetIncomeServlet</servlet-name>
+  	<servlet-class>kyc.ajax.servlet.TeacherGetIncomeServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>teacherGetIncomeItemsByBhYrServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.TeacherGetIncomeItemsByBhYrServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SchoolGetIncomeItemsByBhServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.SchoolGetIncomeItemsByBhServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SchoolGetIncomeItemsByBhYrServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.SchoolGetIncomeItemsByBhYrServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InstitutionGetIncomeItemsByBhServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.InstitutionGetIncomeItemsByBhServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>InstitutionGetIncomeItemsByBhYrServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.InstitutionGetIncomeItemsByBhYrServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>QueryTeachersBySpellServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.QueryTeachersBySpellServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>SchoolGetIncomesByTeacherIdServlet</servlet-name>
+    <servlet-class>kyc.ajax.servlet.SchoolGetIncomesByTeacherIdServlet</servlet-class>
+  </servlet>
+
+
+
+
+
+
+
+
+  
+  <filter>
+  	<filter-name>globalFilter</filter-name>
+  	<filter-class>kyc.filter.GlobalFilter</filter-class>
+  </filter>
+  
+	
+  <servlet-mapping>
+    <servlet-name>action</servlet-name>
+    <url-pattern>*.do</url-pattern>
+  </servlet-mapping>
+  <!-- 
+  <servlet-mapping>
+  	<servlet-name>readGlobalData</servlet-name>
+  	<url-pattern>/xxxxxxxxxxxxxxxx</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>DepartmentServlet</servlet-name>
+  	<url-pattern>/dep</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>GetIncomeServlet</servlet-name>
+    <url-pattern>/servlet/GetIncomeServlet</url-pattern>
+  </servlet-mapping>
+   -->
+   
+   <servlet-mapping>
+   	<servlet-name>teacherGetIncomeServlet</servlet-name>
+   	<url-pattern>/teacherGetIncomeServlet</url-pattern>
+   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>teacherGetIncomeItemsByBhYrServlet</servlet-name>
+    <url-pattern>/teacherGetIncomeItemsByBhYrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SchoolGetIncomeItemsByBhServlet</servlet-name>
+    <url-pattern>/SchoolGetIncomeItemsByBhServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SchoolGetIncomeItemsByBhYrServlet</servlet-name>
+    <url-pattern>/SchoolGetIncomeItemsByBhYrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InstitutionGetIncomeItemsByBhServlet</servlet-name>
+    <url-pattern>/InstitutionGetIncomeItemsByBhServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InstitutionGetIncomeItemsByBhYrServlet</servlet-name>
+    <url-pattern>/InstitutionGetIncomeItemsByBhYrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>QueryTeachersBySpellServlet</servlet-name>
+    <url-pattern>/QueryTeachersBySpellServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SchoolGetIncomesByTeacherIdServlet</servlet-name>
+    <url-pattern>/SchoolGetIncomesByTeacherIdServlet</url-pattern>
+  </servlet-mapping>
+   
+   <filter-mapping>
+   	<filter-name>globalFilter</filter-name>
+   	<url-pattern>/*</url-pattern>
+   </filter-mapping>
+  <welcome-file-list>
+    <welcome-file>log.jsp</welcome-file>
+  </welcome-file-list>
+</web-app>
+

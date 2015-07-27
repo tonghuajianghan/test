@@ -1,0 +1,154 @@
+package cn.edu.cust.rbac;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+
+import cn.edu.cust.eduxm.expert.domain.Expert;
+import cn.edu.cust.eduxm.util.PageFactory;
+import cn.edu.cust.rbac.dao.UserDAO;
+import cn.edu.cust.rbac.domain.User;
+import cn.edu.cust.util.Page;
+import cn.edu.cust.util.action.CommonAction2;
+import cn.edu.cust.util.db.JdbcTool;
+import cn.edu.cust.util.db.Worker;
+
+public class UserAction extends CommonAction2 {
+	
+	private static UserDAO dao = new UserDAO();
+	
+	private User obj;
+	
+    private Page mlpage = PageFactory.getPage();
+	
+	private int page;
+	
+	private List<User> experts;
+	
+	
+	
+	public static UserDAO getDao() {
+		return dao;
+	}
+
+
+
+	public static void setDao(UserDAO dao) {
+		UserAction.dao = dao;
+	}
+
+
+
+	public User getObj() {
+		return obj;
+	}
+
+
+
+	public void setObj(User obj) {
+		this.obj = obj;
+	}
+
+
+
+	public Page getMlpage() {
+		return mlpage;
+	}
+
+
+
+	public void setMlpage(Page mlpage) {
+		this.mlpage = mlpage;
+	}
+
+
+
+	public int getPage() {
+		return page;
+	}
+
+
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+
+
+	public List<User> getExperts() {
+		return experts;
+	}
+
+
+
+	public void setExperts(List<User> experts) {
+		this.experts = experts;
+	}
+
+	public String list(){
+		success = JSON_SUCCESS;
+		error = JSON_ERROR;
+
+		return work(new Worker() {
+			public void doWork() {
+				List<Object> params = null;
+				String sql = null;
+
+				/*sql = search.buildSQL();
+				log.info("sql: ----------{}", sql);
+				params = search.getParams();*/
+
+				/*log.info("params:-------------{}",
+						Arrays.toString(params.toArray()));*/
+
+				final ArrayList<User> result = new ArrayList<User>();
+
+				if (mlpage == null) {
+					mlpage = PageFactory.getPage();
+				}
+
+				mlpage.setPageNum(page);
+				log.info("page:-------{}",page);
+				mlpage.getOnePage(sql, params,
+						new ResultSetExtractor<Object>() {
+
+							public Object extractData(ResultSet rs)
+									throws SQLException, DataAccessException {
+
+								while (rs.next()) {
+									Expert expert = new Expert();
+									expert.setFields(rs);
+									result.add(expert);
+								    log.info("x", expert.getXm());
+							        log.info("专家用户名:{}",expert.getUsername());
+								}
+								return null;
+							}
+						}, JdbcTool.getJdbcTemplate());
+
+				experts = result;
+			}
+		});
+	}
+	
+
+	public String add(){
+		return work(new TransactionCallback<Object>(){
+
+			@Override
+			public Object doInTransaction(TransactionStatus status) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+		}, "yhgl");
+	}
+
+}

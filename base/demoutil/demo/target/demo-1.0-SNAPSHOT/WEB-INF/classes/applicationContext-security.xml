@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+    xmlns:b="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.0.xsd">
+
+	<!--<global-method-security pre-post-annotations="enabled">
+		<expression-handler ref="expressionHandler" />
+	</global-method-security>
+
+	-->
+	
+	<http>
+		
+		<intercept-url pattern="/" access="IS_AUTHENTICATED_ANONYMOUSLY" />
+		<intercept-url pattern="/login.jsp*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<intercept-url pattern="/index.jsp" access="ROLE_comm" />
+		<intercept-url pattern="/atm/**" access="ROLE_comm" />
+		<form-login login-page="/login.jsp"
+			authentication-failure-url="/login.jsp?login_error=1" />
+		<http-basic />
+		<logout logout-success-url="/index.jsp" />
+		<!--<remember-me />
+		--><!--<custom-filter ref="switchUserProcessingFilter"
+			position="SWITCH_USER_FILTER" />
+	--></http>
+	
+	
+
+	<authentication-manager>
+		<authentication-provider ref="myAuthentication"/>
+	</authentication-manager>
+	
+	<b:bean id="myAuthentication" class="cn.edu.cust.demo.MyAuthentication"/>
+
+</b:beans>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/hibernate_0200_save_update_delete_createquery/src/com/Text/UpdateStudentText.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="com.Text.UpdateStudentText"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="hibernate_0200_save_update_delete_createquery"/>
+</launchConfiguration>

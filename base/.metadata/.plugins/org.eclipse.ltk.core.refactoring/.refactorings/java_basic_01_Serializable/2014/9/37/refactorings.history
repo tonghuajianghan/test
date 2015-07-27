@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;jh_stu_Serializable.java&apos; to &apos;Cat.java&apos;&#x0D;&#x0A;- Original project: &apos;java_basic_01&apos;&#x0D;&#x0A;- Original element: &apos;jh_stu_Serializable.java&apos;&#x0D;&#x0A;- Renamed element: &apos;Cat.java&apos;" description="Rename compilation unit &apos;jh_stu_Serializable.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;{jh_stu_Serializable.java" name="Cat.java" references="false" stamp="1410261593894" version="1.0"/>
+</session>

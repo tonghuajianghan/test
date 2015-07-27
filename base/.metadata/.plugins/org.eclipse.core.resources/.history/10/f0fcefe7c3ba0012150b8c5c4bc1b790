@@ -1,0 +1,46 @@
+//通过主键id取得数据对象
+//get()方法通过主键从数据库中加载一个对象
+
+package com.Text;
+
+
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.hibernate.vo.People;
+
+public class HQLText {
+   public static void main(String[] args) {	  
+	  Configuration cfg = new Configuration();
+	  SessionFactory sf =cfg.configure().buildSessionFactory();
+	  Session session = sf.openSession();
+	  session.beginTransaction();
+	  System.out.println("eeeeeeee");
+	 Query query = session.createQuery("from People");
+	 List  list = query.list();
+	 for(int i = 0;i < list.size();i++){
+		 People p = (People)list.get(i);
+		 System.out.println(i);
+		 System.out.println("ttttttttt");
+		 System.out.println(p.getName());
+	 }
+	  session.getTransaction().commit();
+	  session.close();
+	  sf.close();
+	  System.out.println("rrrrrrrrrrrrr");
+	  People p = (People)list.get(1);
+	  System.out.println(p.getName()); 
+	/*	 for(int i = 0;i < list.size();i++){
+			 People p = (People)list.get(i);
+			 System.out.println(i);
+			 System.out.println("ttttttttt");
+			 System.out.println(p.getName());
+		 }*/
+		  	  
+   }
+}

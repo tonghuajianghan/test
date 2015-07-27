@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+    <constant name="struts.enable.DynamicMethodInvocation" value="false" />
+    <constant name="struts.devMode" value="true" />
+   <!-- 页面转换 -->
+    <package name="defult" extends="struts-default" >      
+        <action name="ahello" class="com.excute.action.NumberManagerAction">
+            <result name="afirst">/first.jsp</result>   
+            <result name="asecond">/second.jsp</result>   
+        </action>
+    </package>
+    <!-- 直接在action中的属性 -->
+    <package name="permission" extends="struts-default" namespace="/permission" >      
+        <action name="ap" class="com.excute.action.PermissionAction">
+            <result name="ap1">/permissionpage/permission1.jsp</result>   
+            <result name="ap2">/permissionpage/permission2.jsp</result>   
+        </action>
+    </package>
+    <!-- 在model中的属性 -->
+    <package name="user" extends="struts-default" namespace="/userpage" >      
+        <action name="au" class="com.excute.action.UserAction">
+            <result name="success">/page/user/usermanager.jsp</result>               
+        </action>
+    </package>
+    <!-- 传参 -->
+    <package name="usermanager" extends="struts-default" namespace="/usermanager" >      
+        <action name="aum" class="com.excute.action.UserManagerAction">
+            <result name="success">/page/user/usermanagerbetter.jsp</result>               
+        </action>
+    </package>
+   <!-- 简单数据 校验-->
+   <package name="datavaliation" extends="struts-default" namespace="/datavaliation" >      
+        <action name="add" class="com.excute.action.DataValiationAction">
+            <result name="success">/page/DataValitionPage/showdatafirst.jsp</result>
+            <result name="derror">/page/DataValitionPage/error.jsp</result>                  
+        </action>
+    </package>
+</struts>
+

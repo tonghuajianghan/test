@@ -1,0 +1,176 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ page import="cn.cust.kyc.vo.*,java.util.*"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<base href="<%=basePath%>">
+		<title>科研管理系统</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+		<meta http-equiv="expires" content="0">
+
+<style type="text/css"> 
+*{margin:0;padding:0;}
+.menu{font-size:12px;position:relative;z-index:100;}
+.menu ul{list-style:none;}
+.menu ul li {float:left;position:relative;}
+.menu ul li a{display:block;border:1px solid #B8B8B8;background-color:#DFEAFF;padding:4px 10px 2px;margin:3px;color:#000;text-decoration:none;}/*定义菜单背景色*/
+.menu ul li a:hover{background:#70B6FB;color:#727272;border:1px solid #464646;}
+.menu ul li ul{display:none;border:0;border-top:1px solid #BBBBBB;position:absolute;left:3px;top:23px;z-index:200}
+.menu ul li ul li {clear:both;text-align:left;font-size:12px;}
+.menu ul li ul li a{display:block;background:#DFEAFF;width:100px;height:13px;margin:0;border:0;border-left:1px solid #BBBBBB;border-right:1px solid #BBBBBB;border-bottom:1px solid #BBBBBB;}
+.menu ul li ul li a:hover{background:#70B6FB;border:1px solid #464646;}/*定义鼠标滑过菜单的背景*/
+ 
+body {
+	background-color:#F1F2F3;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	text-align:center;
+}
+.banner {
+	color:white;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+	font-size: 12px;
+	background: url(img/logname.gif) repeat-x;/*定义提示条背景*/
+}
+.menu {
+	background: url(img/border2.gif) repeat-x;/*定义主菜单背景*/
+	width: 100%;
+	height:30px;
+}
+</style>
+<script type="text/javascript"> 
+	function quit() {
+		if (confirm("确定退出？")) {
+			window.parent.location = "index.jsp";		
+		}
+	}
+	function getFullYear(d){
+	  yr=d.getYear();
+	  if(yr<1000)
+	    yr+=1900;return yr;
+	}
+	
+	function initArray()
+	{
+	  for(i=0;i<initArray.arguments.length;i++)
+	    this[i]=initArray.arguments[i];
+	}
+	
+	var isnMonths = new initArray("1月","2月","3月","4月","5月","6月","7月","8月","9月","10月","11月","12月");
+	var isnDays = new initArray("星期日","星期一","星期二","星期三","星期四","星期五","星期六","星期日");
+	
+	function show5()
+	{
+	if(!document.layers&&!document.all)
+	  return;
+	var Digital=new Date();
+	var hours=Digital.getHours();
+	var minutes=Digital.getMinutes();
+	var seconds=Digital.getSeconds();
+	var dn="AM";
+	if(hours>12){
+	  dn="PM";
+	  hours=hours-12;
+	}
+	if(hours==0)
+	  hours=12;
+	if(minutes<=9)
+	  minutes="0"+minutes;
+	if(seconds<=9)
+	  seconds="0"+seconds;
+	myclock="<b>"+getFullYear(Digital)+"年"+isnMonths[Digital.getMonth()]+Digital.getDate()+"日 "+isnDays[Digital.getDay()]+" "+hours+":"+minutes+":"
+	+seconds+" "+dn+"</b>";
+	if(document.layers){
+	  document.layers.liveclock.document.write(myclock);
+	  document.layers.liveclock.document.close();
+	}else if(document.all)
+	  liveclock.innerHTML=myclock+"&nbsp;&nbsp;&nbsp;&nbsp;";
+
+	  setTimeout("show5()",1000);
+	}
+ 
+	function putdown(i){
+		var globallink = document.getElementById("globallink");
+		var lis = globallink.childNodes;
+		for(var n = 0;n<lis.length;n++)
+			lis[n].childNodes[0].className = "putout";
+		lis[i].childNodes[0].className = "putin";
+	}
+
+	function setIFrameHeight(){
+		var obj = document.getElementById("frame_content");
+		obj.height = 0;
+		obj.height = document.documentElement.clientHeight-document.getElementById('logname').offsetHeight-document.getElementById('menu').offsetHeight-20;
+	}
+	
+	function displaySubMenu(li) { 
+       var subMenu = li.getElementsByTagName("ul")[0]; 
+       subMenu.style.display = "block"; 
+    } 
+    
+    function hideSubMenu(li) { 
+       var subMenu = li.getElementsByTagName("ul")[0]; 
+       subMenu.style.display = "none"; 
+    } 
+</script>
+<body onload="show5();setIFrameHeight();">
+		<table cellpadding="0" cellspacing="0" class="banner" id="logname">
+			<tr>
+				<td align="left">
+				<%
+				    Teacher tch = (Teacher)session.getAttribute("teacher"); 
+				if(tch != null)
+				{%>
+					&nbsp;&nbsp;&nbsp;&nbsp;<%=tch.getName() %>, 您好！
+				<%}%>
+				</td>
+				<td id="liveclock" align="right"></td>
+			</tr>
+		</table>
+
+<div class="menu" id="menu">
+	<ul>
+		<%	
+		List<Dir> list = (List<Dir>)session.getAttribute("DirList");
+    	Map<Integer, List<Operator>> operatorsMap = (Map<Integer, List<Operator>>)session.getAttribute("OperatorsMap");
+		if(list.size()>0&&operatorsMap.size()>0&&tch != null){
+			for(int i=0;i<list.size();i++){
+				Dir dir = list.get(i);
+	    %>
+        	<li onmouseover="displaySubMenu(this)" onmouseout="hideSubMenu(this)"><a href="#" onclick="return false;" ><%=dir.getName()%></a>
+            <%
+				List<Operator> operatorsList = operatorsMap.get(dir.getId());
+			%>
+            	<ul>
+            	<%for(Operator o:operatorsList){ %>
+        			<li><a href="<%=o.getEnterUrl() %>" target="main"><%=o.getName() %></a></li>
+        		<%} %>
+            	</ul>
+			</li>
+            <%} 
+        }
+		session.removeAttribute("DirList");
+		session.removeAttribute("OperatorsMap");
+		%>
+        <li><a href="#" onClick="quit();return false;">安全退出</a></li>
+	</ul>
+	<input type="button" onclick="setIFrameHeight();" style="float:right;background-image:url(img/fresh.jpg);background-color:Transparent;width:30px;height:28px;border:1px solid #ECECEC;"/> 
+</div>
+<iframe id="frame_content" width="100%" name="main" frameborder="4" <%=tch.getRole().getName().equals("管理员")?"src='page/record/RecordFrame.jsp'":"" %>></iframe>
+
+<div style="padding:4px 0px 0px 0px;" class="banner" >
+	<font style="padding:0px;margin:0px auto;" size="2">建议使用IE6.0以上版本浏览器，按“F11”键全屏显示</font>
+</div>
+</body>
+</html>

@@ -1,0 +1,272 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background: #FFF1F0; //���屳����ɫ
+}
+.option{
+    background-color: #ffffff;
+    background: url(../img/bg1.jpg)
+}
+table {
+	font-size: 12px;
+}
+.manage{
+	background-color:#EFFDFE; /*������1�°벿�ֵ���ʽ ���幤������ ���������ʽ*/
+}
+.manage input{
+	font-size:12px;
+	padding:2px;
+}
+table.student {  
+	margin-left: 10px;
+	margin-top: 20px;
+}
+
+table.manager {
+	margin-left: 10px;
+}
+
+tr {
+	margin: 0px;
+	padding: 0px;
+}
+
+th {
+	font-size: 14px;
+	color: #000000;
+	background-color: #F1F1F2;
+	border-top:2px outset white;
+	border-left:2px outset white;
+	border-right:2px inset white;
+	border-bottom:2px inset white;
+}
+
+th.head {
+	background-color: #F4F4F5;
+	border:1px solid #b9b9b9;
+	text-align: left;
+	height:20px;
+}
+
+td {
+    padding-left: 5px;
+    font-size:14px;
+	text-align:center;
+    color: #000;
+}   
+
+a {
+	text-decoration: none;
+}
+
+a:link,a:visited {
+	color: #000000;
+}
+
+a:hover {
+	color: #000000;
+}
+
+#globallink {
+	margin: 0px;
+	padding: 0px;
+	list-style-type: none;
+	height: 32px;
+	font-size: 12px;
+}
+
+#globallink li {
+	text-align: center;
+	width: 80px;
+	height: 32px;
+	background: url(../img/button3.jpg) repeat-x;
+	float: left;
+}
+
+#globallink li a {
+	padding: 10px 0px 10px 0px;
+	text-decoration: none;
+	display: block;
+}
+
+#globallink li a:link,#globallink li a:visited {
+	color: #000000;
+}
+
+#globallink li a:hover {
+	color: #FFFFFF;
+	background: url(../img/button4.jpg) no-repeat;
+}
+
+#logname {
+	margin: 0px;
+	padding: 0px;
+	height: 20px;
+	font-size: 12px;
+	background: url(../img/logname.jpg) repeat-x;
+	margin: 0px;
+	padding: 0px;
+}
+
+.showOption {
+	display: inline;
+}
+
+.hideOption {
+	display: none;
+}
+
+.content {
+	width: 22%;
+	height: 400px;
+	font-size:12px;
+	color:#000000;
+	float: left;
+	padding-top: 20px;
+	border: solid 5px #000000;
+	border-left-color:#C1E0FF;
+	border-right-style:none;
+	border-top-style:none;
+	border-bottom-style:none;
+	background-color:#C1E0FF;
+	position: relative;
+	height: 100%;
+	overflow:auto;
+    white-space: nowrap;
+}
+
+.content1 {
+	width: 95%;
+	height: 500px;
+}
+
+.loginhead {
+	font-size: 30px;
+	color: #FFFFFF;
+}
+
+.div {
+	background-color: #9EC4D6;
+}
+
+.logindiv1 {
+	background-color: #E8E8E8;
+	font-size: 14px;
+}
+img {
+    border-style: none;
+    border: none;
+}
+.dirtreehead{
+    padding-left: 10px;
+    background-color:#9EC4D6; 
+}
+
+#hideshow{
+	background-color: #66CCFF;
+	display:block;
+	width:13px;
+	height:100%;
+
+}
+
+#DivBody{
+	background-color:#B0CFFF;/*���������״�ṹ�ı���#EFFDFE    */
+	border:1px solid blue;
+	margin:5px 0px 5px 5px;
+	padding-top:10px;
+	padding-left:20px;
+	height:100%;
+	overflow:auto;
+}
+
+#DivBody a,#DivBody a:visited,#DivBody a:link{
+	color:blue;
+}
+
+#DivBody a:hover{
+	color:#3333ff;
+}
+#DivBody ul ul a:hover{
+	margin:1px -1px -1px 1px;
+}
+
+table .head{
+	background-image:url(../img/table_head.gif);/* ������1��ͷ�� �����б���ͷ�� */
+	text-align:left;
+	height:20px;
+	border:1px solid gray;
+	font-weight: bold;
+	/* color:white; */
+}
+#TableHead td{
+	background-image:url(../img/thead.gif);/* ������2ͷ�� */
+}
+.projects td {
+	font-size:12px;
+	padding:2px;
+	text-align:left;
+}
+#projects {
+	
+	margin: 5px;
+	width: 100%;/* ������2��� */
+	overflow-x: scroll;/* ������2���� */
+	border: 1px solid black;
+}
+#pageDiv {
+	margin-top: -5px;
+	margin-right: 50px;
+	font-size:14px;
+	float:right;
+}
+.showTheControl {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	background-color: #FFF;
+	filter: alpha(opacity = 70);
+	opacity: 0.7;
+	z-index: 65533;
+}
+#control {
+	display: none;
+	position: absolute;
+	width: 200px;
+	border: 1px solid blue;
+	margin-top: 50px;
+	margin-left: 300px;
+	padding: 0;
+	z-index: 65534;
+	background-color: #F8F8F8;
+}
+#search{
+	display: none;
+	position: absolute;
+	border: 1px solid blue;
+	margin-top: 50px;
+	margin-left: 250px;
+	padding: 0px;
+	background-color: #B8D9E9;
+	z-index: 65535;
+}
+#codeList{
+	display: none;
+	position: absolute;
+	width:200px;
+	border:1px solid blue;
+	margin-top:50px;
+	margin-left:400px;
+	padding:0;
+	z-index:65534;
+	background-color:#F8F8F8;
+}
+.readOnly {
+	background-color:#EFF4F8; //����ֻ���?����ʽ
+}
+.tableAdd{
+	background-color:#EFFDFE; //������ӵ�table����ʽ
+}

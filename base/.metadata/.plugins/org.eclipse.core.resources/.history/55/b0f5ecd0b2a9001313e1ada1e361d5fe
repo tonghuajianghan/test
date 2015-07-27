@@ -1,0 +1,52 @@
+package com.cust.dew.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.cust.dew.vo.Commodityteacher;
+
+public class CommodityteacherDBDao {
+	public void save(Commodityteacher a){
+		  Session	session = ConnectionFactory.beginSession();
+			session.beginTransaction();
+			session.save(a);
+			session.getTransaction().commit();
+		    ConnectionFactory.colseSessionAndSessionFactory();
+	  }
+	  public List<Commodityteacher> queryCommodityteacherById(int id) {
+			Session	session = ConnectionFactory.beginSession();
+			session.beginTransaction();
+			Query query = session.createQuery("from  where id='" + id
+					+ "'");
+			session.getTransaction().commit();	    
+		    return query.list();		
+		}
+		
+		public List<> query(){
+		    Session	session = ConnectionFactory.beginSession();
+			session.beginTransaction();
+			Query query = session.createQuery("from ");		
+		    session.getTransaction().commit();
+			//ConnectionFactory.colseSessionAndSessionFactory();
+			
+			return query.list();
+		}
+
+		public boolean deleteById(int id) {
+			Session	session = ConnectionFactory.beginSession();
+			session.beginTransaction();	
+			 a = new ();
+			a = () session.get(.class, id);
+			session.delete(a);
+			session.getTransaction().commit();
+			ConnectionFactory.colseSessionAndSessionFactory();
+			return true;
+		}
+
+		public boolean insertById() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+}

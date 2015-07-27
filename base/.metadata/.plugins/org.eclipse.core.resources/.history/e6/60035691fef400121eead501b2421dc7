@@ -1,0 +1,30 @@
+package cn.cust.kyc.bo;
+
+
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
+
+//import cn.cust.kyc.vo.Patent;
+import cn.cust.kyc.vo.Patent;
+import cn.cust.kyc.vo.Project;
+
+
+public class testpatent {
+  public static void main(String[] args) {
+	 Patent pt = new Patent();
+	 pt.setID(33);
+	 pt.setSqjf(33);
+	  
+	 Configuration cfg = new Configuration();
+	 SessionFactory sf = cfg.configure().buildSessionFactory();
+	 Session session = sf.openSession();
+	 session.beginTransaction();
+	 session.save(pt);
+	 session.getTransaction().commit();
+	 session.close();
+	 sf.close();
+	 
+  }
+}
+

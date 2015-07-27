@@ -1,0 +1,374 @@
+package model.xgb.util;
+
+/**
+ * 定义系统的一些常量
+ * @author shatter
+ *
+ */
+public class ConstData {
+	
+	//USBKey验证开关
+	//关闭为"true"，开启为"false"
+	public static String USBKEY_STATUS_OFF = "false";
+	/*
+	 * 定义特困申请的一些状态
+	 */
+
+	//被学校拒绝的状态
+	public static final int PoorStatus_RefuseScholl=-5;
+	//被学院拒绝的状态
+	public static final int PoorStatus_RefuseInstitution=-3;
+	//被导员拒绝的状态
+	public static final int PoorStatus_Refuse=-1;
+
+	//学生申请的初始状态
+	public static final int PoorStatus_StuAplly=0;
+	// 初始申请状态, 由学院导员对学生进行申请
+	public static final int PoorStatus_Apply = 1;
+	// 学院审批通过状态, 由学院领导对导员的申请进行审批
+	public static final int PoorStatus_PassedInstitution = 3;
+	// 学校审批通过状态, 由学校领导对各学院领导的提交进行审批
+	public static final int PoorStatus_PassedSchool = 5;
+	
+	/**
+	 * 定义相关银行卡的相关状态
+	 * 是申请日志中的状态
+	 * 
+	 */
+	//学生申请后的状态
+	public static final int CreditStatus_Apply=0;
+	//学生生请被批准的状态
+	public static final int CreditStatus_Passed=1;
+	//学生被拒绝的状态
+	public static final int CreditStatus_Refuse=3;
+	//
+	
+	/**
+	 * 定义相关银行卡的相关状态
+	 * 是正式银行卡中的状态的状态
+	 */
+	
+	//银行卡正常
+	public static final int FixedCredit_Normal=0;
+	//银行卡更换中
+	public static final int FixedCredit_Changing=1;
+	//被退回但还可以继续申请
+	public static final int FixedCredit_Refuse=2;
+	/**
+	 * 审核通用状态
+	 * 分为几级, 实际用时可选择其中部分即可
+	 * 1, 初始状态 代码=0
+	 * 2, 系统初始 代码=1
+	 * 3, 导员审核不通过驳回 代码=4
+	 * 4, 导员审核通过 代码=5
+	 * 5, 学院审核不通过驳回 代码=6
+	 * 6, 学院审核通过 代码=7
+	 * 7, 学校审核不通过驳回 代码=8
+	 * 8, 学校审核通过 代码=9
+	 */
+	public static final int StatusCode_Initial = 0;
+	public static final int StatusCode_SystemInitial = 1;
+	public static final int StatusCode_AssistantNotPassed = 4;
+	public static final int StatusCode_AssistantPassed = 5;
+	public static final int StatusCode_InstitutionNotPassed = 6;
+	public static final int StatusCode_InstitutionPassed = 7;
+	public static final int StatusCode_SchoolNotPassed = 8;
+	public static final int StatusCode_SchoolPassed = 9;
+	
+	/**
+	 * 审核状态对应的信息
+	 */
+	public static final String StatusInfo_Initial = "初始状态";
+	public static final String StatusInfo_SystemInitial = "系统初始";
+	public static final String StatusInfo_AssistantNotPassed = "未通过导员审核";
+	public static final String StatusInfo_AssistantPassed = "已通过导员审核";
+	public static final String StatusInfo_InstitutionNotPassed = "未通过学院领导审核";
+	public static final String StatusInfo_InstitutionPassed = "已通过学院领导审核";
+	public static final String StatusInfo_SchoolNotPassed = "未通过学校领导审核";
+	public static final String StatusInfo_SchoolPassed = "已通过学校领导审核";
+	
+	public static final String [] StatusInfo = {
+		"初始状态",
+		"系统初始",
+		"未通过导员审核",
+		"已通过导员审核",
+		"未通过学院领导审核",
+		"已通过学院领导审核",
+		"未通过学校领导审核",
+		"已通过学校领导审核"
+	};
+	
+	/**
+	 * 常态管理状态
+	 */
+	// 学生申请状态
+	public static final int NormalStatus_Apply = 1;
+	// 导员通过学生申请
+	public static final int NormalStatus_ApplyPassed = 2;
+	// 导员不通过学生申请
+	public static final int NormalStatus_ApplyNotPassed = 3;
+	// 正常返回结果,如在请假期限前回来
+	public static final int NormalStatus_OK = 4;
+	// 失败返回结果,如在请假期限没有回来
+	public static final int NormalStatus_Failed = 5;	
+	
+	public static final String NormalInfo_Apply = "正在申请";
+	public static final String NormalInfo_ApplyPassed = "申请通过";
+	public static final String NormalInfo_ApplyNotPassed = "申请未通过";
+	public static final String NormalInfo_OK = "结果正常";
+	public static final String NormalInfo_Failed = "结果不正常";
+	
+	/*
+	 * 定义特困的等级
+	 */
+	// 一般特困
+	public static final int PoorLevel_Common = 1;
+	// 特别特困
+	public static final int PoorLevel_Very = 2;
+	
+	/**
+	 * 正常在校学生学籍状态
+	 */
+	public static final int NORMAL=0;
+	/**
+	 * 转专业或班级学生学籍状态
+	 */
+	public static final int SHIFT_PROFESSION=1;
+	/**
+	 * 转学学生学籍状态
+	 */
+	public static final int SHIFT_SCHOOL=2;
+	/**
+	 * 退学学生学籍状态
+	 */
+	public static final int QUIT_SCHOOL=3;
+	/**
+	 * 休学学生学籍状态
+	 */
+	public static final int BREAK_SCHOOL=4;
+	/**
+	 * 出国学生学籍状态
+	 */
+	public static final int ABROAD=5;
+	/**
+	 * 正常毕业学生学籍状态
+	 */
+	public static final int GRADUATION=6;
+	/**
+	 * 新入学新生
+	 */
+	public static final int NEWSTUDENT=7;
+	/**
+	 * 学生填写详细信息保存后的状态
+	 */
+	public static final String STUDETAILSAVE="1";
+	/**
+	 * 学生填写详细信息提交后的状态
+	 */
+	public static final String STUDETAILSUBMIT="2";
+	/**
+	 * 辅导员审核通过后的状态
+	 */
+	public static final String STUDETAILCHECK="3";
+	
+	/**
+	 * 面向全体学生的新闻标记常量
+	 */
+	public static final int NEWSFLAG_STUDENT=0;
+	/**
+	 *面向全体老师的新闻标记常量
+	 */
+	public static final int NEWSFLAG_TEACHER=1;
+	/**
+	 * 面向全体师生的新闻标记常量
+	 */
+	public static final int NEWSFLAG_ALL=2;
+	
+	/*
+	 * 组织机构类型：学校，学院，年级，专业，班级
+	 */
+	public static final String OrgType_School = "学校";
+	public static final String OrgType_Institution = "学院";
+	public static final String OrgType_Grade = "年级";
+	public static final String OrgType_Major = "专业";
+	public static final String OrgType_Class = "班级";
+	public static final String OrgType_Other = "其它";
+	
+	/*
+	 * Score 里 是否 有资格评定奖学金标识
+	 */
+	public static final int Score_HaveQual = 1;	// 有资格 
+	public static final int Score_NotHaveQual = 0;	// 无资格
+	
+	/*
+	 * Quota 表
+	 * 内部类型值必须与数据库中奖学金类型id 同步
+	 */
+	public static final int Quota_InnerType_First = 1;	// 内部标识 一等奖学金 
+	public static final int Quota_InnerType_Second = 2;	// 内部标识 二等奖学金
+	public static final int Quota_InnerType_third = 3; // 内部标识 三等奖学金
+	public static final int Quota_InnerType_schoolmaster=4;//内部标识校长奖学金
+	public static final int Quota_InnerType_single=5;//内部标识单项奖学金
+	public static final int Quota_assignMethod_ByMajor=2;//导员按专业分
+	public static final int Quota_assignMethod_ByClass=1;//导员按班级分
+	
+	public static final String ONE="学校奖学金一等";//一等奖学金
+	public static final String TWO="学校奖学金二等";//二等奖学金
+	public static final String THREE="学校奖学金三等";//三等奖学金
+	public static final String MASTER="校长奖学金";//校长奖学金
+	public static final String SINGLE="单项奖学金";//单项奖学金
+	
+	
+	/*
+	 * 奖学金评定时符合评定条件的综合素质(总成绩)在百分比多少以前的有资格参与评定奖学金
+	 * 下面定义该百分比
+	 */
+	public static final double Scholarship_HaveQualityPercent =1 ;  // 50%
+	
+	
+	/**
+	 * 角色
+	 */
+	public static final String Role_SchoolLeader="学校领导";
+	public static final String Role_SystemManager = "系统管理员";
+	public static final String Role_SchoolManager = "学校管理员";
+	public static final String Role_StudentsWorkManager="学生工作管理员";
+	public static final String Role_InstituteManager = "学院管理员";
+	public static final String Role_Assistant = "学院辅导员";
+	public static final String Role_Teacher = "教师";
+	public static final String Role_Student = "学生";
+	
+	/**
+	 * 设置是否输出异常信息
+	 */
+	public static boolean isPrintEx = true;
+	/**
+	 *0：满足评选条件
+	 *1：学院评定通过
+	 *2：学院审核通过
+	 *3：学校审核不通过
+	 *4：学校审核通过
+	 */
+	public static final int COUNTRYHONORF0=0;
+	public static final int COUNTRYHONORF1=1;
+	public static final int COUNTRYHONORF2=2;
+	public static final int COUNTRYHONORF3=3;
+	public static final int COUNTRYHONORF4=4;
+	/**
+	 * 0:标准设置完成
+	 * 1：名额分配完成
+	 * 2：学院完成预选
+	 * 3：学院完成审核，学校可以审核
+	 * 4：审核完成
+	 */
+	public static final int COUNTRYQUOTA0=0;
+	public static final int COUNTRYQUOTA1=1;
+	public static final int COUNTRYQUOTA2=2;
+	public static final int COUNTRYQUOTA3=3;
+	public static final int COUNTRYQUOTA4=4;
+	/**
+	 * 通过Countryquota表中理工大学的记录，判断是否完成名额分配，学校是否可以再进行条件设置
+	 * 0:没有完成名额分配，可以再进行条件设置、
+	 * 1：以完成名额分配，不能在进行条件设置
+	 */
+	public static final int COUNTRYQUOTASCH0=0;
+	public static final int COUNTRYQUOTASCH1=1;
+	/**
+	 * CHECKPOOR_CULTURERATE智育成绩比例
+	 * CHECKPOOR_MORALRATE德育成绩比例
+	 */
+	public static final double CHECKPOOR_CULTURERATE=(double) 0.5;
+	public static final double CHECKPOOR_MORALRATE=(double) 0.5;
+	/**
+	 * CHECKPOOR_QUALIFY特困审批通过
+	 * CHECKPOOR_UNQUALIFY特困审批未通过
+	 */
+	public static final int CHECKPOOR_QUALIFY = 1;
+	public static final int CHECKPOOR_UNQUALIFY = 0;
+	
+	/**
+	 * 标志 社会奖助学金 临时表STempTable中状态位
+	 * GRADE_SOCIETY_SCHOLARSHIP_INIT为待评
+	 * GRADE_SOCIETY_SCHOLARSHIP_OVER为评选完毕
+	 */
+	public static final int GRADE_SOCIETY_SCHOLARSHIP_INIT = 0;
+	public static final int GRADE_SOCIETY_SCHOLARSHIP_OVER = 1;
+	/**
+	 * 学校分配名额方式选择
+	 * allocated  按筛选人数分
+	 * percented 按百分比分
+	 */
+	public static final String allocated="按筛选人数分";
+	public static final String percented="按百分比分";
+	/**
+	 * 该年级是否完成评定
+	 * 0：没有完成
+	 * 1：完成筛选
+	 * 2：完成评定
+	 */
+	public static final int GRADEALLOCATED1 = 1;
+	public static final int GRADEALLOCATED0 = 0;
+	public static final int GRADEALLOCATED2 = 2;
+	
+	/**
+	 * 学校奖学金分配 by xd
+	 */
+	public static final int  ASSIGNED= 1;
+	public static final int CHECKED = 2;
+	
+	/**
+	 * 撤销奖惩的状态
+	 */
+	public static final int REMOVED = 1;
+	public static final int NOT_REMOVED = 0;
+	/**
+	 * 没有撤销但可以参评
+	 */
+	public static final int NOT_REMOVED_SCHOLARSHIP = 3;
+	
+	
+	/** ws 2011/8/16
+	 *honor表中标示奖学金是否发放
+	 *1：已发放
+	 *0：未发放
+	 */
+	public static final int SCHOOL_SCHOLARSHIP_GRANTED = 1;
+	public static final int SCHOOL_SCHOLARSHIP_NOT_GRANTED = 0;
+	/**
+	 * ws 2011/8/16
+	 *页面中标示奖学金是否发放
+	 */
+	public static final String OUT_SCHOOL_SCHOLARSHIP_GRANTED = "已发放";
+	public static final String OUT_SCHOOL_SCHOLARSHIP_NOT_GRANTED = "未发放";
+	
+	/**
+	 * ws 20110912 
+	 * 数据库中申请奖学金表中flag初始状态
+	 */
+	public static final int APPLY_SCHOLARSHIP_FLAG_INIT=0;
+	/**
+	 * ws 20110912 
+	 * 数据库中申请奖学金表中flag申请状态
+	 * 
+	 */
+	public static final int APPLY_SCHOLARSHIP_FLAG_APPLY=1;
+	/**
+	 * ws 20110912 
+	 * 数据库中奖学金类型国家奖学金：0
+	 */
+	public static final int SCHOLARSHIP_TYPE_COUNTRY=0;
+	/**
+	 * ws 20110912 
+	 * 数据库中奖学金类型社会奖学金：1
+	 */
+	public static final int SCHOLARSHIP_TYPE_SOCIETY=1;
+}
+
+
+
+
+
+
+
+
+

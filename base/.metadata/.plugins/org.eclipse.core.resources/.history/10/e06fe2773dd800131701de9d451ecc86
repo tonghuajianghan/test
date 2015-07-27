@@ -1,0 +1,24 @@
+package cn.edu.cust.login;
+
+import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
+
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+
+public class MyFormAuthenticationFilter extends FormAuthenticationFilter {
+
+	@Override
+	protected AuthenticationToken createToken(ServletRequest request,
+			ServletResponse response) {
+		// TODO Auto-generated method stub
+		String username = getUsername(request);
+		String password = getPassword(request);
+		boolean rememberMe = isRememberMe(request);
+		String host = getHost(request);
+		String status = request.getParameter("status");
+		return new MyUsernamePasswordToken(username, password, rememberMe,
+				host, status);
+	}
+
+}

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.excute.action.DataValiationAtion&apos; to &apos;DataValiationAction&apos;&#x0D;&#x0A;- Original project: &apos;struts2.0_0120_SimpleDataValiation&apos;&#x0D;&#x0A;- Original element: &apos;com.excute.action.DataValiationAtion&apos;&#x0D;&#x0A;- Renamed element: &apos;com.excute.action.DataValiationAction&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;DataValiationAtion&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.excute.action{DataValiationAtion.java[DataValiationAtion" matchStrategy="1" name="DataValiationAction" qualified="false" references="true" similarDeclarations="false" stamp="1353405100965" textual="false" version="1.0"/>
+</session>

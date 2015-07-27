@@ -1,0 +1,40 @@
+package cn.edu.cust.eduxm.group.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import cn.edu.cust.eduxm.group.domain.Decision;
+import cn.edu.cust.util.db.DAOTemplate2;
+
+public class DecisionDAO extends DAOTemplate2<Decision> {
+	
+	public DecisionDAO() {
+		// "select count(*) from c_project where c_xmlb=? and c_yjlx=?";    //总数量
+		//passSQL = "select count(*) from c_project where c_psfs>=?";                //通过数量
+	}
+
+	@Override
+	protected Decision wrapResult(ResultSet rs) throws SQLException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected void setIdBeforeInsert(Decision t) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected Object[] getInsertParamValues(Decision t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	protected Object[] getUpdateParamValues(Decision t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

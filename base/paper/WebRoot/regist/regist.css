@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.navi{ width:800px; height:37px; border-top:2px solid red; background:#ede6e6;}
+.navi ul{ margin-left:630px;}
+.navi ul li{ float:left; width:60px; height:35px; list-style:none;}
+.navi ul li a{ text-decoration:none; display:block; margin-top:8px; font-size:12px; font-weight:bold; color:#330033;}
+.form_style{ margin-left:80px; font-size:12px; font-weight:bold; color:#666666;}
+.form_style table{ margin-left:120px;}
+.formInput{ width:180px; height:27px; border:silver 1px solid; margin-top:20px;}
+.form_style span{ display:block; margin-top:20px; font-size:12px; color:red; }
+.btnInput{ background:url(img/button.png) repeat-x; width:102px; height:30px; margin-left:120px; margin-top:40px; font-size:14px; font-weight:bold; color:black;}
+.btnInput2{ background:url(img/button.png) repeat-x; width:102px; height:30px; margin-left:40px; margin-top:40px; font-size:14px; font-weight:bold; color:black;}

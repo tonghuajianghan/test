@@ -1,0 +1,276 @@
+what,kind,bundleId,bundleVersion,description,time
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222757729
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222758800
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222768013
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222780249
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402222781751
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402222782430
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222784553
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222793132
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1402222794730
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222803947
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222817985
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402222820027
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222826375
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402222827264
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402222827828
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222830167
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222843665
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402222845472
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222846407
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222863639
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402222865251
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222870786
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222872412
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222885647
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402222889009
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402222897575
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222901885
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402222903141
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402222903870
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222906517
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222933451
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402222935367
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402222943915
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402222945612
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402222949338
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402222950619
+no handler,command,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.edit.text.java.open.type.hierarchy",1402222951859
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402222952829
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222954426
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402222959580
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402222960630
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402222967954
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223051678
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223055207
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223056094
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223070946
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402223079837
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402223084129
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223086820
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223088293
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223096465
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223101901
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223102940
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223112214
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223119498
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223122889
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223135133
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223150951
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402223170009
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402223172090
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402223177146
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223185922
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223186636
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223188058
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223233605
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223235482
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223246414
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223335689
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402223343539
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223346452
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223347469
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223348612
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223362596
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223369041
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223370212
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223370879
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223375944
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223379908
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402223381456
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223382768
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223385329
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223386316
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223387354
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223408192
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223443763
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223445911
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223472919
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223475322
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223476281
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223480079
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223492269
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223495834
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223499356
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223505211
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223506255
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223507201
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223511153
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223514389
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223515242
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223515656
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223530172
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223542889
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223544272
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223545167
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223546898
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223550204
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223552112
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402223569600
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223573070
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223598209
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223599756
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223600681
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223602959
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223619208
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223620926
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223627046
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223628290
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223633746
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223660507
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223663954
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223670773
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223676598
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223677704
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223678414
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223680182
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223688038
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223691494
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223693783
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223695359
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223698171
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223703278
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223717023
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402223718205
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223722273
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402223723268
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402223724039
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223725455
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223733741
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402223734717
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223741821
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223751381
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223759892
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223768726
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223776688
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223777773
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223788796
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223792473
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223796252
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223798784
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223801641
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402223807725
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223850518
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223851812
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223855281
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223868263
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223875278
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223876544
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223885248
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223892382
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223893719
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223920310
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223924353
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223925477
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223937609
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223942937
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223944248
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223948304
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223961656
+executed,command,org.eclipse.wst.sse.ui,1.2.3.v201102102045,"org.eclipse.wst.sse.ui.add.block.comment",1402223979712
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402223980857
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223982478
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402223993635
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402224004738
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402224006868
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224009749
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224010564
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224017583
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224024262
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224027529
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224030723
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402224033611
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224038128
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224039368
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224057775
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224063586
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224065312
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224074892
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224084062
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224085380
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224183144
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224193529
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224205724
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224210704
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224211689
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224230572
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.text.contentAssist.proposals",1402224235442
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402224250333
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1402224255875
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224256860
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402224259888
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224267857
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224269598
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224275291
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224281170
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224282417
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224433722
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.paste",1402224440905
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224452190
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224454278
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224466663
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224471161
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224478601
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224488514
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224490313
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224537998
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224556926
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224558606
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224576758
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1402224578664
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224588844
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402224590264
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224591466
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224592893
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593336
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593360
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593384
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593410
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593433
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593457
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593482
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593505
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593529
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593554
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224593577
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402224597483
+activated,view,org.eclipse.ui.console,3.5.0.v20100526,"org.eclipse.ui.console.ConsoleView",1402224599663
+opened,view,org.tigris.subversion.subclipse.ui,1.8.21,"org.tigris.subversion.subclipse.ui.repository.RepositoriesView",1402224600605
+activated,view,org.tigris.subversion.subclipse.ui,1.8.21,"org.tigris.subversion.subclipse.ui.repository.RepositoriesView",1402224600619
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1402224602064
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402224603212
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224606370
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224618858
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224620777
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224626267
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402224627169
+no handler,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.refresh",1402224627647
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224629547
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224634648
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402224636261
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224637116
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224640151
+activated,editor,org.eclipse.ui.browser,3.3.1.r36_20101216,"org.eclipse.ui.browser.editor",1402224641026
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224642851
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224647452
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224649479
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224664119
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224665786
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224705331
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1402224706517
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402224708315
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224709744
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224713125
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224713910
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224714205
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224719785
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.file.save",1402224722666
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224723489
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224927954
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1402224929536
+activated,editor,org.eclipse.wst.css.ui,1.0.502.v201101122002,"org.eclipse.wst.css.core.csssource.source",1402224930581
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224932253
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224974579
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224975181
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1402224988764
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1402224990289

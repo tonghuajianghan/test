@@ -1,0 +1,9 @@
+package com.cust.dew.dao.impl;
+
+import com.cust.dew.vo.Administrator;
+
+public class AdministratorDBDao {
+  public void saveAdministrator(Administrator a){
+	  
+  }
+}

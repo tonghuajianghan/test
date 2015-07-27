@@ -1,0 +1,131 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.text.*, java.util.*" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<% String cp = request.getContextPath(); %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>修改专家分组</title>
+	<link rel="stylesheet" type="text/css" href="../../easyui/themes/default/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../../easyui/themes/icon.css"/>
+	<script type="text/javascript" src="../../js/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="../../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../../js/comm.js"></script> 
+	<script type="text/javascript" src="../../js/search.js"></script> 
+	<script type="text/javascript" src="group.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function(){
+			combobox($('#groupField'), '../../code/zy.json');
+			$("#remark").val(<s:property value="obj.remark"/>);
+			$("#groupExplain").val(<s:property value="obj.groupExplain"/>);
+		});
+		function submitUpdate() {
+			$("#group_update").form('submit',{
+				url : 'Group_update.action',
+				onSubmit : function() {
+					var numreg = new RegExp('^[0-9]*$');
+					 //$('#groupName').append('<span style>专家组名称不能有特殊符号 \/:*%()~!:;\'#$?\\\"<>|</span>');
+						//if(reg.test($('#groupName').val())){
+					 		
+					 		//$('#groupName').append("<span>专家组名称不能有特殊符号 \/:*%()~!:;\'#$?\\\"<>|</span>");
+					 		//return false;
+						//alert($('#year').val().length);
+					if(!(numreg.test($('#year').val())&&($('#year').val().length==4))){
+						$.messager.alert("提示信息","年度为数字","info");
+						return false;
+					}
+					if(!(numreg.test($('#maxManCount').val()))){
+						$.messager.alert("提示信息","最多人数为数字","info");
+						return false;
+					}
+					if(!(numreg.test($('#maxProjectCount').val()))){
+						$.messager.alert("提示信息","最多项目数为数字","info");
+						return false;
+					}
+					return $(this).form("validate");
+				},
+				success : function(data) {
+					if($.trim($(data).find('span').text())!="修改成功"){
+			 			$.messager.alert("提示信息","修改失败！","info");
+			 		}else{
+			 			$.messager.alert("提示信息",$(data).find('span').text(),"info");
+			 		}
+				 	parent.reloadTableAfterUpdateOrAdd();
+				}
+			});
+		}
+		//重置
+		function clearForm() {
+			//alert($("#group_update"));
+			$("#group_update")[0].reset();
+		} 
+		
+	</script>
+</head>
+<body>
+<div class="easyui-panel" >
+	 <div style="padding:10px 0 10px 1px">
+	 	<form id="group_update" action="" method="post">
+	 	<input type="hidden" name="obj.id" value="<s:property value="obj.id"/>"/>
+		<table id="main_table" >
+			<tr>
+				<td><label for="groupName">专家组名称</label></td>
+				<td><input id="groupName" maxlength="50" name="obj.groupName" value="<s:property value="obj.groupName"/>" missingMessage="请输入专家组名称" class='easyui-validatebox' required="true" type="text"/></td>
+				<td><label for="groupField">专业领域</label></td>
+				<td><input id="groupField" name="obj.groupField" value="<s:property value="obj.groupField"/>" class="easyui-combobox" required="true"/></td>
+			</tr>
+			<tr>
+				<td><label for="year">年度</label></td>
+				<!-- <td><select id="college" name="obj.college" onchange="collegeChange()">	</select></td> -->
+				<td><input id="year" maxlength="4" name="obj.year" value="<s:property value="obj.year"/>" />	</td>
+				<td><label for="maxManCount">最多人数</label></td>
+				<td><input id="maxManCount" name="obj.maxManCount" value="<s:property value="obj.maxManCount"/>" class="easyui-validatebox" /></td>
+			</tr>
+			<tr>
+				<td><label for="maxProjectCount">最多项目数</label></td>
+				<td><input id="maxProjectCount" name="obj.maxProjectCount" value="<s:property value="obj.maxProjectCount"/>" class="easyui-validatebox" /></td>
+<!-- 				<td><label for="groupExplain">专家分组说明</label></td> -->
+<%-- 				<td><input id="groupExplain" maxlength="200" name="obj.groupExplain" value="<s:property value="obj.groupExplain"/>" missingMessage="请输入专家分组说明" class='easyui-validatebox' required="true"  type="text"/></td> --%>
+				
+			</tr>
+			<tr height="110px">
+				<td><label for="remark">备注</label></td>
+				<td colspan="3">
+					<div class="easyui-layout" fit="true">
+                        <div split="true" style="height:100px;">
+                            <textarea id="remark" maxlength="200" name="obj.remark" value="<s:property value="obj.remark"/>" style="border:1px solid gray;width:98%;height:100%;resize:none"></textarea>
+                        </div>
+                    </div>
+				</td>
+			</tr>
+			<tr height="110px">
+				<td><label for="remark">专家分组说明</label></td>
+				<td colspan="3">
+					<div class="easyui-layout" fit="true">
+                        <div split="true" style="height:100px;">
+                            <textarea id="groupExplain" maxlength="200" name="obj.groupExplain" value="<s:property value="obj.groupExplain"/>" style="border:1px solid gray;width:98%;height:100%;resize:none"></textarea>
+                        </div>
+                    </div>
+				</td>
+			</tr>
+<!-- 			<tr> -->
+<!-- 				<td><label for="remark">备注</label></td> -->
+<%-- 				<td><input id="remark" maxlength="200" name="obj.remark" missingMessage="请输入备注" value="<s:property value="obj.remark"/>" class="easyui-validatebox" type="text"/></td> --%>
+<!-- 			</tr> -->
+			<tr>
+				<td colspan="4" style="text-align: center; padding: 5px">  
+					<a class="easyui-linkbutton" href="javascript:void(0);" onclick="return submitUpdate();">保&nbsp;&nbsp;存</a>
+					<a class="easyui-linkbutton" href="javascript:void(0);" onclick="return clearForm();">重&nbsp;&nbsp;置</a>
+				</td> 
+			</tr>
+		</table>
+	 	</form>
+	 </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,167 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="cn.cust.kyc.vo.*,java.util.*"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<base href="<%=basePath%>">
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<style type="text/css">
+table{
+	margin:20px 0px 0 50px;
+}
+</style>
+<%
+Teacher teacher = (Teacher) request.getSession().getAttribute("teacher");
+if (teacher == null) {
+	System.out.println(teacher.getName());
+	request.setAttribute("info","您未登录，或登录已超时，请重新登录！");
+	%><jsp:forward page="../../info.jsp"></jsp:forward><%
+}
+Project p = (Project) request.getAttribute("project");
+String overFormat = p.getOverFormat();
+List<String> ofList = new ArrayList<String>();
+if(overFormat!=null&&!"".equals(overFormat))
+	for(String str : overFormat.split(","))
+		ofList.add(str);
+%>
+<body>
+	<table border="1" cellpadding="0" cellspacing="0" class="tableAdd">
+		<tr><th colspan="6" class="head">查看项目</th></tr>
+		<tr id="cur_row">
+			<td>内部编号</td><td><input name="innerCode" style="background-color:gray" readonly="readonly" value="<%=p.getInnerCode() %>"/></td><td>项目代号</td><td><input name="code" value="<%=p.getCode() %>" readonly="readonly"/></td><td>合同编号</td><td><input name="contractId" readonly="readonly" value="<%=p.getContractId() %>"/></td>
+		</tr>
+		<tr>
+		   <td>项目名称</td><td colspan="3"><input size="73" name="proName" value="<%=p.getProName() %>" readonly="readonly"/></td><td>合同经费</td><td><input name="contractFounds" readonly="readonly" value="<%=p.getContractFounds() %>"/></td>
+		</tr>
+		<tr>
+			<td>项目来源</td>
+			<td><input name="proSource" value="<%=p.getProSource() %>" readonly="readonly"/>
+			<!-- <input type="button" value="..."/> -->
+			</td>
+			<td>项目组长</td>
+			<td colspan="3">
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input  style= "width:94% " name="proLeader" readonly="readonly" value="<%=p.getProLeader() %>"/></td>
+		</tr>
+		<tr>
+		    <td>所属单位</td><td><input name="organization" value="<%=p.getOrganization() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="..."/> -->
+		    </td>
+		    <td>合作单位</td><td><input name="cooperateOrg" value="<%=p.getCooperateOrg() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="..."/> -->
+		    </td>
+		    <td>项目状态</td>
+		    <td>
+		    <input name="proStatus" value="<%=p.getProStatus() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="..."/> -->
+		    </td>
+		</tr>
+		<tr>
+		    <td>开始日期</td><td><input name="startDate" value="<%=p.getStartDate()==null?"":p.getStartDate() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="T"/> -->
+		    </td>
+		    <td>结束日期</td>
+		    <td><input name="endDate" value="<%=p.getEndDate()==null?"":p.getEndDate() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="T"/> -->
+		    </td>
+		    <td>登记日期</td><td><input name="regDate" value="<%=p.getRegDate()==null?"":p.getRegDate() %>" readonly="readonly"/>
+		    <!-- <input type="button" value="T"/> -->
+		    </td>
+		</tr>
+		<tr>
+		   <td>项目类别</td><td><input name="proClass" value="<%=p.getProClass() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="..."/> -->
+		   </td>
+		   <td>项目级别</td><td><input name="proLevel" value="<%=p.getProLevel() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="..."/> -->
+		   </td>
+		   <td>项目性质</td>
+		   <td><input name="proCharactor" value="<%=p.getProCharactor() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="..."/> -->
+		   </td>
+		</tr>
+		<tr>
+		   <td>涉密级别</td><td><input name="classifiedLevel" value="<%=p.getClassifiedLevel() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="..."/> -->
+		   </td>
+		   <td>涉密时间</td><td><input name="classifyDate" value="<%=p.getClassifyDate()==null?"":p.getClassifyDate() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="T"/> -->
+		   </td>
+		   <td>解密时间</td><td><input name="decipherDate" value="<%=p.getDecipherDate()==null?"":p.getDecipherDate() %>" readonly="readonly"/>
+		   <!-- <input type="button" value="T"/> -->
+		   </td>
+		</tr>
+		<tr>
+		   <td>当年累计到款</td><td><input name="yearArriveMoney" value="<%=p.getYearArriveMoney() %>" readonly="readonly"/></td><td>全周期到款额</td><td><input name="totalArriveMoney" readonly="readonly" value="<%=p.getTotalArriveMoney() %>"/></td><td>登记成员列表</td><td>是<input type="radio" name="memberListFlg"<%=p.getMemberListFlg()?" checked":"" %> disabled value="true"/>&nbsp;&nbsp;否<input type="radio" name="memberListFlg"<%=p.getMemberListFlg()?"":" checked" %> disabled value="false"/></td>
+		</tr>
+		<tr>
+			<td>当年累计拨款</td><td><input name="yearGrant" value="<%=p.getYearGrant() %>" readonly="readonly"/></td><td>全周期拨款额</td><td><input name="totalGrant" readonly="readonly" value="<%=p.getTotalGrant() %>"/></td><td>是否转化应用</td><td>是<input type="radio" name="toUseFlg"<%=p.getToUseFlg()?" checked":"" %> disabled value="true"/>&nbsp;&nbsp;否<input type="radio" name="toUseFlg"<%=p.getToUseFlg()?"":" checked" %> disabled value="false"/></td>
+		</tr>
+		<tr>
+			<td>预留风险金</td><td><input name="riskFee" value="<%=p.getRiskFee() %>" readonly="readonly"/></td><td>固定资产使用费</td><td><input name="totalCapitalAccount" value="<%=p.getTotalCapitalAccount() %>" readonly="readonly"/></td><td>转化应用部门</td><td><input name="toUseUnit" value="<%=p.getToUseUnit() %>" readonly="readonly"/></td>
+		</tr>
+		<tr style="display: none;">
+			<td>结题日期</td><td><input name="overDate" value="<%=p.getOverDate()==null?"":p.getOverDate() %>" readonly="readonly"/>
+			<!-- <input type="button" value="T"/> -->
+			</td>
+			<td>结题部门</td><td><input name="overDepartment" readonly="readonly" value="<%=p.getOverDepartment() %>"/></td><td>结题结论</td><td><input name="overConclusion" readonly="readonly" value="<%=p.getOverConclusion() %>"/></td>
+		</tr>
+		<tr style="display: none;">
+			<td>验收日期</td><td><input name="acceptDate" value="<%=p.getAcceptDate()==null?"":p.getAcceptDate() %>" readonly="readonly"/>
+			<!-- <input type="button" value="T"/> -->
+			</td>
+			<td>验收部门</td><td><input name="acceptDepartment" readonly="readonly" value="<%=p.getAcceptDepartment() %>"/></td><td>验收结论</td><td><input name="acceptConclusion" readonly="readonly" value="<%=p.getAcceptConclusion() %>"/></td>
+		</tr>
+		<tr style="display: none;">
+			<td>鉴定日期</td><td><input name="evalueDate" value="<%=p.getEvalueDate()==null?"":p.getEvalueDate() %>" readonly="readonly"/>
+			<!-- <input type="button" value="T"/> -->
+			</td>
+			<td>鉴定部门</td><td><input name="evalueDepartment" readonly="readonly" value="<%=p.getEvalueDepartment() %>"/></td><td>鉴定结论</td><td><input name="evalueConclusion" readonly="readonly" value="<%=p.getEvalueConclusion() %>"/></td>
+		</tr>
+		<tr>
+			<td>经手人</td><td><input readonly value="<%=p.getCreater().getName() %>" name="creater"/></td><td>修改人</td><td><input readonly value="" name="updater"/></td><td>所属科室</td><td><input name="department" readonly value="<%=p.getDepartment() %>"/></td>
+		</tr>
+		<tr>
+			<td>完成形式</td>
+			<td>
+			结题<input type="radio" disabled="disabled"   name="finishType" value="true" <%= (p.getOverFormat() != null && p.getOverFormat().indexOf("结题") != -1) ? "checked='checked'" : "" %> />&nbsp;&nbsp;
+			验收<input type="radio" disabled="disabled" name="finishType" value="false" <%= (p.getOverFormat() != null && p.getOverFormat().indexOf("验收") != -1) ? "checked='checked'" : "" %> />&nbsp;&nbsp;
+			无<input type="radio" disabled="disabled" name="finishType" <%= (p.getOverFormat() == null || p.getOverFormat().trim().length() == 0 || (p.getOverFormat().indexOf("结题") == -1 && p.getOverFormat().indexOf("验收") == -1)) ? "checked='checked'" : "" %>/>
+			</td>
+			<td>完成日期</td>
+			<td>
+				<input name="finishDate" readonly="readonly" value="<%= p.getOverFormat() != null ? (p.getOverFormat().indexOf("结题") != -1 ? p.getOverDate() : (p.getOverFormat().indexOf("验收") != -1 ? p.getAcceptDate() : "")) : "" %>"/>
+			</td>
+			<td>完成结论</td>
+			<td>
+				<input name="finishConclusion"  readonly="readonly" value="<%= p.getOverFormat() != null ? (p.getOverFormat().indexOf("结题") != -1 ? p.getOverConclusion() : (p.getOverFormat().indexOf("验收") != -1 ? p.getAcceptConclusion() : "")) : "" %>"/>
+			</td>
+			
+		</tr>
+		<tr>
+			<td>hh</td><td colspan="3"><input size="73" readonly="readonly" name="remark"/></td>
+		</tr>
+		<tr style="display: none;">
+		<td>完成形式</td><td><input type="checkbox" disabled<%=ofList.indexOf("结题")!=-1?" checked":"" %> name="overFormat" value="结题"/>结题&nbsp;&nbsp;<input type="checkbox" disabled<%=ofList.indexOf("验收")!=-1?" checked":"" %> name="overFormat" value="验收"/>验收&nbsp;&nbsp;<input type="checkbox" disabled<%=ofList.indexOf("鉴定")!=-1?" checked":"" %> name="overFormat" value="鉴定"/>鉴定</td>
+		
+		</tr>
+		<tr>
+			<td colspan="6"><input type="button" value="返回管理页面" onclick="history.back();"/></td>
+		</tr>
+	</table>
+</body>
+</html>

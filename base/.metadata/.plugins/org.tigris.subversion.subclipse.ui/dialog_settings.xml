@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="524" key="ExportRemoteFolderDialog.location.x"/>
+	<item value="182" key="HistoryTableProvider.HistoryDialog.注释"/>
+	<item value="421" key="RevertDialog.location.x"/>
+	<item value="322" key="DifferencesDialog.location.x"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://210.47.0.44/xgb"/>
+	<item value="186" key="ExportRemoteFolderDialog.location.y"/>
+	<item value="68" key="RevertDialog.location.y"/>
+	<item value="svn://192.168.96.226/paper/paper/src/testDIR.java" key="UrlCombo.paper.1"/>
+	<item value="0" key="UpdateDialogWithConflictHandling.location.y"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://192.168.96.226/paper"/>
+	<item value="461" key="HistoryTableProvider.SVNHistoryPage.注释"/>
+	<item value="356" key="HistorySearchDialog.size.y"/>
+	<item value="470" key="HistorySearchDialog.size.x"/>
+	<item value="svn://192.168.96.226/paper/paper" key="UrlCombo.repositoryBrowser.0"/>
+	<item value="525" key="RevertDialog.size.x"/>
+	<item value="444" key="RevertDialog.size.y"/>
+	<item value="0" key="GenerateChangeLogDialog.location.y"/>
+	<item value="398" key="GenerateChangeLogDialog.location.x"/>
+	<item value="416" key="DifferencesDialog.size.y"/>
+	<item value="73" key="HistoryTableProvider.HistoryDialog.作者"/>
+	<item value="723" key="DifferencesDialog.size.x"/>
+	<item value="87" key="DifferencesDialog.location.y"/>
+	<item value="500" key="CommitDialog.weights.0"/>
+	<item value="500" key="CommitDialog.weights.1"/>
+	<item value="497" key="ChooseUrlDialog.size.x"/>
+	<item value="376" key="ChooseUrlDialog.size.y"/>
+	<item value="93" key="HistoryTableProvider.SVNHistoryPage.修订"/>
+	<item value="400" key="HistoryDialog.size.x"/>
+	<item value="77" key="HistoryTableProvider.HistoryDialog.修订"/>
+	<item value="184" key="HistoryTableProvider.SVNHistoryPage.作者"/>
+	<item value="400" key="HistoryDialog.size.y"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://192.168.96.227/kyc"/>
+	<item value="525" key="LockDialog.size.x"/>
+	<item value="491" key="LockDialog.size.y"/>
+	<item value="0" key="CommitDialog.location.y"/>
+	<item value="699" key="UpdateDialogWithConflictHandling.size.y"/>
+	<item value="90" key="CommitDialog.location.x"/>
+	<item value="525" key="UpdateDialogWithConflictHandling.size.x"/>
+	<item value="svn://192.168.96.226/paper/paper/src/dao/inter" key="UrlCombo.paper.0"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://127.0.0.1/dew"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://192.168.226/paper"/>
+	<item value="svn://210.47.0.44/xgb" key="RepositorySelectionPage.lastRepository"/>
+	<item value="true" key="BranchTagDialog.makeParents"/>
+	<item value="83" key="HistoryDialog.location.y"/>
+	<item value="483" key="HistoryDialog.location.x"/>
+	<item value="830" key="TreeConflictsView.col.Description"/>
+	<item value="571" key="GenerateChangeLogDialog.size.x"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://localhost/d:svn/paper"/>
+	<item value="560" key="GenerateChangeLogDialog.size.y"/>
+	<item value="333" key="HistoryDialog.weights.2"/>
+	<item value="333" key="HistoryDialog.weights.1"/>
+	<item value="231" key="HistoryTableProvider.SVNHistoryPage.日期"/>
+	<item value="333" key="HistoryDialog.weights.0"/>
+	<item value="268" key="ExportRemoteFolderDialog.size.y"/>
+	<item value="319" key="ExportRemoteFolderDialog.size.x"/>
+	<item value="421" key="LockDialog.location.x"/>
+	<item value="37" key="LockDialog.location.y"/>
+	<item value="435" key="ChooseUrlDialog.location.x"/>
+	<item value="114" key="ChooseUrlDialog.location.y"/>
+	<item value="139" key="TreeConflictsView.col.Resource"/>
+	<item value="false" key="TreeConflictsView.container"/>
+	<item value="92" key="HistoryTableProvider.HistoryDialog.日期"/>
+	<item value="448" key="HistorySearchDialog.location.x"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://192.168.96.226/kyc"/>
+	<item value="127" key="HistorySearchDialog.location.y"/>
+	<item value="728" key="SwitchDialogWithConflictHandling.size.y"/>
+	<item value="606" key="SwitchDialogWithConflictHandling.size.x"/>
+	<item value="380" key="SwitchDialogWithConflictHandling.location.x"/>
+	<item value="0" key="SwitchDialogWithConflictHandling.location.y"/>
+	<item value="F:/workspace/xgb/src/model/xgb/action/Manage.java" key="TreeConflictsView.resource"/>
+	<item value="1186" key="CommitDialog.size.x"/>
+	<item value="421" key="UpdateDialogWithConflictHandling.location.x"/>
+	<item value="728" key="CommitDialog.size.y"/>
+	<section name="CommitWizard">
+		<item value="false" key="ShowCompare"/>
+		<item value="500" key="VWeight2"/>
+		<item value="500" key="VWeight1"/>
+	</section>
+	<section name="NewLocationWizard">
+		<list key="ConfigurationWizardMainPage.STORE_URL_ID">
+			<item value="svn://210.47.0.44"/>
+			<item value="svn://210.47.0.215/eduxm/trunk"/>
+			<item value="svn://127.0.0.1/dew"/>
+			<item value="svn://210.47.0.215/demoutil/trunk"/>
+			<item value="svn://210.47.0.215/demo/trunk"/>
+		</list>
+	</section>
+</section>

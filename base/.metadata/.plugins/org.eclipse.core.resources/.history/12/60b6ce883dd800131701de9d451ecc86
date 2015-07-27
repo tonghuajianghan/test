@@ -1,0 +1,29 @@
+package cn.edu.cust.eduxm.project.converter;
+
+public class CodeConverter implements Converter {
+	
+	private static HashMap<String, HashMap<String,String>> codelib;
+	
+	static{
+		try{
+			codelib = new CodeLib().loadCodeLibs(new File("src/main/webapp/code/admin/codelibs.json"), new File("src/main/webapp/code"), "text", "id");
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+	
+	private String name;
+	
+	public CodeConverter(String name){
+		this.name = name;
+	}
+
+	@Override
+	@Override
+	public Object convert(String value) {
+		// TODO Auto-generated method stub
+		return codelib.get(name).get(value);
+		//return null;
+	}
+
+}

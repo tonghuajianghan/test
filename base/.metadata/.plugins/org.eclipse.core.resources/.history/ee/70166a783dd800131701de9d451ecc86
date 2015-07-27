@@ -1,0 +1,131 @@
+package cn.edu.cust.eduxm.project.dao;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import cn.edu.cust.eduxm.project.domain.Project;
+import cn.edu.cust.util.db.DAOTemplate2;
+
+public class ProjectDAO extends DAOTemplate2<Project> {
+	
+	public ProjectDAO(){
+		insertSQL = "insert into c_project values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		loadSQL = "select * from c_project where c_xm_id = ?";
+		updateSQL = "update c_project set c_zt=? ,c_xmnbbh_id=? ,c_xmmc=? " +
+				",c_sqnd=?,c_cgxs=?, c_kssj=?,c_jssj=?, c_jhwcsj=? ,c_xmlb=? ,c_yjlx=? ,c_xkmc=?,c_xkdm=?" +
+				",c_tbsj=?,c_ysze=?, c_zjz_id = ? , c_xyh_id" + 
+				",c_sqze=?,c_sqmx=?, c_zcze=?,c_zcmx=?, c_sqcn=? ,c_xswyhyj=? ,c_fzrdwyj=? ,c_sjzt1=?,c_psfs=?" +
+				",c_psjg=?,c_jgsm=?, c_sjzt2=?,c_tbr=?, c_bz1=? ,c_bz2=? ,c_bz3=? ,c_bz4=? where c_xm_id=?";
+		getAllSQL = "select * from c_project";
+		deleteSQL = "delete from c_project where c_xm_id = ? ";
+	}
+
+	@Override
+	protected Project wrapResult(ResultSet rs) throws SQLException {
+		Project project = new Project();
+		project.setFields(rs);
+		return project;
+	}
+
+	@Override
+	protected void setIdBeforeInsert(Project t) {
+		String getIdSQL = "select project_sque.nextval from dual";
+		t.setXm_id(jt.queryForInt(getIdSQL));
+	}
+	
+	@Override
+	protected Object[] getInsertParamValues(Project t) {
+		return new Object[]{
+				t.getXm_id(),//自增长序列
+				t.getZjz_id(),
+				t.getXyh_id(),
+				t.getYjbh_id(),
+				t.getZt(),
+				t.getXmnbbh_id(),
+				t.getXmmc(),
+				t.getSqnd(),
+				t.getCgxs(),
+				t.getKssj(),
+				t.getJssj(),
+				t.getJhwcsj(),
+				t.getXmlb(),
+				t.getYjlx(),
+				t.getXkmc(),
+				t.getXkdm(),
+				t.getTbsj(),
+				//t.getYyxzqs(),
+				//t.getYjnr(),
+				//t.getYjff(),
+				//t.getJctj(),
+				//t.getJdcg(),
+				//t.getKttj(),
+				//t.getCgyyyc(),
+				t.getYsze(),
+				t.getSqze(),
+				t.getSqmx(),
+				t.getZcze(),
+				t.getZcmx(),
+				t.getSqcn(),
+				t.getXswyhyj(),
+				t.getFzrdwyj(),
+				t.getSjzt1(),
+				t.getPsfs(),
+				t.getPsjg(),
+				t.getJgsm(),
+				t.getSjzt2(),
+				t.getTbr(),
+				t.getBz1(),
+				t.getBz2(),
+				t.getBz3(),
+				t.getBz4(),
+				t.getFs()
+		};
+	}
+
+	@Override
+	protected Object[] getUpdateParamValues(Project t) {
+		return new Object[]{
+				t.getZt(),
+				t.getXmnbbh_id(),
+				t.getXmmc(),
+				t.getSqnd(),
+				t.getCgxs(),
+				t.getKssj(),
+				t.getJssj(),
+				t.getJhwcsj(),
+				t.getXmlb(),
+				t.getYjlx(),
+				t.getXkmc(),
+				t.getXkdm(),
+				t.getTbsj(),
+				//t.getYyxzqs(),
+				//t.getYjnr(),
+				//t.getYjff(),
+				//t.getJctj(),
+				//t.getJdcg(),
+				//t.getKttj(),
+				//t.getCgyyyc(),
+				t.getYsze(),
+				t.getSqze(),
+				t.getSqmx(),
+				t.getZcze(),
+				t.getZcmx(),
+				t.getSqcn(),
+				t.getXswyhyj(),
+				t.getFzrdwyj(),
+				t.getSjzt1(),
+				t.getPsfs(),
+				t.getPsjg(),
+				t.getJgsm(),
+				t.getSjzt2(),
+				t.getTbr(),
+				t.getBz1(),
+				t.getBz2(),
+				t.getBz3(),
+				t.getBz4(),
+				t.getFs()
+				
+		};
+	}
+
+}

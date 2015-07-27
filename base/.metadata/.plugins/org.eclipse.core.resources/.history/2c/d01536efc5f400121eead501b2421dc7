@@ -1,0 +1,191 @@
+﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="cn.cust.kyc.vo.*"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<%@page import="cn.cust.kyc.util.ConstData"%><html>
+<head>
+	<base href="<%=basePath%>">
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<script type="text/javascript" src="js/mydate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mydate.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+var textObj;
+function createXMLHttp() {
+	if (typeof XMLHttpRequest != "undefined") {
+		return new XMLHttpRequest();
+	} else {
+		if (window.ActiveXObject) {
+			var aVersions = ["MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+			for (var i = 0; i < aVersions.length; i++) {
+				try {
+					return new ActiveXObject(aVersions[i]);
+				}
+				catch (e) {
+					alert("对不起，浏览器发送请求出错！");
+				}
+			}
+		}
+	}
+}
+function getCode(obj, type){
+	textObj = obj;
+	var xmlHttp = createXMLHttp();
+	xmlHttp.open("post","mCode.action?method=getCodes",true);
+	xmlHttp.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	xmlHttp.send("codeType="+type);
+	xmlHttp.onreadystatechange=function(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				var content = document.getElementById("codeList");
+				content.innerHTML = xmlHttp.responseText;
+			}
+		}
+	};
+	document.getElementById("codeList").style.display="block";
+	document.getElementById("cover").style.display="block";
+}
+function hide(){
+	document.getElementById("cover").style.display = "none";
+	document.getElementById("codeList").style.display = "none";
+}
+function setCode(){
+	var sv = document.getElementById("scode").value;
+	var st = document.getElementById("newCode").value.replace(/(^\s*)|(\s*$)/g, "");
+	var code;
+	if(st!=""&&sv!=""){
+		if(confirm("使用新增代码？"))
+			code = st;
+		else
+			code = sv;
+	}else{
+		code = st + sv;
+		if(code==""){
+			alert("请选择或填入代码！");
+			document.getElementById("newCode").value = "";
+			return;
+		}
+	}
+	textObj.value = code;
+	hide();
+}
+function addCode(){
+	var s = document.getElementById("scode");
+	var i = s.selectedIndex;
+	if(i >= 0)
+             s.options[i].selected = false;
+}
+function checkIt(){
+	var f = document.getElementById("theForm");
+	if(f.achieveName.value==""){
+		alert("请填写专利名称！");
+		return false;
+	}else if(f.applyDate.value==""){
+		alert("请填写申请日期！");
+		return false;
+	}else if(f.sqjf.value==""){
+		alert("请填写申请经费");
+		return false;
+	}else if(f.sqjf.value.charAt(0)=="-"){		
+		for(var i=1;i<f.sqjf.value.length;i++)
+		{
+		   if(value.charAt(i)>"9" || value.charAt(i)<"0")
+		   {
+		      alert("含有非数字字符");
+		      //return false;
+		   }
+		}
+	}else{
+		for(var i=0;i<f.sqjf.value.length;i++)
+		{
+		   if(value.charAt(i)>"9" || value.charAt(i)<"0")
+		   {
+		      alert("含有非数字字符");
+		      //return false;
+		   }
+		}
+	}
+	/*else if(f.patentDate.value==""){
+		alert("请填写授权日期！");
+		return false;
+	}*/
+	return true;
+}
+</script>
+</head>
+<style type="text/css">
+table{
+	margin:20px 0px 0 100px;
+}
+.showTheCodes{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px : left : 0px;
+	background-color: #FFF;
+	filter: alpha(opacity = 85);
+	opacity: 0.7;
+	z-index: 65533;
+}
+#scode{
+	width:250px;
+}
+.hideTheDiv{
+	display:none;
+}
+</style>
+<body>
+<div id="cover" class="showTheCodes"></div>
+<div id="codeList"></div>
+<form id="theForm" action="mPatent.action?method=addPatent" method="post" onsubmit="return checkIt();" onreset="return confirm('您确定要清空表单吗？');">
+	<table border="1" cellpadding="0" cellspacing="0" class="tableAdd">
+		<tr><th colspan="6" class="head">专利项目申报</th></tr>
+		<tr>
+			<td>项目内部编号</td><td><input name="nbbh"/></td>
+			<td>专利名称</td><td><input name="achieveName"/></td>
+		</tr>
+		<tr>
+			<td>专利号</td><td colspan="3"><input size="62" name="patentID"/></td>
+		</tr>
+		<tr>
+			<td>专利类型</td><td colspan="3"><div onclick="getCode(this.firstChild, '专利类型');"><input name="patentType" size="62" readonly="readonly"/><input type="button" value="..."/></div></td>
+		</tr>
+		<tr>
+			<td>申请日期</td><td><div ><input name="applyDate" readonly="readonly"  onclick="HS_setDate(this.parentNode.firstChild);"/><input type="button" value="T"  onclick="HS_setDate(this.parentNode.firstChild);"/></div></td><td>申请号</td><td><input name="applyID"/></td>
+		</tr>
+		<tr>
+			<td>授权日期</td><td><div ><input name="patentDate" readonly="readonly"  onclick="HS_setDate(this.parentNode.firstChild);"/><input type="button" value="T"  onclick="HS_setDate(this.parentNode.firstChild);"/></div></td><td>证书号</td><td><input name="certificate"/></td>
+		</tr>
+		<tr>
+			<td>专利权人</td><td colspan="3"><input size="62" name="patentMan" value="长春理工大学"/></td>
+		</tr>
+		<tr>
+			<td>经手人</td><td><input readonly value="<%=((Teacher) request.getSession().getAttribute("teacher")).getName() %>"/></td><td>修改人</td><td><input readonly value=""/></td>
+		</tr>
+		<tr>
+			<td>申请经费</td><td colspan="3"><input size="62" name="sqjf"/></td>
+		</tr>
+		<tr>
+			<td>备注</td><td colspan="3"><input size="62" name="remark"/></td>
+		</tr>
+		<tr>
+			<td colspan="6"><input type="submit" value="确定提交"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" value="清空重填"/>&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" onclick="history.back();" value="返回上一页"/></td>
+		</tr>
+	</table>
+</form>
+</body>
+</html>

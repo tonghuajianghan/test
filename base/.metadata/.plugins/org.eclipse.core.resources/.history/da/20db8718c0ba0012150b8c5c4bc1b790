@@ -1,0 +1,28 @@
+//通过主键id取得数据对象
+//
+
+package com.Text;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.hibernate.vo.People;
+
+public class IdText {
+   public static void main(String[] args) {
+	  People p = new People();
+	  
+	  Configuration cfg = new Configuration();
+	  SessionFactory sf =cfg.configure().buildSessionFactory();
+	  Session session = sf.openSession();
+	  session.beginTransaction();
+	  p = (People)session.get(People.class,1);
+	  session.getTransaction().commit();
+	  session.close();
+	  sf.close();
+	  
+	  System.out.println(p.getPid());
+	  
+   }
+}

@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+ <head>
+  <title>Index of /dtd/hibernate</title>
+ </head>
+ <body>
+<h1>Index of /dtd/hibernate</h1>
+<table><tr><th><img src="/icons/blank.gif" alt="[ICO]"></th><th><a href="?C=N;O=D">Name</a></th><th><a href="?C=M;O=A">Last modified</a></th><th><a href="?C=S;O=A">Size</a></th><th><a href="?C=D;O=A">Description</a></th></tr><tr><th colspan="5"><hr></th></tr>
+<tr><td valign="top"><img src="/icons/back.gif" alt="[DIR]"></td><td><a href="/dtd/">Parent Directory</a></td><td>&nbsp;</td><td align="right">  - </td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-configuration-2.0.dtd">hibernate-configuration-2.0.dtd</a></td><td align="right">17-Aug-2010 06:41  </td><td align="right">1.8K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-configuration-3.0.dtd">hibernate-configuration-3.0.dtd</a></td><td align="right">17-Aug-2010 06:48  </td><td align="right">2.7K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-configuration.dtd">hibernate-configuration.dtd</a></td><td align="right">17-Aug-2010 06:41  </td><td align="right">830 </td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-generic.dtd">hibernate-generic.dtd</a></td><td align="right">17-Aug-2010 06:41  </td><td align="right">3.1K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-mapping-1.1.dtd">hibernate-mapping-1.1.dtd</a></td><td align="right">17-Aug-2010 06:41  </td><td align="right"> 16K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-mapping-2.0.dtd">hibernate-mapping-2.0.dtd</a></td><td align="right">17-Aug-2010 06:41  </td><td align="right"> 25K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-mapping-3.0.dtd">hibernate-mapping-3.0.dtd</a></td><td align="right">17-Aug-2010 06:48  </td><td align="right"> 44K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-mapping.dtd">hibernate-mapping.dtd</a></td><td align="right">17-Aug-2010 06:42  </td><td align="right"> 15K</td></tr>
+<tr><td valign="top"><img src="/icons/text.gif" alt="[TXT]"></td><td><a href="hibernate-reverse-engineering-3.0.dtd">hibernate-reverse-engineering-3.0.dtd</a></td><td align="right">29-Nov-2012 18:52  </td><td align="right">5.1K</td></tr>
+<tr><th colspan="5"><hr></th></tr>
+</table>
+<address>Apache Server at www.jboss.org Port 80</address>
+</body></html>

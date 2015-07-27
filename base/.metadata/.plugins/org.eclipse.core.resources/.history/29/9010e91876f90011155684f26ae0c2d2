@@ -1,0 +1,98 @@
+package cn.cust.exam.util;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.hibernate.Session;
+
+public class Connect {
+	private final static String DBDRIVER = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+	private final static String DBURL = "jdbc:sqlserver://127.0.0.1:1433;DatabaseName=unperm";// 数据库IP，数据库名称
+	private final static String NAME = "sa";// 数据库账户
+	private final static String PWD = "sa";// 数据库密码
+	private static org.hibernate.SessionFactory sessionFactory =cn.edu.cust.levin.persistence.HibernateUtil.getSessionFactory();
+	public static Connection getConnection() {// 获得数据库连接
+		try {
+//			Session session=sessionFactory.getCurrentSession();
+//			return session.connection();
+			Class.forName(DBDRIVER);
+			Connection conn = DriverManager.getConnection(DBURL, NAME, PWD);
+			// System.out.println("数据库连接成功！");
+			return conn;
+		} catch (Exception e) {
+			 System.out.println("数据库驱动不存在");
+			System.out.println(e.getMessage());
+		}
+//		Session session=sessionFactory.getCurrentSession();
+//		return session.connection();
+		return null;
+	}
+
+	public static PreparedStatement prepare(Connection conn, String sql) {
+		PreparedStatement ps = null;
+		try {
+			ps = conn.prepareStatement(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ps;
+	}
+
+	public static void close(Connection conn) {
+
+		try {
+			conn.close();
+			conn = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void close(Statement stmt) {
+		try {
+			stmt.close();
+			stmt = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void close(ResultSet rs) {
+		try {
+			rs.close();
+			rs = null;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static void close(ResultSet rs, Statement stmt, Connection conn) {
+		close(rs);
+		close(stmt);
+		close(conn);
+	}
+
+	public static List convertList(ResultSet rs) throws SQLException {
+		List list = new ArrayList();
+		ResultSetMetaData md = rs.getMetaData();
+		int columnCount = md.getColumnCount(); // Map rowData;
+		while (rs.next()) { // rowData = new HashMap(columnCount);
+			Map rowData = new HashMap();
+			for (int i = 1; i <= columnCount; i++) {
+				rowData.put(md.getColumnName(i), rs.getObject(i));
+			}
+			list.add(rowData);
+		}
+		return list;
+	}
+
+}

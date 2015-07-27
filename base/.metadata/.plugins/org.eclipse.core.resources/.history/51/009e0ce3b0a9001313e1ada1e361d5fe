@@ -1,0 +1,42 @@
+package com.cust.dew.dao.impl;
+
+import java.util.List;
+
+import com.cust.dew.vo.Administrator;
+import com.cust.dew.vo.Commodity;
+
+
+public class testdao {
+	public static void main(String[] args) {
+		  //query≤‚ ‘
+	       /*CommodityDBDao cd =new CommodityDBDao();
+	       List<Commodity> peList =cd.queryCommodity();
+           System.out.println("mark:"+peList.size());
+	       
+	       for(int i = 0; i < peList.size();i++){
+	    		 System.out.println("mark "+i);
+	    		 //Student stu =(Student)peList.get(i);
+	    		 Commodity com =(Commodity)peList.get(i);
+	    		 System.out.println(com.getCoid());
+	    	}*/
+		
+		    //save≤‚ ‘
+		    /*CommodityDBDao cd =new CommodityDBDao();
+		    Commodity c = new Commodity();
+		    c.setCoid(5);
+		    c.setCoimg("d/hh/jj");
+		    cd.saveCommodity(c);*/
+		    
+	     //query≤‚ ‘administrator
+	       AdministratorDBDao ad = new AdministratorDBDao();
+	       List<Administrator> peList =ad.queryAdministrator();
+           System.out.println("mark:"+peList.size());
+	       
+	       for(int i = 0; i < peList.size();i++){
+	    		 System.out.println("mark "+i);
+	    		 //Student stu =(Student)peList.get(i);
+	    		 Commodity com =(Commodity)peList.get(i);
+	    		 System.out.println(com.getCoid());
+	    	}
+    }
+}

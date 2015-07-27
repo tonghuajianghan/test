@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;说明&apos; to &apos;hibernate_0103_save_update_delete_createquery/src&apos;&#x0D;&#x0A;- Original project: &apos;hibernate_0202_HQL&apos;&#x0D;&#x0A;- Destination element: &apos;hibernate_0103_save_update_delete_createquery/src&apos;&#x0D;&#x0A;- Original element: &apos;说明&apos;" description="Copy file" destination="=hibernate_0103_save_update_delete_createquery/src" element1="src/说明" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1369656955926" units="0" version="1.0"/>
+</session>

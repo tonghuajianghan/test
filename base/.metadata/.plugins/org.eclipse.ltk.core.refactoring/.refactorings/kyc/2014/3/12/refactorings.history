@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;ActionBase.java&apos; to &apos;dew/src/com.cust.dew.action&apos;&#x0D;&#x0A;- Original project: &apos;kyc&apos;&#x0D;&#x0A;- Destination element: &apos;dew/src/com.cust.dew.action&apos;&#x0D;&#x0A;- Original element: &apos;cn.cust.kyc.action.ActionBase.java&apos;" description="Copy compilation unit" destination="=dew/src&lt;com.cust.dew.action" element1="/src&lt;cn.cust.kyc.action{ActionBase.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1395144279143" units="1" version="1.0"/>
+</session>

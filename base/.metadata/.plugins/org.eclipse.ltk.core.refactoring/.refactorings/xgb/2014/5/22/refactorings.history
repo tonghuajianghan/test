@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">&#x0A;<refactoring comment="Rename resource &apos;xgb/src/jhreadme&apos; to &apos;jhreadme.tt&apos;" description="Rename resource &apos;jhreadme&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/jhreadme" name="jhreadme.tt" stamp="1401271537545" updateReferences="true"/>&#x0A;<refactoring comment="Rename resource &apos;xgb/src/jhreadme.tt&apos; to &apos;jhreadme.txt&apos;" description="Rename resource &apos;jhreadme.tt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/jhreadme.tt" name="jhreadme.txt" stamp="1401271545815" updateReferences="true"/>
+</session>
