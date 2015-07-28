@@ -1,0 +1,21 @@
+
+CREATE TABLE c_expert (
+  c_username VARCHAR(20) NOT NULL,
+  c_xm VARCHAR(50) NOT NULL,
+  c_xb VARCHAR(20) NOT NULL,
+  c_zc VARCHAR(20) NOT NULL,
+  c_zw VARCHAR(50) NOT NULL,
+  c_zyly VARCHAR(50) NOT NULL,
+  c_yjfx VARCHAR(100) NOT NULL,
+  c_csny DATE NOT NULL,
+  c_ssdw VARCHAR(200) NOT NULL,
+  c_dzyj VARCHAR(100) NOT NULL,
+  c_lxdh VARCHAR(50) NOT NULL,
+  c_zplj VARCHAR(500) ,
+  c_zt VARCHAR(20) NOT NULL,
+  c_zjjj VARCHAR(1000) NOT NULL,
+  c_bz VARCHAR(200) ,
+  c_photo_content_type varchar(50),
+  c_photo blob,
+  PRIMARY KEY (c_username));
+

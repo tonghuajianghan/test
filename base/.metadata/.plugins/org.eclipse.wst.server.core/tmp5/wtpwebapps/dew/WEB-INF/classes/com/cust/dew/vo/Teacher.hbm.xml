@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+  <class name="com.cust.dew.vo.Teacher" table="teacher">
+    <id name="teid" column="teid" type="integer">
+       <generator class="increment"/>
+    </id>
+    <property name="tename" column="tename" type="string"></property>
+    <property name="teemail" column="teemail" type="string"></property>
+    <property name="tepassword" column="tepassword" type="string"></property>
+    <property name="tetype" column="tetype" type="string"></property>
+    <property name="tetel" column="tetel" type="integer"></property>
+    <property name="teschool" column="teschool" type="string"></property>
+    <property name="teadress" column="teadress" type="string"></property>
+    <property name="terecard" column="terecard" type="string"></property>
+    <property name="tecar" column="tecar" type="string"></property>
+    <property name="teimg" column="teimg" type="string"></property>
+  </class>
+</hibernate-mapping>

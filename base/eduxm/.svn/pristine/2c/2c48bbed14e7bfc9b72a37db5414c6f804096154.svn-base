@@ -1,0 +1,79 @@
+package cn.edu.cust.eduxm.group;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import cn.edu.cust.util.search.ColumnType;
+import cn.edu.cust.util.search.Search;
+
+public class ProjectInfoSearch extends Search{
+	private static Map<String, ColumnType> columnsSet;
+	
+	static {
+		columnsSet = new HashMap<String, ColumnType>();
+		/**
+		 * 根据每个列的类型添加
+		 * hashmap的key是列名，value 是列类型，列类型用ColumnType的常量
+		 */
+		columnsSet.put("-", ColumnType.STRING);
+		columnsSet.put("c_zt",ColumnType.STRING);
+		columnsSet.put("c_xmmc",ColumnType.STRING);
+		columnsSet.put("c_jhwcsj",ColumnType.DATE);
+		columnsSet.put("c_tbsj",ColumnType.DATE);
+		columnsSet.put("c_kssj",ColumnType.DATE);
+		columnsSet.put("c_yjlx",ColumnType.STRING);
+		columnsSet.put("c_ysze",ColumnType.FLOAT);
+		columnsSet.put("c_cgxs",ColumnType.STRING);
+		columnsSet.put("c_sqnd",ColumnType.STRING);
+	}
+
+	@Override
+	protected Map<String, ColumnType> getColumnsSet() {
+		return columnsSet;
+	}
+
+	@Override
+	protected String getProjections() {
+		return "*";
+	}
+
+	@Override
+	protected String getTables() {
+		return "C_PROJECT";
+	}
+	/**
+	 * 根据专家组id获得项目信息
+	 * @param 专家组id
+	 * @return
+	 */
+	public String buildSQLToScoreInfo(String zjzid){
+		StringBuffer stemp = new StringBuffer(" (");
+		stemp.append("c_zjz_id=");
+		stemp.append(zjzid);
+		stemp.append(")");
+		StringBuffer sql = new StringBuffer(super.buildSQL());
+		int whereIndex = sql.indexOf("where");
+		int orderIndex = sql.indexOf("order");
+		StringBuffer s = sql;
+		s.indexOf("from");
+		if(whereIndex > 0){
+			//在order的前面插入and
+			stemp.insert(0, " and ");
+			//表示sql语句中有where的条件查询。这时我们需要再order前面加上and c_zt = ?
+			if(orderIndex > 0){
+				
+				sql.insert(orderIndex,stemp);
+			}else{
+				//没有order的情况  直接在末尾添加
+				sql.append(stemp);
+			}
+		}else{
+			//没有wehere的情况
+			//在order的前面插入and
+			stemp.insert(0, " where ");
+			sql.append(stemp);
+		}
+		return sql.toString();
+	}
+	
+}

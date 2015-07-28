@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 8 elements to &apos;WebContent&apos;&#x0D;&#x0A;- Original project: &apos;flexiGrid&apos;&#x0D;&#x0A;- Destination element: &apos;WebContent&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     index.html&#x0D;&#x0A;     index.jsp&#x0D;&#x0A;     flexigrid.pack.js&#x0D;&#x0A;     flexigrid.js&#x0D;&#x0A;     WEB-INF&#x0D;&#x0A;     META-INF&#x0D;&#x0A;     lib&#x0D;&#x0A;     css" description="Copy elements" element1="WebRoot/index.html" element2="WebRoot/index.jsp" element3="WebRoot/flexigrid.pack.js" element4="WebRoot/flexigrid.js" element5="WebRoot/WEB-INF" element6="WebRoot/META-INF" element7="WebRoot/lib" element8="WebRoot/css" files="4" flags="589830" folders="4" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1374374787240" target="/Flexigrid3.0_/WebContent" units="0" version="1.0"/>
+</session>

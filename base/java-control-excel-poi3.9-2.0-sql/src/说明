@@ -1,0 +1,9 @@
+简单的环境配置
+引入hibernate  jar包
+配置基本的hibernate.cfg.xml(不含说明)
+                 Student.hbm.xml
+               
+报错：
+     org.hibernate.HibernateException 
+
+

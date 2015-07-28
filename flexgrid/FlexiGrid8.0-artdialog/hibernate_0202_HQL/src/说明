@@ -1,0 +1,7 @@
+HQL(hibernate query language)
+面向对象的查询语言
+用来取得对象
+
+错误：
+org.hibernate.hql.ast.QuerySyntaxException:
+未写student的构造函数

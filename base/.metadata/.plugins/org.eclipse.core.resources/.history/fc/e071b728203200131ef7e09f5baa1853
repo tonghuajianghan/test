@@ -1,0 +1,22 @@
+package vo;
+
+public class CodeType {
+    
+	private int id;
+	private String ctype;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCtype() {
+		return ctype;
+	}
+	public void setCtype(String ctype) {
+		this.ctype = ctype;
+	}
+	
+	
+
+}

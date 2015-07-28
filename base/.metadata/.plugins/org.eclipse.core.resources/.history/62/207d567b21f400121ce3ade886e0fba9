@@ -1,0 +1,136 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="cn.cust.kyc.vo.*"%>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+<%@page import="cn.cust.kyc.util.ConstData"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<base href="<%=basePath%>">
+	
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">    
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<script type="text/javascript" src="js/mydate.js"></script>
+<link rel="stylesheet" type="text/css" href="css/mydate.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript">
+function createXMLHttp() {
+	if (typeof XMLHttpRequest != "undefined") {
+		return new XMLHttpRequest();
+	} else {
+		if (window.ActiveXObject) {
+			var aVersions = ["MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+			for (var i = 0; i < aVersions.length; i++) {
+				try {
+					return new ActiveXObject(aVersions[i]);
+				}
+				catch (e) {
+					alert("对不起，浏览器发送请求出错！");
+				}
+			}
+		}
+	}
+}
+function hide(){
+	document.getElementById("cover").style.display = "none";
+	document.getElementById("codeList").style.display = "none";
+}
+<%
+Patent pt = (Patent) request.getAttribute("patent");
+%>
+function manageAuthor(){
+	window.open("mAuthor.action?method=manageAuthors&show=true&type=1&outId=<%=pt.getID() %>","authorFrame");
+	document.getElementById("author").style.display="block";
+	document.getElementById("cover_c").style.display="block";
+}
+function hideAuthor(){
+	document.getElementById("cover_c").style.display = "none";
+	document.getElementById("author").style.display = "none";
+}
+</script>
+</head>
+<style type="text/css">
+table{
+	margin:20px 0px 0 100px;
+}
+.showTheCodes{
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0px : left : 0px;
+	background-color: #FFF;
+	filter: alpha(opacity = 85);
+	opacity: 0.7;
+	z-index: 65533;
+}
+#scode{
+	width:250px;
+}
+.hideTheDiv{
+	display:none;
+}
+#author{
+	display: none;
+	position: absolute;
+	width:410px;
+	height:240px;
+	border:1px solid blue;
+	margin-top:50px;
+	margin-left:80px;
+	padding:0;
+	z-index:65532;
+}
+</style>
+<body>
+<div id="cover" class="showTheCodes"></div>
+<div id="cover_c" class="showTheCodes_c"></div>
+<div id="author"><iframe scrolling="auto" id="authorFrame" name="authorFrame" width="100%" height="100%"></iframe></div>
+<div id="codeList"></div>
+	<table border="1" cellpadding="0" cellspacing="0" class="tableAdd">
+		<tr><th colspan="6" class="head">查看专利项目</th></tr>
+		<tr>
+			<td>项目内部编号</td><td><input name="innerCode" readonly="readonly" value="<%=pt.getInnerCode() %>"/></td>
+			<td>专利名称</td><td><input name="achieveName" readonly="readonly" value="<%=pt.getAchieveName() %>"/></td>
+		</tr>
+		<tr>
+			<td>专利号</td><td colspan="3"><input size="62" name="patentID" readonly="readonly" value="<%=pt.getPatentID() %>"/></td>
+		</tr>
+		<tr>
+			<td>专利类型</td><td colspan="3"><div><input name="patentType" size="62" value="<%=pt.getPatentType() %>" readonly="readonly"/><input type="button" value="..."/></div></td>
+		</tr>
+		<tr>
+			<td>申请日期</td><td><div><input name="applyDate" value="<%=pt.getApplyDate()==null?"":pt.getApplyDate() %>" readonly="readonly"/><input type="button" value="T"/></div></td><td>申请号</td><td><input name="applyID" readonly="readonly" value="<%=pt.getApplyID() %>"/></td>
+		</tr>
+		<tr>
+			<td>授权日期</td><td><div><input name="patentDate" value="<%=pt.getPatentDate()==null?"":pt.getPatentDate() %>" readonly="readonly"/><input type="button" value="T"/></div></td><td>证书号</td><td><input name="certificate" readonly="readonly" value="<%=pt.getCertificate() %>"/></td>
+		</tr>
+		<tr>
+			<td>专利权人</td><td colspan="3"><input name="patentMan" size="62" readonly="readonly" value="<%=pt.getPatentMan() %>"/></td>
+		</tr>
+		<tr>
+			<td>经手人</td><td><input readonly value="<%=pt.getCreater().getName() %>"/></td><td>修改人</td><td><input readonly value="<%=pt.getUpdater()==null?"":pt.getUpdater().getName() %>"/></td>
+		</tr>
+		
+		<tr>
+			<td>申请经费</td><td colspan="3"><input size="62" readonly="readonly" value="<%=pt.getSqjf() %>" /></td>
+		</tr>
+		
+		
+		<tr>
+			<td>备注</td><td colspan="3"><input size="62" readonly="readonly" value="<%=pt.getRemark() %>" name="remark"/></td>
+		</tr>
+		<tr>
+			<td colspan="6"><input type="button" onclick="history.back();" value="返回上一页"/></td>
+		</tr>
+	</table>
+</body>
+</html>

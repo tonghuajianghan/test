@@ -1,0 +1,149 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ page import="java.text.*,java.util.*"%>
+<%
+	String cp = request.getContextPath();
+%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>添加专家</title>
+<link rel="stylesheet" type="text/css"
+	href="../easyui/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css" />
+<script type="text/javascript" src="../js/jquery-1.7.1.js"></script>
+<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+<script type="text/javascript"
+	src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="../js/comm.js"></script>
+<script type="text/javascript" src="../js/search.js"></script>
+<script type="text/javascript" src="expert.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+// 			$('#zyly').combobox({    
+//     		url:'../code/zy.json',    
+//     		valueField:'text',    
+//     		textField:'text'   
+// 		}); 
+		combobox('xb', '../code/xb.json');
+		combobox('zyly', '../code/zy.json');
+	});
+	function submitAddExpert() {
+		//使用easyui的表单验证方式
+		
+		$("#Expert_add")
+				.form(
+						'submit',
+						{
+							url : '../expert/Expert_add.action',
+							onSubmit:function(){ 
+								/* var value=$.('#username').val();
+								if(!(return idCard(value)))
+									$.messager.alert("提示信息","请输入正确的身份证号码","info");; */
+						    },  
+							success : function(data) {
+								alert(data);
+							
+								if ($.trim($(data).find('span').text()) != "添加成功") {
+									$.messager.alert("提示信息", "添加失败！", "info");
+								} else {
+									$.messager.alert("提示信息", $(data).find(
+											'span').text(), "info");
+								}
+								parent.reloadTableAfterUpdateOrAdd();
+							}
+						});
+	}
+	
+	
+	function clearForm() {
+		$("#Expert_add").form('clear');
+	}
+</script>
+</head>
+<body>
+	<div class="easyui-panel">
+		<div style="padding: 10px 0 10px 1px">
+			<form id="Expert_add" action="../expert/Expert_add.action" method="post">
+				<table id="main_table">
+					<tr>
+						<td><label for="username">用户名</label></td>
+						<td><input  id="username" maxlength="20" name="obj.Username"
+							missingMessage="请输入用户名" class='easyui-validatebox'
+							required="true" type="text" /></td>
+						<td><label for="xm">姓名</label></td>
+						<td><input id="xm" maxlength="50" name="obj.xm"
+							 required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="xb">性别</label></td>
+						<!-- <td><select id="college" name="obj.college" onchange="collegeChange()">	</select></td> -->
+						<td><input id="xb" maxlength="20" name="obj.xb"
+							required="true" /></td>
+						<td><label for="zc">职称</label></td>
+						<!-- <td><select id="major" name="obj.major"><option value="">-----请先选择学院----</option></select></td> -->
+						<td><input id="zc" maxlength="20" name="obj.zc"
+							class="easyui-validatebox" required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="zw">职务</label></td>
+						<td><input id="zw" maxlength="50" name="obj.zw"
+							missingMessage="请输入职务" class='easyui-validatebox' required="true"
+							type="text" /></td>
+						<td><label for="zyly">专业领域</label></td>
+						<td><input id="zyly" maxlength="50" name="obj.zyly"
+							class='easyui-combobox' type="text" required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="yjfx">研究方向</label></td>
+						<td><input id="yjfx" maxlength="100" name="obj.yjfx"
+							class='easyui-validatebox' required="true" type="text" /></td>
+						<td><label for="csny">出生年月</label></td>
+						<td><input id="csny" maxlength="50" name="obj.csny"
+							class='easyui-datebox' type="text" required="true"/ ></td>
+					</tr>
+					<tr>
+						<td><label for="ssdw">所属单位</label></td>
+						<td><input id="ssdw" maxlength="200" name="obj.ssdw"
+							class='easyui-validatebox' required="true" type="text" /></td>
+						<td><label for="dzyj">电子邮件</label></td>
+						<td><input id="dzyj" maxlength="100" name="obj.dzyj"
+							class='easyui-validatebox' type="text" required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="lxdh">联系电话</label></td>
+						<td><input id="lxdh" maxlength="50" name="obj.lxdh"
+							class='easyui-validatebox' required="true" type="text" /></td>
+						<td><label for="zplj">照片路径</label></td>
+						<td><input id="zplj" maxlength="500" name="obj.zplj"
+							class='easyui-validatebox' type="text" required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="zt">状态</label></td>
+						<td><input id="zt" maxlength="20" name="obj.zt"
+							class='easyui-validatebox' required="true" type="text" /></td>
+						<td><label for="zjjj">专家简介</label></td>
+						<td><input id="zjjj" maxlength="1000" name="obj.zjjj"
+							class='easyui-validatebox' type="text" required="true" /></td>
+					</tr>
+					<tr>
+						<td><label for="bz">备注</label></td>
+						<td><input id="bz" maxlength="200" name="obj.bz"
+							class='easyui-validatebox' required="true" type="text" /></td>
+					</tr>
+					<tr>
+						<td colspan="4" style="text-align: center; padding: 5px"><a
+							class="easyui-linkbutton" href="javascript:void(0);"
+							onclick="return submitAddExpert();">保&nbsp;&nbsp;存</a> <a
+							class="easyui-linkbutton" href="javascript:void(0);"
+							onclick="return clearForm();">重&nbsp;&nbsp;置</a></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Pagination.java&apos; to &apos;dew/src/com.cust.dew.util&apos;&#x0D;&#x0A;- Original project: &apos;hibernate_0301_pagination&apos;&#x0D;&#x0A;- Destination element: &apos;dew/src/com.cust.dew.util&apos;&#x0D;&#x0A;- Original element: &apos;com.hibernate.util.Pagination.java&apos;" description="Copy compilation unit" destination="=dew/src&lt;com.cust.dew.util" element1="/src&lt;com.hibernate.util{Pagination.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1395579882231" units="1" version="1.0"/>
+</session>

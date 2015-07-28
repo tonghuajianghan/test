@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+
+<title>jQuery Autocomplete Plugin</title>
+<script type="text/javascript" src="../lib/jquery.js"></script>
+<script type='text/javascript' src='../jquery.autocomplete.js'></script>
+<link rel="stylesheet" type="text/css" href="../jquery.autocomplete.css" />
+	
+<script type="text/javascript">
+$().ready(function() {
+	var data = ["c++", "java " + "hh", "php", "coldfusion", "javascript", 
+	            "asp", "ruby", "python", "c", "scala", "groovy", "haskell", "pearl"];
+	$("#tags").autocomplete(data, {
+		width: 720,//提示的宽度，溢出隐藏
+		max: 4,//列表里的条目数 
+		highlight: false,
+		multiple: true, //是否允许输入多个值即多次使用autoComplete以输入多个值. Default:false
+		multipleSeparator: " ",//如果是多选时,用来分开各个选择的字符. Default:"," 
+		scroll: true, //当结果集大于默认高度时是否使用卷轴显示 Default: true 
+		scrollHeight: 300  //提示的高度，溢出显示滚动条 
+	});
+	
+		
+});
+
+</script>	
+</head>
+<body>
+<div id="content">
+	
+	<form autocomplete="off"> 
+        <p>
+			<label>Tags (local):</label>
+			<input type="text" id='tags' />
+			<input type="button" value="Get Value" />
+		</p>		
+		<input type="submit" value="Submit" />
+	</form>			
+</div>
+
+</body>
+</html>

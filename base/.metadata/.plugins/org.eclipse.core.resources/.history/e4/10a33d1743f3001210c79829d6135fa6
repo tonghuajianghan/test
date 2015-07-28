@@ -1,0 +1,10 @@
+package test.cust.project;
+
+public class MyString {
+	public static void main(String[] args) {
+		String ss = "aa bb cc";
+		ss = ss.replaceAll(" ", "");
+		System.out.println(ss);
+		
+	}
+}

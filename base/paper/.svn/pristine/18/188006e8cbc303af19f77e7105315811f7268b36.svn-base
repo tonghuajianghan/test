@@ -1,0 +1,19 @@
+package dao.inter;
+
+import java.util.List;
+
+import org.hibernate.Session;
+
+import vo.Author;
+import vo.Paper;
+
+public interface PaperDao {
+	public Session getSession();
+	public void savePaper(Paper paper);
+	public List<Paper> queryPaperByProperty(String propertyName,Object value);
+	public void deletePaperByID(String id);
+	public List<Paper> queryPaperByHql(String hql);
+	public List<Paper> queryPaperByPage(int pageNum);
+	public void updatePaper(Paper paper);
+
+}

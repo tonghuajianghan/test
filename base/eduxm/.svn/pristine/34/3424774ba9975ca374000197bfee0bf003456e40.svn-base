@@ -1,0 +1,27 @@
+[main]
+jof = org.apache.shiro.jndi.JndiObjectFactory
+jof.resourceName = jdbc/eduxm
+jof.requiredType = javax.sql.DataSource
+jof.resourceRef = true
+
+realm = cn.edu.cust.login.MyJdbcRealm
+realm.permissionsLookupEnabled = true
+realm.dataSource = $jof
+realm.authenticationQuery = select c_password from c_user where c_username = ?
+realm.userRolesQuery = select c_roles from c_user where c_username = ?
+realm.permissionsQuery = select c_permission_id from c_role_has_c_permission where c_role_id = ?
+
+securityManager.realms = $realm
+
+authc.loginUrl = /login.jsp
+logout.redirectUrl = /index.jsp
+
+[urls]
+/codelib/** = authc
+/project/** = authc
+/expert/** = authc
+/pingshen/** = authc
+/user/** = authc
+/index.jsp = authc
+/login.jsp = authc
+/logout = logout

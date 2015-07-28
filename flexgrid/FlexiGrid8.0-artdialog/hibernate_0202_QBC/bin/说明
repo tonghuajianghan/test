@@ -1,0 +1,6 @@
+hibernate支持符合java习惯的查询api，即query by creteria(标准)
+程序员可以不用sql，hql的情况下进行对数据库的查询
+符合java的语法查询语句
+qbc在编写时就进行解析
+比较容易排错
+

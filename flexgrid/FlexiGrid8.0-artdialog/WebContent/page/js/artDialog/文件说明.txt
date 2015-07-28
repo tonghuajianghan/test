@@ -1,0 +1,27 @@
+【文件&目录】
+./artDialog.min.js	主程序文件压缩版
+./skin/			皮肤目录
+./core/			程序核心样式目录
+./artDialog.js		主程序文件源代码	[可删除]
+./index.html		说明文档		[可删除]
+./artDialog home.url	项目主页链接		[可删除]
+./doc/			说明页面相关文件目录	[可删除]
+
+
+【升级到v3正式版注意事项】
+1、type 参数被取消，如果要实现ajax见：art.dialog.load()
+2、iframe 不能使用.见：art.dialog.open()
+3、menuBtn 替换成 follow
+
+
+【排错】
+1、检查是否变动了目录结构
+2、编码与你页面是否一致
+3、页面需要声明DOCTYPE，注意IE6下DOCTYPE上方不能出现无关字符（包括空格与注释）
+4、配置参数最后一个不能有逗号(IE会报错)
+
+【项目主页】
+http://code.google.com/p/artdialog
+
+【开源协议】
+GNU Lesser General Public License

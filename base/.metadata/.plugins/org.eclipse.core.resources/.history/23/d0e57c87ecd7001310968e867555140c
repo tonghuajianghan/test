@@ -1,0 +1,158 @@
+package cn.edu.cust.rbac;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+
+import cn.edu.cust.eduxm.expert.domain.Expert;
+import cn.edu.cust.eduxm.util.PageFactory;
+import cn.edu.cust.rbac.dao.UserDAO;
+import cn.edu.cust.rbac.domain.User;
+import cn.edu.cust.util.Page;
+import cn.edu.cust.util.action.CommonAction2;
+import cn.edu.cust.util.db.JdbcTool;
+import cn.edu.cust.util.db.Worker;
+
+public class UserAction extends CommonAction2 {
+	
+	private static UserDAO dao = new UserDAO();
+	
+	private UserInfoSearch search;
+	
+	private User obj;
+	
+    private Page mlpage = PageFactory.getPage();
+	
+	private int page;
+	
+	private List<User> rows;
+			
+	public static UserDAO getDao() {
+		return dao;
+	}
+
+
+	public static void setDao(UserDAO dao) {
+		UserAction.dao = dao;
+	}
+
+
+	public UserInfoSearch getSearch() {
+		return search;
+	}
+
+
+	public void setSearch(UserInfoSearch search) {
+		this.search = search;
+	}
+
+
+	public User getObj() {
+		return obj;
+	}
+
+
+	public void setObj(User obj) {
+		this.obj = obj;
+	}
+
+
+	public Page getMlpage() {
+		return mlpage;
+	}
+
+
+	public void setMlpage(Page mlpage) {
+		this.mlpage = mlpage;
+	}
+
+
+	public int getPage() {
+		return page;
+	}
+
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+
+
+	public List<User> getRows() {
+		return rows;
+	}
+
+
+	public void setRows(List<User> rows) {
+		this.rows = rows;
+	}
+
+
+	public String list(){
+		success = JSON_SUCCESS;
+		error = JSON_ERROR;
+
+		return work(new Worker() {
+			public void doWork() {
+				List<Object> params = null;
+				String sql = null;
+
+				sql = search.buildSQL();
+				log.info("usersql: ----------{}", sql);
+				params = search.getParams();
+
+				log.info("params:-------------{}",
+						Arrays.toString(params.toArray()));
+
+				final ArrayList<User> result = new ArrayList<User>();
+
+				if (mlpage == null) {
+					mlpage = PageFactory.getPage();
+				}
+
+				mlpage.setPageNum(page);
+				log.info("page:-------{}",page);
+				mlpage.getOnePage(sql, params,
+						new ResultSetExtractor<Object>() {
+							public Object extractData(ResultSet rs)
+									throws SQLException, DataAccessException {
+								log.info("jh", "jh");
+								while (rs.next()) {
+									User user = new User();
+									user.setFields(rs);
+									result.add(user);
+								    log.info("x", user.getUsername());
+							        //log.info("专家用户名:{}",expert.getUsername());
+								}
+								return null;
+							}
+						}, JdbcTool.getJdbcTemplate());
+
+				rows = result;
+			}
+		});
+	}
+	
+
+	public String add(){
+		System.out.println("hello");
+		successmsg = "添加成功";		
+		return work(new TransactionCallback<Object>(){
+
+			@Override
+			public Object doInTransaction(TransactionStatus status) {
+				// TODO Auto-generated method stub
+				dao.insert(obj);
+				return null;
+			}
+			
+		});
+	}
+
+}

@@ -1,0 +1,462 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"
+	import="java.util.*,cn.cust.kyc.vo.*,cn.cust.kyc.util.*"%>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
+%>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath%>">
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Insert title here</title>
+
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+<meta http-equiv="expires" content="0">
+<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+<meta http-equiv="description" content="This is my page">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/project/ManageProjects.js"></script>
+</head>
+<style type="text/css">
+<!--
+.hideTheDiv {
+	display: none;
+}
+ul{
+	width:200px;
+	height:200px;
+	overflow-y: scroll;
+	background-color:white;
+	margin:0px;
+}
+ul li{
+	list-style-type:none;
+	cursor:hand;
+}
+#control table tr td{
+	text-align:left;
+}
+.save_style{
+	margin-left:50px;
+	cursor:hand;
+}
+-->
+</style>
+<%
+List<Person> list = (List<Person>) request.getAttribute("persons");
+//区别工作量查询和成员查询
+String forWorkload = (String)request.getAttribute("forWorkload");
+List<FieldBean> fList = (forWorkload != null && forWorkload.equals("true"))?FieldsControl.getProjectFields("Workload"):FieldsControl.getProjectFields("Person");
+for(int i=0;i<fList.size();i++)
+{
+	FieldBean fbb=fList.get(i);
+}
+
+String nbbh = (String) request.getAttribute("nbbh");
+Pagination pagination = (Pagination) request.getAttribute("pagination");
+int size = pagination.getSize();
+int currentPage = pagination.getPage();
+int resultCount = pagination.getResultCount();
+int pageCount = pagination.getPageCount();
+String pagiUrl = (String) request.getAttribute("pagiUrl");
+String year = (String) request.getAttribute("year");
+String syear=(String) request.getAttribute("syear");
+String proStat=(String)request.getAttribute("proStat");
+%>
+
+<!--artdialog-->
+
+<script src="js/artDialog/artDialog.min.js"></script>
+<script>
+	// 设置对话框全局默认配置 
+	(function() {
+		var d = art.dialog.defaults;
+
+		// 按需加载要用到的皮肤，数组第一个为默认皮肤 
+		// 如果只使用默认皮肤，可以不填写skin 
+		d.skin = [ 'default', 'chrome', 'facebook', 'aero' ];
+
+		// 支持拖动 
+		d.drag = true;
+
+		// 超过此面积大小的对话框使用替身拖动 
+		d.showTemp = 100000;
+	})();
+</script>
+
+<script type="text/javascript">
+	// 自定义功能函数引用artdialog
+	
+</script>
+
+
+
+<!--argdialog-->
+
+
+<script type="text/javascript">
+<%
+String info = (String) request.getAttribute("info");
+if(info!=null)
+	out.println("alert('"+ info +"');");
+%>
+function window.onload(){
+	
+	buildTable();  //初始化表格
+	
+	init();
+	drag = document.createElement("DIV");
+	drag.innerHTML      = "";
+	drag.style.textAlign="center";
+	drag.style.backgroundImage = "url(img/thead.gif)";
+	drag.style.fontWeight = "bold";
+	drag.style.position = "absolute";
+	drag.style.cursor 	= "hand";
+	drag.style.border 	= "1px solid black";
+	drag.style.display 	= "none";
+	drag.style.zIndex 	= "999";
+	drag.style.fontSize = "14px";
+	document.body.insertBefore(drag);
+}
+
+function isProjectLock(innerCode){
+	var lock = true;
+	var xmlHttpGen = function() {
+		if (typeof XMLHttpRequest != "undefined") {
+			return new XMLHttpRequest();
+		} else {
+			if (window.ActiveXObject) {
+				var aVersions = ["MSXML2.XMLHttp.5.0", "MSXML2.XMLHttp.4.0", "MSXML2.XMLHttp.3.0", "MSXML2.XMLHttp", "Microsoft.XMLHttp"];
+				for (var i = 0; i < aVersions.length; i++) {
+					try {
+						return new ActiveXObject(aVersions[i]);
+					}
+					catch (e) {
+						alert("对不起，浏览器发送请求出错！");
+					}
+				}
+			}
+		}
+	}
+	var xmlHttp = xmlHttpGen();
+	xmlHttp.onreadystatechange=function(){
+		if(xmlHttp.readyState==4){
+			if(xmlHttp.status==200){
+				var r = xmlHttp.responseText;
+				if(r == "lock"){
+					lock = true;
+				}else if(r == "unlock"){
+					lock = false;
+				}
+			}
+		}
+	};
+	xmlHttp.open("GET","mProject.action?method=isProjectLock&innerCode="+innerCode+"&rand="+Math.random()*Math.random(),false);
+	xmlHttp.send(null);
+	return lock;
+}
+
+function regproject(){
+    var stat='<%=proStat%>';
+    if(stat.indexOf("完成")!=-1)
+    {
+        alert("项目已经处于完成状态，禁止增加和修改相关信息！");
+        return;
+    }
+	d = new Date(); 
+    var curyear=d.getYear();
+    if(curyear!=<%=syear%>)
+    	{
+    	alert("当前系统为归档查询状态，如需进行添加操作请联系管理员进行年度调整！");
+    	return;
+    	}
+    else
+    	window.open('mPerson.action?method=addPersonIndex&innerCode=<%=nbbh %>','ManagePersons');
+}
+
+function deleteIt(){
+	d = new Date(); 
+    var curyear=d.getYear();
+    if(curyear!=<%=syear%>)
+    {
+    	alert("当前系统为归档查询状态，如需进行删除操作请联系管理员进行年度调整！");
+    	return;
+    }
+	if(cur_row==null){
+		alert("请选择成员！");
+		return;
+	}
+	var nbbh = PowerTable.rows[cur_row].cells[0].innerText;
+	if(isProjectLock('<%=nbbh %>')){
+		alert("当前项目有等待审核的操作，审核结束之后才能进行此操作");
+		return;
+	}
+	art.dialog({
+		content : '<p>请输入操作原因：</p><input  type="text" value="无" id="Kyc_OperationCause"/>',
+		yesFn : function() {
+			var info=document.getElementById("Kyc_OperationCause").value;
+			var cause=info;
+	        window.location.href = "mPerson.action?method=deletePerson&id="+nbbh+"&cause="+encodeURI(encodeURI(cause));
+		},
+		noFn: function(){
+			return;
+		}
+});
+}
+function updateIt(){
+	d = new Date(); 
+    var curyear=d.getYear();
+    if(curyear!=<%=syear%>)
+    {
+    	alert("当前系统为归档查询状态，如需进行修改操作请联系管理员进行年度调整！");
+    	return;
+    }
+	if(cur_row==null){
+		alert("请选择成员！");
+		return;
+	}
+	var nbbh = PowerTable.rows[cur_row].cells[0].innerText;
+	if(isProjectLock('<%=nbbh %>')){
+		alert("当前项目有等待审核的操作，审核结束之后才能进行此操作");
+		return;
+	}
+	window.location.href = "mPerson.action?method=updatePersonIndex&id="+nbbh;
+}
+function showIt(){
+	if(cur_row==null){
+		alert("请选择成员！");
+		return;
+	}
+	var nbbh = PowerTable.rows[cur_row].cells[0].innerText;
+	window.location.href = "mPerson.action?method=showPerson&id="+nbbh;
+}
+function exportThem(){
+	<%
+	String s = (String) request.getAttribute("s");
+	if(s!=null)
+		out.println("var s = '&s=' + encodeURI(encodeURI(\""+s+"\"));");
+	else
+		out.println("var s = '';");
+	%>
+	window.open("mPerson.action?method=exportToExcel<%=nbbh!=null?"&innerCode="+nbbh:"" %><%=year!=null?"&year="+year:"" %>" + s);
+}
+
+
+	
+	<%StringBuffer sb = new StringBuffer("var contents = new Array(");
+	  String tempstr;
+		if(list!=null&&list.size()!=0){
+				for (Person ps : list) {
+					for(FieldBean fb : fList) {
+						tempstr=FieldsControl.doVoGetMethod(ps, fb.getCode());
+				        String dest = "";  
+				        if (tempstr!=null) {  
+				        	dest=tempstr.trim();                                                        //去掉空格
+				        	if(dest.contains("\'")){                                                   //contains 包含，依次比较
+				        		
+				        		dest=dest.replace("\'","\\\'");
+				        		}
+				        	sb.append("'" + dest + "',");                                          //append添加，追加
+				        }
+				        else
+				        	sb.append("'" + FieldsControl.doVoGetMethod(ps, fb.getCode()) + "',");
+					}
+				}
+				out.println(sb.substring(0, sb.length() - 1) + ");");
+				out.println("var pSize = " + list.size() + ";");
+				%>var allSize = contents.length/pSize;<%
+		}else{
+			out.println(sb + ");");
+			out.println("var pSize = 0;");
+			%>var allSize = 0;<%
+		}
+		%>
+	
+	function submitSearchSpl(objForm){
+		if(objForm.sqlvalue.value==""){
+			alert("请填写查询内容！");
+			objForm.sqlvalue.focus();
+			return;
+		}
+		objForm.submit();
+	}
+</script>
+<body>
+<div id="cover" class="showTheControl"></div>
+<div id="search">
+<%@ include file="searchPerson.jsp" %>
+</div>
+<div id="control">
+<form method="post" name="ShowCon" action="mProject.action?method=setProjectDisplay">
+<table align="left" border="0" style="margin:0px;padding:0px" width="200px">
+	<tr>
+		<th class="head">设置可显示字段</th>
+	</tr>
+	<tr>
+		<td>
+		<ul id="ids">
+		<%
+			int fSize = fList.size();
+			for(int n=0;n<fSize;n++){ 
+				FieldBean ifb = fList.get(n);
+		%>
+			<li onclick = "clickLi(this);" onmouseover="this.style.color='gray';" onmouseout="this.style.color='black';"><input type="checkbox" value="<%=n %>"<%=ifb.getDisplay()?" checked":"" %> name="sfield"/><%=ifb.getName() %></li>
+		<%	} %>
+		</ul>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input style="margin-left:10px;border:1px solid blue" type="button" onclick="checkAll();" value="全选"/>
+			<font class="save_style" onmouseover="this.style.color='red';" onmouseout="this.style.color='black';" size="3" title="请注意，保存设置将对所有用户生效！"><input type="checkbox" name="save"/>保存设置</font>
+		</td>
+	</tr>
+	<tr>
+		<td style="text-align:center">
+			<input style="margin-top:8px" type="button" onclick="reBuildTable('Person');" value="确定" />
+			<input style="margin-left:20px" type="button" onclick="hide('control');" value="取消" />
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+<table class="manage" style="margin: 5px;" border="1" cellpadding="0" cellspacing="0" width="99%">
+	<tr>
+	<%if(forWorkload != null && forWorkload.equalsIgnoreCase("true")){ %>
+		<th colspan="4" class="head">工作量查询 <input type="hidden" id="forWorkLoadFlag" name="forWorkLoadFlag" value="liyu">      </th>
+	<%}else{ %>
+		<th colspan="4" class="head">成员管理</th>
+	<%} %>
+	</tr>
+	<tr>
+		<td>
+		<form style="float:right;margin-right:0px;width:500px;height:20px;" action="mPerson.action?method=searchPersonSpl" method="post">
+			<div style="border-right:2px inset white;float:left;height:25px;"> </div>
+			<select name="sqlname" style="font-size:12px;margin:0px;">
+					<option value="serialNumber">序号</option>
+					<option value="project.innerCode">项目内部编号</option>
+					<option value="year">登记年度</option>
+					<option value="name">姓名</option>
+					<option value="sex">性别</option>
+					<option value="birth">出生日期</option>
+					<option value="idCardNo">身份证号</option>
+					<option value="payCode">工资代号</option>
+					<option value="diploma">学历</option>
+					<option value="professionalTitle">职称</option>
+					<option value="assignment">承担任务</option>
+					<option value="orgnization">所属单位</option>
+					<option value="enterDate">登记表日期</option>
+					<option value="role">身份</option>
+					<option value="degree">学位</option>
+					<option value="creater.name">经手人</option>
+					<option value="workload">工作量</option>
+					<option value="createDate">登记日期</option>
+					<option value="updater.name">修改人</option>
+					<option value="updateDate">修改日期</option>
+					<option value="delFlg">是否删除</option>
+					<option value="delDate">删除时间</option>
+
+			</select>
+			<select name="sqlcon" style="font-size:12px;width:70px">
+				<option value="0">=</option>
+				<option value="1">&gt;</option>
+				<option value="2">&gt;=</option>
+				<option value="3">&lt;</option>
+				<option value="4">&lt;=</option>
+				<option value="5">模糊查询</option>
+			</select>
+			<input type="text" name="sqlvalue" style="font-size:12px;margin:0px;width:200px;"/>
+			<input type="button" onclick="submitSearchSpl(this.parentNode);" value="查询" style="height:20px;font-size:12px;margin:0px;width:35px;font-weight:bold"/>
+		</form>  
+		<%if(nbbh!=null){ %>
+		<input type="button" value="成员登记" onclick="regproject();" />
+		<input type="button" value="查看成员" onclick="showIt();" />
+		<input type="button" value="编辑成员" onclick="updateIt();" />
+		<input type="button" value="删除成员" onclick="deleteIt();" />
+		<input type="button" value="控制字段" onclick="setCols('control');" />
+		<input type="button" value="检索成员" onclick="setCols('search');" />
+		<input type="button" value="导出表格" onclick="exportThem();" />
+		<%}else{ %>
+		<input type="button" value="查看成员" onclick="showIt();" />
+		<input type="button" value="控制字段" onclick="setCols('control');" />
+		<input type="button" value="检索成员" onclick="setCols('search');" />
+		<input type="button" value="导出表格" onclick="exportThem();" />
+		<%} %>
+		</td>
+	</tr>
+</table>
+<div id="projects">
+<table id="PowerTable" class="projects" border="1" cellpadding="0" cellspacing="0">
+	<tr id="TableHead" style="font-weight: bold;"></tr>
+</table>
+</div>
+<!-- 显示分页 -->
+<div id="pageDiv">共有记录：<%=resultCount%>条&nbsp;&nbsp;&nbsp; <%
+ 	if (pageCount > 0) {
+ %> <a href="<%=pagiUrl%>&page=1&year=<%=(year==null)?"all":year %>" onclick="encodePagiUrl(this);">首页</a>|
+<%
+ 	} else {
+ %> 首页| <%
+ 	}
+
+ 	if (currentPage > 1) {
+ %> <a href="<%=pagiUrl%>&page=<%=currentPage - 1%>&year=<%=(year==null)?"all":year %>"
+	onclick="encodePagiUrl(this);">上一页</a>| <%
+ 	} else {
+ %> 上一页| <%
+ 	}
+
+ 	int first = 0;
+ 	int last = 0;
+ 	if (pageCount <= 10) {
+ 		first = 1;
+ 		last = pageCount;
+ 	} else {
+ 		if (currentPage - 5 <= 0) {
+ 			first = 1;
+ 			last = 10;
+ 		} else if (pageCount - currentPage <= 5) {
+ 			last = pageCount;
+ 			first = last - 9;
+
+ 		} else {
+ 			first = currentPage - 4;
+ 			last = first + 9;
+ 		}
+ 	}
+
+ 	for (int i = first; i <= last; i++) {
+ 		if (i == currentPage) {
+ %><span style="background-color: #5F5F5F; width: 15px"> <a
+	href="<%=pagiUrl%>&page=<%=i%>&year=<%=(year==null)?"all":year %>" onclick="encodePagiUrl(this);"><%=i%></a>
+</span>| <%
+	} else {
+%> <a href="<%=pagiUrl%>&page=<%=i%>&year=<%=(year==null)?"all":year %>" onclick="encodePagiUrl(this);"><%=i%></a>|
+<%
+ 	}
+ 	}
+
+ 	if (currentPage < pageCount) {
+ %> <a href="<%=pagiUrl%>&page=<%=currentPage + 1%>&year=<%=(year==null)?"all":year %>"
+	onclick="encodePagiUrl(this);">下一页</a>| <%
+ 	} else {
+ %> 下一页| <%
+ 	}
+
+ 	if (pageCount > 0) {
+ %> <a href="<%=pagiUrl%>&page=<%=pageCount%>&year=<%=(year==null)?"all":year %>"
+	onclick="encodePagiUrl(this);">尾页</a> <%
+ 	} else {
+ %> 尾页| <%
+ 	}
+ %>
+</div>
+</body>
+</html>

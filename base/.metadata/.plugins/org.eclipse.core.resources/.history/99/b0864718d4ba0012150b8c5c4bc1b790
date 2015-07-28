@@ -1,0 +1,38 @@
+//HQL面向对象的查询语言
+
+package com.Text;
+
+
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.hibernate.vo.People;
+
+public class HQLText {
+   public static void main(String[] args) {	  
+	  Configuration cfg = new Configuration();
+	  SessionFactory sf =cfg.configure().buildSessionFactory();
+	  Session session = sf.openSession();
+	  session.beginTransaction();
+	  System.out.println("eeeeeeee");
+	 Query query = session.createQuery(" from People");
+     List  list = query.list();
+     System.out.println("mark:"+list.size());
+     
+	 for(int i = 0; i < list.size();i++){
+		 System.out.println("mark "+i);
+		 People p =(People)list.get(i);
+		 System.out.println(p.getName());
+	 }
+	 System.out.println("tuuuuuuuuuuut");
+	  session.getTransaction().commit();
+	  session.close();
+	  sf.close();
+	  System.out.println("rrrrrrrrrrrrr");		  	  
+   }
+}

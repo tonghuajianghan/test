@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="273" key="DIALOG_WIDTH"/>
+		<item value="297" key="DIALOG_Y_ORIGIN"/>
+		<item value="327" key="DIALOG_HEIGHT"/>
+		<item value="741" key="DIALOG_X_ORIGIN"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="main-wrap" key="selection"/>
+		<list key="findhistory">
+			<item value="main-wrap"/>
+			<item value="pre-base"/>
+			<item value="pre-base clearfix"/>
+			<item value="preview-header"/>
+			<item value="identity"/>
+			<item value="identify"/>
+			<item value="id"/>
+			<item value="COMMON_USBKEY_KEY"/>
+		</list>
+		<list key="replacehistory">
+			<item value="User_update"/>
+			<item value="requirement"/>
+			<item value=""/>
+			<item value="utf-8"/>
+			<item value="char"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="234" key="DIALOG_Y_ORIGIN"/>
+		<item value="452" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

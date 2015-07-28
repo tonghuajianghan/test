@@ -1,0 +1,231 @@
+package cn.edu.cust.eduxm.expert;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.ResultSetExtractor;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.TransactionCallback;
+
+import cn.edu.cust.eduxm.expert.dao.ExpertDAO;
+import cn.edu.cust.eduxm.expert.domain.Expert;
+import cn.edu.cust.eduxm.util.PageFactory;
+import cn.edu.cust.util.Page;
+import cn.edu.cust.util.action.CommonAction2;
+import cn.edu.cust.util.db.JdbcTool;
+import cn.edu.cust.util.db.Worker;
+
+public class ExpertAction extends CommonAction2 {
+
+	private static ExpertDAO dao = new ExpertDAO();
+	
+	private ExpertInfoSearch search = new ExpertInfoSearch();
+
+    private Expert obj;
+	
+	private Page mlpage = PageFactory.getPage();
+	
+	private int page;
+	
+	private List<Expert> experts;
+	
+	private String username;
+	
+	
+
+	public String getUsername() {
+		return username;
+	}
+
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	public List<Expert> getExperts() {
+		return experts;
+	}
+
+	public void setExperts(List<Expert> experts) {
+		this.experts = experts;
+	}
+
+	public void setRows(int rows) {
+		mlpage.setRecordNum(rows);
+	}
+	
+	public List<Expert> getRows() {
+		return experts;
+	}
+	
+	public int getTotal(){
+		return mlpage.getRowCount();
+	}
+
+
+
+	public static ExpertDAO getDao() {
+		return dao;
+	}
+
+	public static void setDao(ExpertDAO dao) {
+		ExpertAction.dao = dao;
+	}
+
+	public ExpertInfoSearch getSearch() {
+		return search;
+	}
+
+	public void setSearch(ExpertInfoSearch search) {
+		this.search = search;
+	}
+
+	public Expert getObj() {
+		return obj;
+	}
+
+	public void setObj(Expert obj) {
+		this.obj = obj;
+	}
+
+	public Page getMlpage() {
+		return mlpage;
+	}
+
+	public void setMlpage(Page mlpage) {
+		this.mlpage = mlpage;
+	}
+
+	public int getPage() {
+		return page;
+	}
+
+	public void setPage(int page) {
+		this.page = page;
+	}
+	
+	public String list(){
+		success = JSON_SUCCESS;
+		error = JSON_ERROR;
+
+		return work(new Worker() {
+			public void doWork() {
+				List<Object> params = null;
+				String sql = null;
+
+				sql = search.buildSQL();
+				log.info("sql: ----------{}", sql);
+				params = search.getParams();
+
+				log.info("params:-------------{}",
+						Arrays.toString(params.toArray()));
+
+				final ArrayList<Expert> result = new ArrayList<Expert>();
+
+				if (mlpage == null) {
+					mlpage = PageFactory.getPage();
+				}
+
+				mlpage.setPageNum(page);
+				log.info("page:-------{}",page);
+				mlpage.getOnePage(sql, params,
+						new ResultSetExtractor<Object>() {
+
+							public Object extractData(ResultSet rs)
+									throws SQLException, DataAccessException {
+
+								while (rs.next()) {
+									Expert expert = new Expert();
+									expert.setFields(rs);
+									result.add(expert);
+								    log.info("x", expert.getXm());
+							        log.info("专家用户名:{}",expert.getUsername());
+								}
+								return null;
+							}
+						}, JdbcTool.getJdbcTemplate());
+
+				experts = result;
+			}
+		});
+	}
+	
+	public String add() {
+		System.out.println("hello");
+		successmsg = "添加成功";
+		return work(new TransactionCallback<Object>() {
+
+			public Object doInTransaction(TransactionStatus arg0) {
+				//String user = ServletActionContext.getRequest().getRemoteUser();
+				//obj.setAuthor(user);//自动给作者字段赋值（登录名）
+			
+				dao.insert(obj);
+
+				return null;
+			}
+		});
+	}
+	
+	public String update() {
+		System.out.println("hello");
+		successmsg = "修改成功";
+		return work(new TransactionCallback<Object>() {
+
+			public Object doInTransaction(TransactionStatus arg0) {
+				//String user = ServletActionContext.getRequest().getRemoteUser();
+				//obj.setAuthor(user);//自动给作者字段赋值（登录名）
+			
+				dao.update(obj);
+
+				return null;
+			}
+		});
+	}
+	
+	public String load(){
+		
+		return work(new Worker() {
+			
+			@Override
+			public void doWork() {
+				// TODO Auto-generated method stub
+				log.info("专家信息修改1：{}",username);
+				obj=dao.load(username);
+				log.info("专家信息修改2：{}",username);
+				//log.info("{}",obj.getUsername());
+			}
+		});
+		
+	}
+	
+	public String delete(){
+		successmsg = "删除成功";
+		return work(new Worker() {
+			
+			@Override
+			public void doWork() {
+				log.info("{}",obj);
+				// TODO Auto-generated method stub
+				dao.delete(obj.getUsername());
+			}
+		});
+		
+	}
+	
+	public String getall(){
+		successmsg = "删除成功";
+		return work(new Worker() {
+			
+			@Override
+			public void doWork() {
+				// TODO Auto-generated method stub
+				dao.getAll();
+			}
+		});
+		
+	}
+
+}

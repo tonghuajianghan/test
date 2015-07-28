@@ -1,0 +1,28 @@
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
+
+import vo.Code;
+
+
+public class testAuthor {
+  public static void main(String[] args) {
+	     Configuration cfg = new Configuration();
+		 SessionFactory sf = cfg.configure().buildSessionFactory();
+		 Session session = sf.openSession();
+		 session.beginTransaction();
+		/* Student stu =(Student)session.get(Student.class, 2);
+		 if(stu.getId() != 0){
+		      System.out.print(stu.getName());
+		 }else{
+			 System.out.print("nullme");
+		 }*/
+		 ///////////////////////
+		 Code co =(Code)session.get(Code.class, 1);
+		 System.out.print(co.getName());
+		 System.out.print("jj"); 
+		 session.getTransaction().commit();
+		 session.close();
+		 sf.close();	  
+}
+}

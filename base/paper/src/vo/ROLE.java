@@ -1,0 +1,32 @@
+package vo;
+
+public class ROLE {
+	private int ID;
+	//private String NAME;
+	private java.util.Set teacher;
+
+	public int getID() {
+		return ID;
+	}
+
+	public void setID(int iD) {
+		ID = iD;
+	}
+
+	/*public String getNAME() {
+		return NAME;
+	}
+
+	public void setNAME(String nAME) {
+		NAME = nAME;
+	}*/
+	
+	public java.util.Set getTeacher() {
+		return teacher;
+	}
+
+	public void setTeacher(java.util.Set teacher) {
+		this.teacher = teacher;
+	}
+
+}

@@ -1,0 +1,141 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page import="java.text.*, java.util.*" %>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<% String cp = request.getContextPath(); %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-
+transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>修改专家信息</title>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/default/easyui.css"/>
+	<link rel="stylesheet" type="text/css" href="../easyui/themes/icon.css"/>
+	<script type="text/javascript" src="../js/jquery-1.7.1.js"></script>
+	<script type="text/javascript" src="../easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="../easyui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="../js/comm.js"></script> 
+	<script type="text/javascript" src="../js/search.js"></script> 
+	<script type="text/javascript" src="expert.js"></script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		/* combobox('zyly', '../code/zy.json'); */
+			$('#zyly').combobox({    
+    		url:'../code/zy.json',    
+    		valueField:'text',    
+    		textField:'text'   
+		}); 
+		combobox('xb', '../code/xb.json');
+	});
+		$(document).ready(function(){
+			combobox('xb', '../code/xb.json');
+		});
+		function submitAddExpert() {
+			
+			$("#expert_update").form('submit',{
+				url : '../expert/Expert_update.action',
+				onSubmit : function() {
+					/* var numreg = new RegExp('^[0-9]*$');
+					 $('#username').append('<span style>专家组名称不能有特殊符号 \/:*%()~!:;\'#$?\\\"<>|</span>'); */
+						//if(reg.test($('#groupName').val())){
+					 		
+					 		//$('#groupName').append("<span>专家组名称不能有特殊符号 \/:*%()~!:;\'#$?\\\"<>|</span>");
+					 		//return false;
+						//}
+						//alert($('#year').val().length);
+						//if(numreg.test($('#year').val())&&($('#year').val().length==4)){
+							//return $(this).form("validate");
+						//}
+						//$.messager.alert("提示信息","年度为数字","info");
+						//return false;
+				},
+				success : function(data) {
+					
+					if($.trim($(data).find('span').text())!="修改成功"){
+			 			$.messager.alert("提示信息","修改失败！","info");
+			 		}else{
+			 			$.messager.alert("提示信息",$(data).find('span').text(),"info");
+			 		}
+				 	parent.reloadTableAfterUpdateOrAdd();
+				}
+			});
+		}
+		//重置
+		function clearForm() {
+			$("#expert_update").form('clear');
+		} 
+		
+	</script>
+</head>
+<body>
+<div class="easyui-panel" >
+	 <div style="padding:10px 0 10px 1px">
+	 	<form id="expert_update" action="" method="post">
+	 	<%-- <input type="hidden" name="obj.username" value="<s:property value="obj.username"/>"/> --%>
+		<table id="main_table">
+			<tr>
+				<td><label for="username">用户名</label></td>
+				<td><input id="username" maxlength="20" name="obj.Username" readonly="readonly" value="<s:property value="obj.username"/>"  missingMessage="请输入用户名" class='easyui-validatebox' required="true" type="text"/></td>
+				<td><label for="xm">姓名</label></td>
+				<td><input id="xm" maxlength="50"  name="obj.xm" value="<s:property value="obj.xm"/>" class="easyui-validatebox" required="true"/></td>
+			</tr>
+			<tr>
+				<td><label for="xb">性别</label></td>
+				<!-- <td><select id="college" name="obj.college" onchange="collegeChange()">	</select></td> -->
+				<td><input id="xb" maxlength="20" name="obj.xb" value="<s:property value="obj.xb"/>" class="easyui-combobox" required="true"/>	</td>
+				<td><label for="zc">职称</label></td>
+				<!-- <td><select id="major" name="obj.major"><option value="">-----请先选择学院----</option></select></td> -->
+				<td><input id="zc" maxlength="20" name="obj.zc" value="<s:property value="obj.zc"/>" class="easyui-validatebox" required="true" /></td>
+			</tr>
+			<tr>
+				<td><label for="zw">职务</label></td>
+				<td><input id="zw" maxlength="50" name="obj.zw" value="<s:property value="obj.zw"/>" missingMessage="请输入职务" class="easyui-validatebox" required="true"  type="text"/></td>
+				<td><label for="zyly">专业领域</label></td>
+				<td><input id="zyly" maxlength="50" name="obj.zyly" value="<s:property value="obj.zyly"/>"  class='easyui-validatebox' type="text" required="true"/></td>
+			</tr>
+			<tr>
+				<td><label for="yjfx">研究方向</label></td>
+				<td><input id="yjfx" maxlength="100" name="obj.yjfx" value="<s:property value="obj.yjfx"/>"  class='easyui-validatebox' required="true"  type="text"/></td>
+				<td><label for="csny">出生年月</label></td>
+				<td><input id="csny" maxlength="50" name="obj.csny" value="<s:property value="obj.csny"/>"  class='easyui-datebox' type="text" required="true"/ ></td>
+			</tr>
+			<tr>
+				<td><label for="ssdw">所属单位</label></td>
+				<td><input id="ssdw" maxlength="200" name="obj.ssdw" value="<s:property value="obj.ssdw"/>"  class='easyui-validatebox' required="true"  type="text"/></td>
+				<td><label for="dzyj">电子邮件</label></td>
+				<td><input id="dzyj" maxlength="100" name="obj.dzyj" value="<s:property value="obj.dzyj"/>"  class='easyui-validatebox' data-options="required:true,validType:'email'" type="text" required="true"/></td>
+			</tr>
+			<tr>
+				<td><label for="lxdh">联系电话</label></td>
+				<td><input id="lxdh" maxlength="50" name="obj.lxdh" value="<s:property value="obj.lxdh"/>"  class='easyui-validatebox' required="true"  type="text"/></td>
+				<td><label for="zplj">照片路径</label></td>
+				<td><input id="zplj" maxlength="500" name="obj.zplj" value="<s:property value="obj.zplj"/>"  class='easyui-validatebox' type="text" required="true"/></td> 
+					</tr>
+			<tr>
+				<td><label for="zt">状态</label></td>
+				<td><input id="zt" maxlength="20" name="obj.zt" value="<s:property value="obj.zt"/>"  class='easyui-validatebox' required="true"  type="text"/></td>
+			</tr>
+		    
+			<tr>
+			   <td><label for="zjjj">专家简介</label></td>
+				
+				<td colspan="3"><textarea id="zjjj" maxlength="1000" cols="41.5" rows="2px" name="obj.zjjj"   class='easyui-validatebox'  required="true"><s:property value="obj.zjjj"/></textarea></td>
+			</tr>
+			<tr>
+				<td><label for="bz">备注</label></td>
+				
+				<td colspan="3"><textarea id="bz" maxlength="200" cols="41.5" rows="2px" name="obj.bz"   class='easyui-validatebox' required="true"><s:property value="obj.bz"/></textarea></td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: center; padding: 5px">  
+					<a class="easyui-linkbutton" href="javascript:void(0);" onclick="return submitAddExpert();">保　存</a>
+					<a class="easyui-linkbutton" href="javascript:void(0);" onclick="return clearForm();">重　置</a>
+				</td> 
+			</tr>
+		</table>
+	 	</form>
+	 </div>
+</div>
+</body>
+</html>

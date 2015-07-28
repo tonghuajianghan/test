@@ -1,0 +1,52 @@
+package com.cust.dew.dao.impl;
+
+import java.util.List;
+
+import org.hibernate.Query;
+import org.hibernate.Session;
+
+import com.cust.dew.vo.School;
+
+public class TeacherDBDao {
+  public void saveSchool(School s){
+	  Session	session = ConnectionFactory.beginSession();
+		session.beginTransaction();
+		session.save(s);
+		session.getTransaction().commit();
+	    ConnectionFactory.colseSessionAndSessionFactory();
+  }
+  public List<School> querySchoolById(int id) {
+		Session	session = ConnectionFactory.beginSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from School where id='" + id
+				+ "'");
+		session.getTransaction().commit();	    
+	    return query.list();		
+	}
+	
+	public List<School> querySchool(){
+	    Session	session = ConnectionFactory.beginSession();
+		session.beginTransaction();
+		Query query = session.createQuery("from School");		
+	    session.getTransaction().commit();
+		//ConnectionFactory.colseSessionAndSessionFactory();
+		
+		return query.list();
+	}
+
+	public boolean deleteSchoolById(int id) {
+		Session	session = ConnectionFactory.beginSession();
+		session.beginTransaction();	
+		School s = new School();
+		s = (School) session.get(School.class, id);
+		session.delete(s);
+		session.getTransaction().commit();
+		ConnectionFactory.colseSessionAndSessionFactory();
+		return true;
+	}
+
+	public boolean insertSchoolById() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

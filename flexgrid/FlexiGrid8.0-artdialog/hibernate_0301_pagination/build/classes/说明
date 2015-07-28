@@ -1,0 +1,8 @@
+hibernate分页
+
+最根本数据q.setFirstResult()
+         q.setMaxResults()
+               
+       
+
+

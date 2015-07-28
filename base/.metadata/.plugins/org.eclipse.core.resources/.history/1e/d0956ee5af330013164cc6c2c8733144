@@ -1,0 +1,17 @@
+package vo;
+
+import java.sql.Timestamp;
+
+public class OperRec {
+  private int id;
+  private String TableName;
+  private int DoType;
+  private boolean IDType;
+  private String old_id;
+  private String new_id;
+  private Timestamp ApplyDate;
+  private Timestamp VerifyDate;//核定时间
+  private int flg;
+  private int applyer;
+  private String cause;//原因
+}

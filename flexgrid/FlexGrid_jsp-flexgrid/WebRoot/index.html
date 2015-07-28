@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Flexigrid</title>
+<link rel="stylesheet" type="text/css" href="grid/css/flexigrid/flexigrid.css" />
+<script type="text/javascript" src="grid/lib/jquery/jquery.js"></script>
+<script type="text/javascript" src="grid/flexigrid.js"></script>
+<!--  导入thickbox 遮罩层  -->
+<!--  注：导入 thickbox.css  -->
+<style type="text/css" media="all">
+@import "grid/thickbox.css";
+</style>
+<link rel="alternate stylesheet" type="text/css" href="grid/1024.css" title="1024 x 768" />
+<script src="grid/thickbox.js" type="text/javascript"></script>
+	
+<style>
+	.flexigrid div.fbutton .add
+		{
+			background: url(grid/css/flexigrid/images/add.png) no-repeat center left;
+		}	
+	.flexigrid div.fbutton .delete
+		{
+			background: url(grid/css/flexigrid/images/close.png) no-repeat center left;
+		}	
+</style>
+  </head>
+  
+<body>
+  
+<div class="bborderx">
+<table id="flex1" style="display:none"></table>
+</div>
+
+ 
+<script type="text/javascript">
+// 各种属性解释：都在 flexgrid.js里
+			$("#flex1").flexigrid
+			(
+			{
+			url: 'post.jsp',
+			dataType: 'json',
+			colModel : [
+				{display: '编号', name : 'id', width : 60, sortable : true, align: 'center'},
+				{display: '姓名', name : 'name', width : 120, sortable : true, align: 'left'},
+				{display: '密码', name : 'iso3', width : 120, sortable : true, align: 'left', hide: true},
+				{display: '年龄', name : 'managename', width : 120, sortable : true, align: 'left'},
+				{display: '住址', name : 'data', width : 120, sortable : true, align: 'left'}
+				],
+			buttons : [
+				{name: '增加', bclass: 'add', onpress : test},
+				{name: '删除', bclass: 'delete', onpress : test},
+				{separator: true}
+				],
+			searchitems : [
+				{display: '姓名', name : 'username', isdefault: true},
+				{display: '住址', name : 'address'}
+				],
+			sortname: "id",
+			sortorder: "asc",
+			usepager: true,
+			title: '人员管理',
+			useRp: true,
+			rp: 10,
+			showTableToggleBtn: true,
+			width: 600,
+			height: 300
+			}
+			);
+			function test(com,grid)
+			{
+				if (com=='删除')
+					{
+						if( $('.trSelected',grid).length>0){
+						 if(confirm('是否删除这 ' + $('.trSelected',grid).length + ' 条记录吗?'))
+						{
+						  var  id ="";
+					     for(var i=0;i<$('.trSelected',grid).length;i++){
+					        id += "id="+$('.trSelected',grid).find("td:first").eq(i).text()+"&";
+					      }
+					      window.location.href="delete.jsp?"+id+"date="+new Date().getTime(); 
+					   }
+					 }else{
+					   alert("请选择某行删除！");
+					 }
+					}
+				else if (com=='增加')
+					{
+					  $('#cssrain').trigger("click");   //触发 id为 cssrain 的 onclick 事件
+					}			
+			}
+		/*
+		$('b.top').click
+		(function (){
+			$(this).parent().toggleClass('fh');
+				});
+	    */
+</script>
+
+ 
+</body>
+</html>

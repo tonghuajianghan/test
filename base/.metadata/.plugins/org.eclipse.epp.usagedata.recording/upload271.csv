@@ -1,0 +1,151 @@
+what,kind,bundleId,bundleVersion,description,time
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398604775806
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398604779584
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398604779609
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398604780911
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398604780929
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageRecordAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604782785
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398604784528
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398604802543
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageReportAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604803794
+opened,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1398604821080
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1398604821124
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398604821187
+activated,editor,org.eclipse.jst.jsp.ui,1.1.503.v201101262228,"org.eclipse.jst.jsp.core.jspsource.source",1398604821877
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageRole.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604824815
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398604836867
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageSearchAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604845825
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageTeacher.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604866838
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/TeacherHandle.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604887842
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageProjectAction-conversion.properties'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604908856
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604929870
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604950883
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398604954523
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398604954541
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398604956877
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/PatentDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604971899
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/AchieveCristicDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398604992921
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605000645
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605001985
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/OrgDAO.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605013938
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageAuthorAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605034957
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/CodeTypeDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605055972
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/InfoDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605076991
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605080078
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605081619
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605087395
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605089582
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605092367
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/TeacherDBDAO.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605097999
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605102987
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605103014
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605104434
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398605104452
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605113786
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/PaperDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605119007
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util/MyList.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605140031
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/vo/Org.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605161052
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605182063
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/ReportDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605203077
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605207839
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605208701
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605209304
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605210093
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605211347
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605217000
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageReportAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605224093
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/PersonDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605245118
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605256780
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398605256804
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageDir.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605266131
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605267339
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/RecordDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605287143
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398605287188
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605287483
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605287517
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605288935
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398605288942
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605292639
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/converter/ProjectFieldConverter.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605308167
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/MemberDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605329187
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/RoleDAO.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605350204
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605355871
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605367009
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util/ProjectFieldsControl.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605371221
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605374268
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManagePermission.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605392239
+executed,command,org.eclipse.ui.workbench.texteditor,3.6.1.r361_v20100714-0800,"org.eclipse.ui.edit.text.delete.line",1398605395595
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605396995
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398605397013
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605404673
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util/FieldsControl.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605413257
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/cache/OrgCache.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605434267
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605448038
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605449031
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398605452851
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/bean'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605455278
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605459763
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605459791
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605463738
+closed,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605463775
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398605465101
+started,bundle,org.eclipse.wst.xsl.ui,1.1.1.v201009091745,"org.eclipse.wst.xsl.ui",1398605468821
+opened,editor,org.eclipse.wst.xml.ui,1.1.103.v201101122108,"org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart",1398605468844
+activated,editor,org.eclipse.wst.xml.ui,1.1.103.v201101122108,"org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart",1398605468927
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageBookmakingAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605476287
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605476443
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605476602
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605495013
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageOrg.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605497307
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageTeacher.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605518310
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/vo/AchieveCristic.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605539318
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605553301
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605554393
+activated,editor,org.eclipse.wst.xml.ui,1.1.103.v201101122108,"org.eclipse.wst.xml.ui.internal.tabletree.XMLMultiPageEditorPart",1398605554477
+closed,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605554504
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605558234
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/vo/Operator.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605560333
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/vo/Dir.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605581354
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/Download.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605602367
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/bo/impl/ProjectServiceImpl.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605623388
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util/TreeList.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605644403
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageOperator.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605665414
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605682142
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398605683366
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/ProjectDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605686425
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605691505
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398605691565
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605695335
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.findReplace",1398605695354
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605701483
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/BookmakingDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605707434
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605728517
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/PFileDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605749537
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605762096
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/TeacherHandle.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605770553
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605772431
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605780638
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/converter/ProjectOverFormatConverter.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605791564
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/PermissionDAO.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605812580
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/bo/ManagerService.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605833600
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/PersonDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605854617
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/PermissionDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605875626
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/dao/impl/AwardDBDao.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605896638
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageSearchAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605917659
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManagePersonAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605938668
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605953474
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605955086
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605958732
+activated,view,org.eclipse.wst.server.ui,1.1.207.v20110119,"org.eclipse.wst.server.ui.ServersView",1398605958754
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/util/SwitchTools.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605959682
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605972791
+activated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398605977453
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398605978916
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/action/ManageAwardAction.java'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398605980700
+error,log,,,"org.apache.subversion.javahl.ClientException: ????l????????????ó???????????òl????÷?ú??з????l??????°??  \nsvn: Unable to connect to a repository at URL 'svn://192.168.96.227/kyc/kyc/src/cn/cust/kyc/bo/impl'\nsvn: Can't connect to host '192.168.96.227': 由于连接方在一段时间后没有正确答复或连接",1398606001710
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398606001957
+activated,view,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.PackageExplorer",1398606008967
+opened,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398606009262
+activated,editor,org.eclipse.jdt.ui,3.6.2.r362_v20110203,"org.eclipse.jdt.ui.CompilationUnitEditor",1398606009293
+executed,command,org.eclipse.ui,3.6.2.M20110203-1100,"org.eclipse.ui.edit.copy",1398606017463
+deactivated,workbench,org.eclipse.ui.workbench,3.6.2.M20110210-1200,"",1398606019657
