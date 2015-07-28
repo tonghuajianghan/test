@@ -1,0 +1,54 @@
+package vo;
+
+import vo.ORG;
+import vo.ROLE;
+
+public class Teacher {
+
+	private int id;
+	private String name;
+	private String password;	
+	private ROLE role_id;
+	private ORG org_id;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public ORG getOrg_id() {
+		return org_id;
+	}
+
+	public void setOrg_id(ORG org_id) {
+		this.org_id = org_id;
+	}
+
+	public ROLE getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(ROLE role_id) {
+		this.role_id = role_id;
+	}
+
+}

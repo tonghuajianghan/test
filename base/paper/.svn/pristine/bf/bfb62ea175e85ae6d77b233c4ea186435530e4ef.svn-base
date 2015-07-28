@@ -1,0 +1,21 @@
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.classic.Session;
+
+import vo.Author;
+
+
+public class testAuthor {
+  public static void main(String[] args) {
+	     Configuration cfg = new Configuration();
+		 SessionFactory sf = cfg.configure().buildSessionFactory();
+		 Session session = sf.openSession();
+		 session.beginTransaction();
+		 Author au = (Author)session.get(Author.class,1);
+		 System.out.print(au.getXm());
+		 System.out.print("jj"); 
+		 session.getTransaction().commit();
+		 session.close();
+		 sf.close();	  
+}
+}
