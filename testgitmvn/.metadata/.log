@@ -1,0 +1,47 @@
+!SESSION 2015-08-01 14:26:27.779 -----------------------------------------------
+eclipse.buildId=3.4.0.201310051818-RELEASE-e38
+java.version=1.7.0_45
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=zh_CN
+Framework arguments:  -product org.springsource.sts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.sts.ide
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-08-01 14:27:57.524
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-08-01 14:27:57.524
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@270d83ff),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@270d83ff)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@270d83ff),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@270d83ff)),sourcePriority=16640)
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-08-01 14:28:02.146
+!MESSAGE Warning: EGit couldn't detect the installation path "gitPrefix" of native Git. Hence EGit can't respect system level
+Git settings which might be configured in ${gitPrefix}/etc/gitconfig under the native Git installation directory.
+The most important of these settings is core.autocrlf. Git for Windows by default sets this parameter to true in
+this system level configuration. The Git installation location can be configured on the
+Team > Git > Configuration preference page's 'System Settings' tab.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-08-01 14:28:02.147
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Administrator'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-08-01 14:28:03.199
+!MESSAGE Result of converting legacy STS 2.x workspace preferences to 3.x
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-08-01 14:28:03.199
+!MESSAGE Converted legacy STS plugin preferences
+!SUBENTRY 1 unknown 0 0 2015-08-01 14:28:03.199
+!MESSAGE OK
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-08-01 14:28:03.200
+!MESSAGE Converted legacy Roo plugin state locations
+!SUBENTRY 1 org.springsource.ide.eclipse.commons.frameworks.core 0 0 2015-08-01 14:28:03.200
+!MESSAGE Converted legacy STS plugin state locations
+
+!ENTRY org.eclipse.wst.common.project.facet.core 4 0 2015-08-01 15:17:34.257
+!MESSAGE Project facet grails.app has not been defined. It is used in plugin com.vmware.vfabric.ide.eclipse.tcserver.core.

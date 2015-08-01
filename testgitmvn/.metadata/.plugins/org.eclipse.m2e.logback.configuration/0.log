@@ -1,0 +1,72 @@
+2015-08-01 14:30:54,438 [ModalContext] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:30:55,723 [New I/O client worker #1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-08-01 14:30:55,729 [New I/O client worker #1-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/maven-metadata.xml
+2015-08-01 14:30:56,038 [ModalContext] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:30:56,490 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+2015-08-01 14:30:56,492 [New I/O client worker #2-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+2015-08-01 14:31:38,682 [Worker-2] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:31:40,136 [New I/O client worker #3-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.pom
+2015-08-01 14:31:40,138 [New I/O client worker #3-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.pom
+2015-08-01 14:31:40,400 [pool-6-thread-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded file:///C:/Users/Administrator/.m2/repository/org/apache/maven/archetypes/maven-archetype-quickstart/1.1/maven-archetype-quickstart-1.1.jar
+2015-08-01 14:31:40,506 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Collecting project info '/pom.xml' E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml
+2015-08-01 14:31:43,894 [Worker-2] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:31:46,931 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /testjhmvn/src/main/java
+2015-08-01 14:31:46,936 [Worker-2] INFO  o.e.m.j.i.AbstractJavaProjectConfigurator - Adding source folder /testjhmvn/src/test/java
+2015-08-01 14:31:47,230 [Worker-2] INFO  o.e.m.c.i.p.ProjectConfigurationManager - Project import completed 6 sec
+2015-08-01 14:31:48,169 [Worker-13] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:31:48,598 [Worker-9] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:31:49,024 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:31:49,024 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:31:49,031 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:31:49,031 [Worker-9] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 14:31:50,206 [Worker-1] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:31:51,219 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:31:51,219 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:31:51,224 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:31:51,224 [Worker-6] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 14:35:04,844 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:35:04,997 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:35:04,997 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:35:05,002 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:35:05,002 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 14:35:39,421 [Worker-8] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:35:39,429 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:35:39,929 [New I/O client worker #4-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.pom
+2015-08-01 14:35:39,955 [New I/O client worker #4-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.pom
+2015-08-01 14:35:40,147 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:35:40,492 [New I/O client worker #5-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis-parent/24/mybatis-parent-24.pom
+2015-08-01 14:35:41,480 [New I/O client worker #5-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis-parent/24/mybatis-parent-24.pom
+2015-08-01 14:35:41,721 [Worker-8] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 14:35:42,224 [New I/O client worker #6-1] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar
+2015-08-01 14:38:42,006 [AsyncHttpClient-Reaper] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis/3.3.0/mybatis-3.3.0.jar
+2015-08-01 14:38:42,100 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:38:42,100 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:38:42,103 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:38:42,103 [Worker-8] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 14:41:56,027 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:41:56,158 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:41:56,159 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:41:56,162 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:41:56,163 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 14:46:16,103 [Worker-15] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 14:46:16,219 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:46:16,220 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 14:46:16,224 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 14:46:16,224 [Worker-15] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 15:02:59,332 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 15:02:59,494 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:02:59,494 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 15:02:59,498 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:02:59,498 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 15:20:49,545 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 15:20:49,709 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:20:49,709 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 15:20:49,713 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:20:49,714 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
+2015-08-01 15:28:57,388 [Worker-7] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.cust.jh:testjhmvn:0.0.1-SNAPSHOT @ E:\worksapce\GitReposity\testgitmvn\testjhmvn\pom.xml.
+2015-08-01 15:28:57,431 [Worker-7] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-08-01 15:29:07,446 [New I/O client boss #7] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded http://repo.maven.apache.org/maven2/org/mybatis/mybatis-parent/25/mybatis-parent-25.pom
+2015-08-01 15:29:07,538 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:29:07,538 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\main\resources
+2015-08-01 15:29:07,541 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2015-08-01 15:29:07,541 [Worker-7] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\testgitmvn\testjhmvn\src\test\resources
