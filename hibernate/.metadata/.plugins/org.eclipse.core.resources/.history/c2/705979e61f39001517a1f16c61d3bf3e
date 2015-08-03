@@ -1,0 +1,42 @@
+package com.test;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+import com.hibernate.vo.Student;
+
+/**
+ * @ClassName: StudentTest
+ * @Description: TODO hibernate 链接数据库，操作数据库
+ * @author jh
+ * @date 2015-8-2 下午9:59:25
+ * 
+ */
+public class StudentTest {
+
+	/**
+	 * @param stu
+	 */
+	public StudentTest(Student stu) {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String[] args) {
+		Student s = new Student();
+		// s.setId(9);
+		s.setName("daxian");
+		s.setAge(100);
+		Configuration cfg = new Configuration();
+		@SuppressWarnings("deprecation")
+		SessionFactory sf = cfg.configure().buildSessionFactory();
+		Session session = sf.openSession();
+		session.beginTransaction();
+		session.save(s);
+		session.getTransaction().commit();
+		session.close();
+		sf.close();
+
+	}
+}

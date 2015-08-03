@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;hibernate.cfg.xml&apos; to &apos;hibernate_0101_annotation&apos;&#x0D;&#x0A;- Original project: &apos;hibernate_0100_basis&apos;&#x0D;&#x0A;- Destination element: &apos;hibernate_0101_annotation&apos;&#x0D;&#x0A;- Original element: &apos;hibernate.cfg.xml&apos;" description="Copy file" destination="=hibernate_0101_annotation" element1="src/hibernate.cfg.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1438491666515" units="0" version="1.0"/>
+</session>

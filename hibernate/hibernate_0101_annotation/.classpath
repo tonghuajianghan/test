@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="META-INF/|META-INF/|META-INF/" kind="src" path="src"/>
+	<classpathentry kind="src" path="resource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/hibernate4f_mysqljdbc"/>
+	<classpathentry kind="lib" path="D:/Java/Hibernate/hibernate-release-4.1.7.Final/lib/jpa/hibernate-entitymanager-4.1.7.Final.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

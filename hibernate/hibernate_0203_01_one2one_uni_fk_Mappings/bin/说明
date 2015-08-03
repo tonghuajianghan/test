@@ -1,0 +1,13 @@
+关联关系映射
+
+1.一对一单项外键关联   
+
+
+2java.lang.NullPointerEception
+	 Husband hs =(Husband)session.get(Husband.class, 2);
+	 2不是已有的id
+	 
+
+
+
+

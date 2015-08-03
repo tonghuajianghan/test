@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+&nbsp;xmlns="<a target=_blank href="http://xmlns.jcp.org/xml/ns/persistence">http://xmlns.jcp.org/xml/ns/persistence</a>" xmlns:xsi="<a target=_blank href="http://www.w3.org/2001/XMLSchema-instance">http://www.w3.org/2001/XMLSchema-instance</a>"
+&nbsp;xsi:schemaLocation="<a target=_blank href="http://xmlns.jcp.org/xml/ns/persistence">http://xmlns.jcp.org/xml/ns/persistence</a>
+&nbsp;<a target=_blank href="http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd</a>">
+  
+<persistence-unit name="persist-unit"
+&nbsp;&nbsp;transaction-type="RESOURCE_LOCAL">
+&nbsp;&nbsp;<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+&nbsp;&nbsp;<!-- All persistence classes must be listed -->
+&nbsp;&nbsp;<class>boa.framework.entity.CustomerEntity</class>                                                                               &nbsp; <shared-cache-mode>ENABLE_SELECTIVE</shared-cache-mode>
+&nbsp;&nbsp; <validation-mode>CALLBACK</validation-mode>     
+&nbsp;&nbsp;<properties>
+&nbsp;&nbsp;&nbsp;<!-- Provider-specific connection properties -->
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.jdbc.url" value="jdbc:derby:memory:exampleDB;create=true" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.jdbc.user" value="" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.jdbc.password" value="" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.schema-generation.database.action"
+&nbsp;&nbsp;&nbsp;&nbsp;value="drop-and-create" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.schema-generation.create-source"
+&nbsp;&nbsp;&nbsp;&nbsp;value="script" />
+&nbsp;&nbsp;&nbsp;<property name="javax.persistence.schema-generation.create-script-source"
+&nbsp;&nbsp;&nbsp;&nbsp;value="META-INF/create-script.sql" />
+&nbsp;&nbsp;&nbsp;<property name="eclipseink.logging.level" value="INFO" />
+&nbsp;&nbsp;</properties>
+&nbsp;</persistence-unit>
+</persistence>  
+
+
+  
+<!--   
+      Name属性用于定义持久化单元的名字 (name必选,空值也合法);   
+      transaction-type 指定事务类型(可选)   
+-->  
+<persistence-unit name="unitName" transaction-type="JTA">  
+  
+   <!-- 描述信息.(可选) -->  
+   <description> </description>  
+  
+   <!-- javax.persistence.PersistenceProvider接口的一个实现类(可选) -->  
+   <provider>   </provider>  
+  
+   <!-- Jta-data-source和 non-jta-data-source用于分别指定持久化提供商使用的JTA和/或non-JTA数据源的全局JNDI名称(可选) -->  
+   <jta-data-source>java:/test</jta-data-source>  
+   <non-jta-data-source> </non-jta-data-source>  
+  
+   <!-- 声明orm.xml所在位置.(可选) -->  
+   <mapping-file>product.xml</mapping-file>  
+  
+   <!-- 以包含persistence.xml的jar文件为基准的相对路径,添加额外的jar文件.(可选) -->  
+   <jar-file>../lib/model.jar</jar-file>  
+  
+   <!-- 显式列出实体类,在Java SE 环境中应该显式列出.(可选) -->  
+   <class>boa.framework.entity.CustomerEntity</class>
+  
+   <!-- 声明是否扫描jar文件中标注了@Enity类加入到上下文.若不扫描,则如下:(可选) -->  
+   <exclude-unlisted-classes>true</exclude-unlisted-classes>　
+　　　shared-cache-mode
+　　缓存模式。加了@Cacheable注解的默认为二级缓存。有四种模式：ALL-缓存所有实体；NONE-禁止缓存；ENABLE_SELECTIVE-如果加了缓存的标识，是默认的选选　　　　　　　　项；DISABLE_SELECTIVE- enable caching unless explicitly marked as&nbsp; @Cacheable(false) (not&nbsp; recommended)
+　　validation-mode
+　　实体的验证模式，默认是激活的。当一个实体在创建、更新，在实体发送到数据库前会被进行验证。CALLBACK: entities are validated on creation, update and deletion. If no Bean Validation provider&nbsp; is present, an exception is raised at initialization time.                        <!--    厂商专有属性(可选)    -->  
+   <properties>  
+    <!-- hibernate.hbm2ddl.auto= create-drop / create / update -->  
+    &nbsp;&nbsp;<property name="eclipseink.logging.level" value="INFO" />  
+   </properties>  
+  
+</persistence-unit>  
+  
+</persistence>  

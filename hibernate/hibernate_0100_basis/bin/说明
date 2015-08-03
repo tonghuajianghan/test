@@ -1,0 +1,16 @@
+简单的环境配置
+
+引入hibernate  jar包
+
+当第二次学习的时候，直接把hibernate4f的required文件下的所有包，都引进就可以用了
+
+当没有明确说明配置文件的位置时
+hibernate在src/下自动找寻hibernate.cfg.xml文件
+
+配置基本的hibernate.cfg.xml(不含说明)
+                 Student.hbm.xml
+               
+报错：
+     org.hibernate.HibernateException 
+
+
