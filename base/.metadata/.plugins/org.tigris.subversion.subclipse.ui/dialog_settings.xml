@@ -47,8 +47,8 @@
 	<item value="483" key="HistoryDialog.location.x"/>
 	<item value="830" key="TreeConflictsView.col.Description"/>
 	<item value="571" key="GenerateChangeLogDialog.size.x"/>
-	<item value="" key="DirectorySelectionPage.lastParent_svn://localhost/d:svn/paper"/>
 	<item value="560" key="GenerateChangeLogDialog.size.y"/>
+	<item value="" key="DirectorySelectionPage.lastParent_svn://localhost/d:svn/paper"/>
 	<item value="333" key="HistoryDialog.weights.2"/>
 	<item value="333" key="HistoryDialog.weights.1"/>
 	<item value="231" key="HistoryTableProvider.SVNHistoryPage.日期"/>
@@ -56,11 +56,11 @@
 	<item value="268" key="ExportRemoteFolderDialog.size.y"/>
 	<item value="319" key="ExportRemoteFolderDialog.size.x"/>
 	<item value="421" key="LockDialog.location.x"/>
-	<item value="37" key="LockDialog.location.y"/>
 	<item value="435" key="ChooseUrlDialog.location.x"/>
+	<item value="37" key="LockDialog.location.y"/>
 	<item value="114" key="ChooseUrlDialog.location.y"/>
-	<item value="139" key="TreeConflictsView.col.Resource"/>
 	<item value="false" key="TreeConflictsView.container"/>
+	<item value="139" key="TreeConflictsView.col.Resource"/>
 	<item value="92" key="HistoryTableProvider.HistoryDialog.日期"/>
 	<item value="448" key="HistorySearchDialog.location.x"/>
 	<item value="" key="DirectorySelectionPage.lastParent_svn://192.168.96.226/kyc"/>
@@ -71,8 +71,8 @@
 	<item value="0" key="SwitchDialogWithConflictHandling.location.y"/>
 	<item value="F:/workspace/xgb/src/model/xgb/action/Manage.java" key="TreeConflictsView.resource"/>
 	<item value="1186" key="CommitDialog.size.x"/>
-	<item value="421" key="UpdateDialogWithConflictHandling.location.x"/>
 	<item value="728" key="CommitDialog.size.y"/>
+	<item value="421" key="UpdateDialogWithConflictHandling.location.x"/>
 	<section name="CommitWizard">
 		<item value="false" key="ShowCompare"/>
 		<item value="500" key="VWeight2"/>

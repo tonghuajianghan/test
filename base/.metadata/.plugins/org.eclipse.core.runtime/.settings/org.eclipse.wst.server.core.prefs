@@ -1,4 +1,3 @@
-#Mon Jan 12 22:22:50 CST 2015
-module-start-timeout=300000
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v7.0" location\="D\:/ApacheAndCMS/tomcat/apache-tomcat-7.0.32" name\="Apache Tomcat v7.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.70" timestamp\="0"/>\r\n</runtimes>\r\n
 eclipse.preferences.version=1
+module-start-timeout=300000
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Pivotal tc Server Developer Edition (Runtime) v2.9" id-set\="true" location\="D\:/Java/springsource/vfabric-tc-server-developer-2.9.3.RELEASE" name\="Pivotal tc Server Developer Edition (Runtime) v2.9" runtime-type-id\="com.vmware.server.tc.runtime.70" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v7.0" location\="D\:/ApacheAndCMS/tomcat/apache-tomcat-7.0.20" name\="Apache Tomcat v7.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.70" timestamp\="0"/>\r\n</runtimes>\r\n

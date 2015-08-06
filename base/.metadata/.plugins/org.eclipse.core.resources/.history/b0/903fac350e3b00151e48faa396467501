@@ -1,0 +1,40 @@
+package ajaxpackage;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+public class ajaxresponse extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+
+	public ajaxresponse() {
+		super();
+	}
+
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");// ���ܹ����������uft����8��ʾ
+		response.setContentType("text/html;charset=utf-8");// ���͹����������uft����8��ʾ
+
+		PrintWriter out = response.getWriter(); //
+
+		String name = request.getParameter("name");
+		String passward = request.getParameter("ps");
+		String okpassward = request.getParameter("cps");
+		if (name.equals("zhangsan")) {
+			out.print("<p>�û����Ѵ���</p>");// �����ַ�jsp���������Ǳߵ�
+		} else {
+			out.print("<p>�û������</p>");
+		}
+		if (passward.equals(okpassward)) {
+			out.print("<p>������ͬ</p>");
+		} else {
+			out.print("<p>������ȷ���������벻��ͬ������������</p>");
+		}
+
+	}
+
+}

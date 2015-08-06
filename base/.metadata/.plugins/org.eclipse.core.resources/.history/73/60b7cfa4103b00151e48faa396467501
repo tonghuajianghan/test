@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>ajax</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.htm</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<servlet>
+		<description></description>
+		<display-name>ajax</display-name>
+		<servlet-name>ajax</servlet-name>
+		<servlet-class>ajaxpackage.ajax</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ajax</servlet-name>
+		<url-pattern>/ajax</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<description></description>
+		<display-name>aaaa</display-name>
+		<servlet-name>aaaa</servlet-name>
+		<servlet-class>ajaxpackage.aaaa</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>aaaa</servlet-name>
+		<url-pattern>/aaaa</url-pattern>
+	</servlet-mapping>
+	<servlet>
+	
+		<description></description>
+		<display-name>request</display-name>
+		<servlet-name>request</servlet-name>
+		<servlet-class>ajaxpackage.request</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>request</servlet-name>
+		<url-pattern>/request</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>Dff</display-name>
+		<servlet-name>Dff</servlet-name>
+		<servlet-class>ajaxpackage.Dff</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>Dff</servlet-name>
+		<url-pattern>/Dff</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<description></description>
+		<display-name>HHh</display-name>
+		<servlet-name>HHh</servlet-name>
+		<servlet-class>ajaxpackage.HHh</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>HHh</servlet-name>
+		<url-pattern>/HHh</url-pattern>
+	</servlet-mapping>
+</web-app>
