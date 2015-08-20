@@ -1,7 +1,0 @@
-package com.test;
-
-import java.io.Serializable;
-
-public class StudentClass implements Serializable {
-
-}

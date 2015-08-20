@@ -5,7 +5,273 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2015-07-31T10:30:00Z</updated>
+  <updated>2015-08-17T09:27:11Z</updated>
+  <entry>
+    <title>Spring Integration 4.2 Release Candidate is Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/17/spring-integration-4-2-release-candidate-is-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Gary Russell</name>
+    </author>
+    <id>tag:spring.io,2015-08-13:2212</id>
+    <updated>2015-08-17T09:27:11Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that the final release candidate for Spring Integration 4.2 is now available in the &lt;a href="https://repo.spring.io/milestone/"&gt;spring milestone repository&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Features of this release include:&lt;/p&gt;&lt;h2&gt;&lt;a href="#security-context-propagation" class="anchor" name="security-context-propagation"&gt;&lt;/a&gt;Security Context Propagation&lt;/h2&gt;&lt;p&gt;The security context can now be propagated across &lt;code&gt;ExecutorChannel&lt;/code&gt; and &lt;code&gt;QueueChannel&lt;/code&gt;s. The framework takes care of clearing the inherited security context when the downstream flow completes.&lt;/p&gt;&lt;h2&gt;&lt;a href="#stomp-client-channel-adapters" class="anchor" name="stomp-client-channel-adapters"&gt;&lt;/a&gt;STOMP Client Channel Adapters&lt;/h2&gt;&lt;p&gt;STOMP client-side channel adapters based on the support in Spring Framework 4.2 are now available (the initial work announced in milestone 1 is now complete).&lt;/p&gt;&lt;h2&gt;&lt;a href="#metrics" class="anchor" name="metrics"&gt;&lt;/a&gt;Metrics&lt;/h2&gt;&lt;p&gt;&lt;code&gt;MessageChannel&lt;/code&gt;, &lt;code&gt;MessageSource&lt;/code&gt; and &lt;code&gt;MessageHandler&lt;/code&gt; metrics can now be enabled independently of JMX.&lt;/p&gt;&lt;h2&gt;&lt;a href="#file-scanner" class="anchor" name="file-scanner"&gt;&lt;/a&gt;File Scanner&lt;/h2&gt;&lt;p&gt;A new directory scanner is available to more efficiently scan directory hierarchies by reacting to file system events rather than scanning the whole tree on every poll. (Requires Java 7)&lt;/p&gt;&lt;h2&gt;&lt;a href="#event-channel-adapters" class="anchor" name="event-channel-adapters"&gt;&lt;/a&gt;Event Channel Adapters&lt;/h2&gt;&lt;p&gt;The event channel adapters now support the new POJO &lt;code&gt;ApplicationEvent&lt;/code&gt; support in Spring Framework 4.2.&lt;/p&gt;&lt;h2&gt;&lt;a href="#process-barrier" class="anchor" name="process-barrier"&gt;&lt;/a&gt;Process Barrier&lt;/h2&gt;&lt;p&gt;A new component has been introduced allowing an integration flow to be suspended until some asynchronous event occurs. (&lt;a href="https://github.com/spring-projects/spring-integration-samples/pull/141"&gt;Sample app coming soon&lt;/a&gt; where we wait for RabbitMQ publisher confirms before returning an HTTP response).&lt;/p&gt;&lt;h2&gt;&lt;a href="#last-modified-file-list-filter" class="anchor" name="last-modified-file-list-filter"&gt;&lt;/a&gt;Last Modified File List Filter&lt;/h2&gt;&lt;p&gt;A common problem with polling directories is if the file producer creates the file &amp;ldquo;in-place&amp;rdquo;; the file can be picked up while it is still being written. It is generally recommended to create the file with a temporary name and rename it when it is complete. If that cannot be done, however, this new filter prevents a file from being processed until it hasn&amp;rsquo;t been modified for some time period.&lt;/p&gt;&lt;h2&gt;&lt;a href="#codec" class="anchor" name="codec"&gt;&lt;/a&gt;Codec&lt;/h2&gt;&lt;p&gt;A codec abstraction (including a Kryo implementation) has been introduced as an alternative to java serialization.&lt;/p&gt;&lt;h2&gt;&lt;a href="#jms-shared-subscriptions" class="anchor" name="jms-shared-subscriptions"&gt;&lt;/a&gt;JMS Shared Subscriptions&lt;/h2&gt;&lt;p&gt;JMS 2.0 shared subscriptions are now supported by the namespace, simplifying configuration when using XML.&lt;/p&gt;&lt;h2&gt;&lt;a href="#s-ftp-improvements" class="anchor" name="s-ftp-improvements"&gt;&lt;/a&gt;(S)FTP improvements&lt;/h2&gt;&lt;p&gt;Inbound channel adapters can now use an expression for the remote directory.&lt;/p&gt;&lt;h2&gt;&lt;a href="#soap-action-propagation" class="anchor" name="soap-action-propagation"&gt;&lt;/a&gt;SOAP Action Propagation&lt;/h2&gt;&lt;p&gt;It is now easier to implement a web service proxy using Spring Integration.&lt;/p&gt;&lt;h2&gt;&lt;a href="#previous-milestones" class="anchor" name="previous-milestones"&gt;&lt;/a&gt;Previous Milestones&lt;/h2&gt;&lt;p&gt;A reminder of features already announced that were in the &lt;a href="https://spring.io/blog/2015/05/28/spring-integration-4-2-milestone-1-is-available"&gt;milestone 1&lt;/a&gt; and &lt;a href="https://spring.io/blog/2015/07/07/spring-integration-4-2-milestone-2-is-available-and-4-1-6"&gt;milestone 2&lt;/a&gt; releases:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;A significant overhaul of the JMX support in the framework, providing performance and other improvements when JMX is enabled&lt;/li&gt;
+  &lt;li&gt;A mongodb metadata store&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;@SecuredChannel&lt;/code&gt; annotation&lt;/li&gt;
+  &lt;li&gt;Conditional Pollers - the polling interval can be adjusted dynamically, based on the results of (or before executing) the current poll&lt;/li&gt;
+  &lt;li&gt;Cross Origin Resource Sharing (CORS) support in the http inbound gateway&lt;/li&gt;
+  &lt;li&gt;Zookeeper Support for leadership, locks, and metadata&lt;/li&gt;
+  &lt;li&gt;CompletableFuture gateway method return values&lt;/li&gt;
+  &lt;li&gt;Aggregator improvements&lt;/li&gt;
+  &lt;li&gt;(S)FTP improvements&lt;/li&gt;
+  &lt;li&gt;Some performance bottlenecks have been identified and corrected.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;For complete contents of the milestone releases, see the JIRA release notes for &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=14855"&gt;M1&lt;/a&gt; and &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=15106"&gt;M2&lt;/a&gt;&lt;/p&gt;&lt;p&gt;For complete contents of this release candidate, see the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=15231"&gt;release notes&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Also refer to the &lt;a href="http://docs.spring.io/spring-integration/docs/4.2.0.RC1/reference/html/whats-new.html"&gt;reference documentation &amp;ldquo;what&amp;rsquo;s new&amp;rdquo; chapter&lt;/a&gt;&lt;/p&gt;&lt;p&gt;See &lt;a href="http://projects.spring.io/spring-integration/"&gt;the project page&lt;/a&gt; for links to documentation, samples and download information.&lt;/p&gt;&lt;p&gt;Please try out these new features and improvements; it is your last chance for feedback before the final release planned for early September, just in time for SpringOne.&lt;/p&gt;&lt;p&gt;Also, don&amp;rsquo;t forget to check out the recent work in the &lt;strong&gt;Spring Integration Extensions projects&lt;/strong&gt; (&lt;a href="https://github.com/spring-projects/spring-integration-kafka"&gt;kafka&lt;/a&gt;, &lt;a href="https://github.com/spring-projects/spring-integration-extensions/tree/master/spring-integration-hazelcast"&gt;hazlecast&lt;/a&gt;).&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt;. It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. &lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring AMQP 1.5.0 Release Candidate Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/14/spring-amqp-1-5-0-release-candidate-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Gary Russell</name>
+    </author>
+    <id>tag:spring.io,2015-08-13:2213</id>
+    <updated>2015-08-14T16:53:38Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that the release candidate for the 1.5 release is now available.&lt;/p&gt;&lt;p&gt;New features and improvements in this release include:&lt;/p&gt;&lt;h2&gt;&lt;a href="#enhanced-ha-queue-support" class="anchor" name="enhanced-ha-queue-support"&gt;&lt;/a&gt;Enhanced HA Queue Support&lt;/h2&gt;&lt;p&gt;The high availability queue support has been enhanced in that you can configure a listener container to connect to the broker that is currently the master for the container&amp;rsquo;s queue. If the connection is lost, the new master is determined and a connection to that broker is established.&lt;/p&gt;&lt;h2&gt;&lt;a href="#rabbittemplate-blocking-receive" class="anchor" name="rabbittemplate-blocking-receive"&gt;&lt;/a&gt;RabbitTemplate Blocking Receive&lt;/h2&gt;&lt;p&gt;It is now possible to use the the &lt;code&gt;RabbitTemplate&lt;/code&gt; to receive ad-hoc messages. Previously, only a non-blocking &lt;code&gt;receive()&lt;/code&gt; was available.&lt;/p&gt;&lt;h2&gt;&lt;a href="#sendandreceive-operations-returns" class="anchor" name="sendandreceive-operations-returns"&gt;&lt;/a&gt;SendAndReceive Operations (returns)&lt;/h2&gt;&lt;p&gt;It is now possible to configure the &lt;code&gt;RabbitTemplate&lt;/code&gt; to throw an exception while waiting for a reply if a message is returned by the broker.&lt;/p&gt;&lt;h2&gt;&lt;a href="#messagelisteneradapter" class="anchor" name="messagelisteneradapter"&gt;&lt;/a&gt;MessageListenerAdapter&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;MessageListenerAdapter&lt;/code&gt; can be configured to invoke different methods, based on the queue the message was received from.&lt;/p&gt;&lt;h2&gt;&lt;a href="#milestone" class="anchor" name="milestone"&gt;&lt;/a&gt;Milestone&lt;/h2&gt;&lt;p&gt;As a reminder, the following new features were previously announced when &lt;a href="https://spring.io/blog/2015/05/08/spring-amqp-1-4-5-release-and-1-5-0-m1-available"&gt;milestone 1&lt;/a&gt; was released:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Class-level &lt;code&gt;@RabbitListener&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Auto-Declare Queues and Bindings for &lt;code&gt;@RabbitListener&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;Configurable Exchange/Routing Key for Replies&lt;/li&gt;
+  &lt;li&gt;RabbitManagementTemplate REST abstraction&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Complete information about the contents of this release can be seen in the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10450&amp;version=15010"&gt;JIRA release notes&lt;/a&gt;. Also see the &lt;a href="http://docs.spring.io/spring-amqp/docs/1.5.0.RC1/reference/html/_introduction.html#_changes_in_1_5_since_1_4"&gt;&amp;ldquo;what&amp;rsquo;s new&amp;rdquo; section in the reference manual&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Please try out these new features and improvements; it is your last chance for feedback before the final release planned for early September, just in time for SpringOne.&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt;. It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. &lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - August 11, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/12/this-week-in-spring-august-11-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-08-12:2211</id>
+    <updated>2015-08-12T03:40:12Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installation of &lt;em&gt;This Week in Spring&lt;/em&gt;! As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring ninja Stephane Nicoll just announced &lt;a href="http://spring.io/blog/2015/08/11/spring-boot-1-3-0-m3-available-now"&gt;Spring Boot 1.3.0.M3&lt;/a&gt;, chock full of great features including HTTP session persistence, JMS and AMQP improvements, logging improvements, and auto-configurations for the H2 Database console and embedded MongoDB.&lt;/li&gt;
+  &lt;li&gt;Spring Batch lead &lt;a href="http://spring.io/blog/2015/08/10/spring-batch-3-0-5-release-is-now-available"&gt;Michael Minella just announced Spring Batch 3.0.5&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Check out this cool look &lt;a href="http://www.javacodegeeks.com/2015/08/processing-twitter-feed-using-spring-boot.html"&gt;at using Spring Boot to process Twitter feeds with Neo4j&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;check out this interesting Chinese-language &lt;a href="http://samchu.logdown.com/posts/290211-spring-boot-yaml-uses"&gt;post on using &lt;code&gt;.yml&lt;/code&gt; with Spring Boot&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Disid corporation has &lt;a href="http://spring.io/blog/2015/08/11/spring-roo-1-3-2-rc1-maintenance-release-now-available"&gt;just announced a maintenance release for Spring Roo&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Just saw this post. Our very own &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/pivotal-people/meet-cornelia-davis-pivotals-role-model-for-women-in-cloud"&gt;Cornelia Davis, director of platform engineering, was recognized as one of the top 10 women in cloud&lt;/a&gt; by CloudNOW! As she has for years now, &lt;a href="https://2015.event.springone2gx.com/presenters/cornelia_davis.html"&gt;she&amp;rsquo;ll be at SpringOne2GX&lt;/a&gt;..&lt;/li&gt;
+  &lt;li&gt;the All &amp;amp; Sundry blog has a cool post looking at how &lt;a href="http://www.java-allandsundry.com/2015/08/working-with-spring-cloud-and-netflix_8.html"&gt;to use Netflix&amp;rsquo;s Archaius with Spring Cloud&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Speaking of configuration management, check out this post on &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/products/app-configuration-management-with-config-servers-in-cloud-foundry"&gt;using configuration servers, including the Spring Cloud Config Server, on Cloud Foundry&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;i dig this post on using &lt;a href="http://www.journaldev.com/8748/spring-4-mvc-security-managing-roles-example-with-in-memorywithout-web-xml-and-without-spring-xml-configuration"&gt;straight Java configuration to configure Spring Security roles&lt;/a&gt; in a Spring MVC web application.&lt;/li&gt;
+  &lt;li&gt;our very own Michael Cote asked me to record a podcast or two with him. &lt;a href="http://blog.pivotal.io/pivotal-conversations/features/injecting-cloud-native-thinking-into-java-with-spring-boot?utm_source=social&amp;account_id&amp;utm_medium=TWITTER&amp;pivotal&amp;utm_campaign=Products&amp;20150808"&gt;The first installment is now available&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Roo 1.3.2 RC1 maintenance release now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/11/spring-roo-1-3-2-rc1-maintenance-release-now-available" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2015-08-11:2210</id>
+    <updated>2015-08-11T11:37:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf on the Spring Roo team at DISID Corporation, I am pleased to announce&lt;br/&gt;that Spring Roo 1.3.2 RC1 released candidate is out.&lt;/p&gt;&lt;p&gt;Spring Roo is a rapid application development tool for Java,&lt;br/&gt;allowing you to create full enterprise applications in just minutes.&lt;/p&gt;&lt;p&gt;Spring Roo jar files have been published to Maven Central.&lt;br/&gt;As always, the release is available in the Spring IO repository.&lt;/p&gt;&lt;p&gt;The candidate release fixes the following issues:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Error adding InnerType constructor on ITD Generation &lt;a href="https://jira.spring.io/browse/ROO-3583"&gt;ROO-3583&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;JavaBean implementing Interface defining getters and setters &lt;a href="https://jira.spring.io/browse/ROO-3584"&gt;ROO-3584&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;JavaBean implementing Interface and overriding getter causing null pointer &lt;a href="https://jira.spring.io/browse/ROO-3585"&gt;ROO-3585&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Request loose additional parameters when change language &lt;a href="https://jira.spring.io/browse/ROO-3595"&gt;ROO-3595&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add support to generate Generic Methods &lt;a href="https://jira.spring.io/browse/ROO-3648"&gt;ROO-3648&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Update Selenium to support later versions of Firefox &lt;a href="https://jira.spring.io/browse/ROO-3634"&gt;ROO-3634&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add renderLabel attribute in form fields tags &lt;a href="https://jira.spring.io/browse/ROO-3639"&gt;ROO-3639&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;JpaActiveRecord entity implementing interface with getId(): double generation &lt;a href="https://jira.spring.io/browse/ROO-3587"&gt;ROO-3587&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Update Tomcat7 Maven plugin version &lt;a href="https://jira.spring.io/browse/ROO-3652"&gt;ROO-3652&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Generate command &amp;ldquo;selenium all&amp;rdquo; &lt;a href="https://jira.spring.io/browse/ROO-3636"&gt;ROO-3636&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add support to generate Generic Methods &lt;a href="https://jira.spring.io/browse/ROO-3648"&gt;ROO-3648&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;It is highly recommended that all Spring Roo users upgrade to this version.&lt;/p&gt;&lt;p&gt;For full details on the changes made in the release, please refer to the&lt;br/&gt;&lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10340&amp;version=15266"&gt;Release Note in Jira&lt;/a&gt;&lt;/p&gt;&lt;p&gt;For more project specific information please see the&lt;br/&gt;&lt;a href="http://projects.spring.io/spring-roo/"&gt;Site&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-roo"&gt;GitHub&lt;/a&gt; | &lt;a href="https://jira.spring.io/browse/ROO-3655"&gt;Issues in Jira&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Thanks to the awesome users who came up with useful bug reports and suggestions.&lt;br/&gt;This is a candidate release, please try out the updates and provide feedback.&lt;br/&gt;As always, you&amp;rsquo;ll also find Roo on Twitter - either follow @SpringRoo or just include #SpringRoo in your tweets.&lt;/p&gt;&lt;p&gt;Stay tuned!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Boot 1.3.0.M3 Available Now</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/11/spring-boot-1-3-0-m3-available-now" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>St¨¦phane Nicoll</name>
+    </author>
+    <id>tag:spring.io,2015-08-11:2209</id>
+    <updated>2015-08-11T11:36:09Z</updated>
+    <content type="html">&lt;p&gt;It is my pleasure to announce that Spring Boot v1.3.0.M3 is available now from the &lt;a href="http://repo.springsource.org/milestone/"&gt;Spring milestone repository&lt;/a&gt;. This release includes &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.3.0.M3+is%3Aissue+is%3Aclosed"&gt;90 fixes and improvements&lt;/a&gt; and merges &lt;a href="https://github.com/spring-projects/spring-boot/pulls?utf8=%E2%9C%93&amp;q=is%3Apr+is%3Aclosed+milestone%3A1.3.0.M3"&gt;38 pull-requests&lt;/a&gt;! Thanks &lt;em&gt;again&lt;/em&gt; to everyone that has contributed.&lt;/p&gt;&lt;p&gt;Highlights of the new release include:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;HTTP session persistence (enabled automatically with Devtools)&lt;/li&gt;
+  &lt;li&gt;Configuration improvements for JMS and AMQP endpoints&lt;/li&gt;
+  &lt;li&gt;Various Logback and log4j 2 improvements&lt;/li&gt;
+  &lt;li&gt;Auto-configuration classes can now be excluded via configuration&lt;/li&gt;
+  &lt;li&gt;Auto-configuration for embedded MongoDB&lt;/li&gt;
+  &lt;li&gt;Auto-configuration for H2 web console&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.3-Release-Notes"&gt;Spring Boot 1.3 Release Notes&lt;/a&gt; on the wiki and the updated &lt;a href="http://docs.spring.io/spring-boot/docs/1.3.0.M3/reference/htmlsingle/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC&lt;/a&gt; soon. It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. Join Brian and myself for an &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/intro_to_spring_boot_for_the_web_tier.html"&gt;intro to Spring Boot for the web tier&lt;/a&gt;.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Batch 3.0.5.RELEASE is now available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/10/spring-batch-3-0-5-release-is-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Michael Minella</name>
+    </author>
+    <id>tag:spring.io,2015-08-10:2208</id>
+    <updated>2015-08-10T17:48:05Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce that Spring Batch 3.0.5.RELEASE is now available via Maven Central, Github and the Pivotal download repository. This is the 5th maintenance release for the 3.0.x branch of Spring Batch and addresses a number of minor enhancements as well as bringing Spring Batch fully compatible with Spring Framework 4.2. Many thanks to all of those who submitted the many &lt;a href="https://github.com/spring-projects/spring-batch/pulls"&gt;pull requests&lt;/a&gt; that went into this release.&lt;/p&gt;&lt;p&gt;&lt;a href="http://spring.io/projects/spring-batch"&gt;Spring Batch Home&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-batch"&gt;Source on GitHub&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-batch/"&gt;Reference Documentation&lt;/a&gt;&lt;/p&gt;&lt;p&gt;We look forward to your feedback in &lt;a href="https://jira.spring.io/browse/BATCH"&gt;Jira&lt;/a&gt;, &lt;a href="http://stackoverflow.com/questions/tagged/spring-batch"&gt;StackOverflow&lt;/a&gt;, or to me directly via Twitter &lt;a href="twitter.com/michaelminella"&gt;@michaelminella&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h2&gt;&lt;p&gt;Check out what&amp;rsquo;s new in Spring at SpringOne in Washington D.C! Learn about Spring Batch updates and how they fit into a modern architecture at &lt;a href="https://2015.event.springone2gx.com/schedule/sessions/who_needs_batch_these_days.html"&gt;Who needs batch these days?&lt;/a&gt; as well as learning about the future of batch and streaming technologies in the various Spring XD talks. Register today!&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - August 4th, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/04/this-week-in-spring-august-4th-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-08-04:2207</id>
+    <updated>2015-08-04T18:48:16Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Washington D.C., delivering some cloud-native realtalk at the Agile 2015 conference with my pal &lt;a href="http://twitter.com/littleidea"&gt;Andrew Clay Shafer&lt;/a&gt; then it&amp;rsquo;s off to Denver, CO, again to speak to customers! If you&amp;rsquo;re in either area, say hi!&lt;/p&gt;&lt;p&gt;We&amp;rsquo;re fast approaching SpringOne2GX 2015! Things are getting exciting around here as the team delivers more and more amazing bits! The weeks to come, leading into SpringOne2GX, are my favorite time of the year. Watch this space for new releases aplenty! &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The biggest announcement, this week, of course, is &lt;a href="https://spring.io/blog/2015/07/31/spring-framework-4-2-goes-ga"&gt;&lt;strong&gt;the General availability of Spring framework 4.2&lt;/strong&gt;&lt;/a&gt;! Get the bits while they&amp;rsquo;re hot! This is a game changer release, packed with new features! I&amp;rsquo;ll wait while you go read the new features list..&lt;/li&gt;
+  &lt;li&gt;..Welcome back! Have you upgraded your applications already to Spring framework 4.2? Good! Next up on the list: Spring framework lead Juergen Hoeller&amp;rsquo;s followup post &lt;a href="https://spring.io/blog/2015/08/03/coming-up-in-2016-spring-framework-4-3-5-0"&gt;looking forward to the next feature release of Spring Framework, 4.3&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Session (and Spring Security!) lead Rob Winch &lt;a href="https://spring.io/blog/2015/08/03/spring-session-1-0-2-released"&gt;just announced Spring Session 1.0.2&lt;/a&gt;. This release is a bug-fix release and paves the way for work to begin on Spring Session 1.1. As such, it&amp;rsquo;s a recommended and easy upgrade.&lt;/li&gt;
+  &lt;li&gt;Spring Statemachine lead Janne Valkealahti &lt;a href="https://spring.io/blog/2015/08/04/spring-statemachine-1-0-0-m3-released"&gt;just announced Spring Statemachine 1.0.0 M3&lt;/a&gt;, packed with new features including distributed state machine, persisting, state machine context, relaxed use of enums as states and events, programmatic instantiation of state machines, and much more.&lt;/li&gt;
+  &lt;li&gt;I did a blog last week on forklifting applications from legacy &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/features/the-forklifted-application"&gt;environments to a modern cloud platform like Cloud Foundry&lt;/a&gt;. The post is about how to shoehorn applications into your shiny new platform.&lt;/li&gt;
+  &lt;li&gt;Spring for Apache Hadoop lead Thomas Risberg just announced &lt;a href="https://spring.io/blog/2015/08/04/spring-for-apache-hadoop-2-3-milestone-1-released"&gt;Spring for Apache Hadoop 2.3 M1&lt;/a&gt;. This release adds Hadoop 2.7.1 as the default release, adds support for HDP 2.3 and CDH 5.4.4 releases, includes bug fixes, and better support for Spring Boot as well as Hive 1.x and HiveServer 2.&lt;/li&gt;
+  &lt;li&gt;Spring Data lead Oliver Gierke &lt;a href="https://spring.io/blog/2015/08/04/first-release-candidate-of-spring-data-release-train-gosling-available"&gt;just announced the first release candidate of Spring Data Gosling&lt;/a&gt; which includes QueryDSL integration for Spring Data REST and Spring MVC, Spring framework 4.2 and Spring Boot 1.3 integration, the &lt;code&gt;RepositoryRestConfigurer&lt;/code&gt; for easier configuration, and a slew of updated module versions.&lt;/li&gt;
+  &lt;li&gt;I liked our own James Watters&amp;rsquo; post &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/features/mapping-the-cloud-native-journey"&gt;on &lt;em&gt;the Cloud Native Journey&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Scott Frederick just announced that &lt;a href="https://spring.io/blog/2015/07/29/spring-cloud-connectors-1-2-0-released"&gt;the Spring Cloud Connectors 1.2.0&lt;/a&gt; are now available! Spring Cloud connectors take advantage of the indirection afforded by dependency injection to instantiate and define beans that act as clients to common backing services exposed in a cloud environment, like Cloud Foundry, usually through some context like environment variables. This release includes a few key bugfixes and new support for lots of things, including IBM DB2 and Microsoft SQL Server relational databases.&lt;/li&gt;
+  &lt;li&gt;I can&amp;rsquo;t exactly read this Japanese language slide deck on &lt;a href="https://speakerdeck.com/bati11/spring-boot-to-swagger-number-shibui-gu-java"&gt;using Spring and Swagger but it seemed interesting&lt;/a&gt;. I&amp;rsquo;d recommend people consult &lt;a href="http://projects.spring.io/spring-restdocs/"&gt;Spring REST Docs&lt;/a&gt; before jumping into Swagger, however.&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>First Release Candidate of Spring Data Release Train Gosling Available</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/04/first-release-candidate-of-spring-data-release-train-gosling-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Oliver Gierke</name>
+    </author>
+    <id>tag:spring.io,2015-08-04:2205</id>
+    <updated>2015-08-04T14:38:00Z</updated>
+    <content type="html">&lt;p&gt;On behalf of the Spring Data team, I am pleased to announce the availability of the first and final release candidate of Spring Data release train Gosling. The release ships &lt;a href="https://jira.spring.io/issues/?filter=15147"&gt;121 fixes&lt;/a&gt; and enhancements, most notably the following ones:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Querydsl integration for Spring MVC and Spring Data REST (see &lt;a href="https://github.com/spring-projects/spring-data-examples/tree/master/web/querydsl#interesting-bits"&gt;the example&lt;/a&gt; for details).&lt;/li&gt;
+  &lt;li&gt;Improved compatibility with Spring Framework 4.2 and Spring Boot dev tools.&lt;/li&gt;
+  &lt;li&gt;Spring Data JPA now exposes a &lt;code&gt;JpaContext&lt;/code&gt; to easily obtain an &lt;code&gt;EntityManager&lt;/code&gt; per domain type.&lt;/li&gt;
+  &lt;li&gt;&lt;code&gt;RepositoryRestConfigurer&lt;/code&gt; for less invasive configuration in Spring Data REST.&lt;/li&gt;
+  &lt;li&gt;Spring Data Redis uses Lettuce fork maintained by Mark Paluch.&lt;/li&gt;
+  &lt;li&gt;Support for &lt;code&gt;ReadPreference&lt;/code&gt; in Spring Data MongoDB aggregations.&lt;/li&gt;
+  &lt;li&gt;Support for range facets in Spring Data Solr.&lt;/li&gt;
+  &lt;li&gt;Dependency upgrades to Spring Framework 4.1.7, Guava 18 and Jackson 2.6.&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;We&amp;rsquo;re now heading towards a GA in roundabout 4 weeks. So it&amp;rsquo;s perfect timing to give the release candidates a spin and report any findings you might run into upgrading.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Spring Data Commons 1.11 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-commons/1.11.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.11.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.11.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/commons/docs/1.11.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data JPA 1.9 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-jpa/1.9.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.9.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.9.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/jpa/docs/1.9.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data MongoDB 1.8 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-mongodb/1.8.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.8.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.8.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/mongodb/docs/1.8.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Neo4j 3.4 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-neo4j/3.4.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.4.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.4.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/neo4j/docs/3.4.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Solr 1.5 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-solr/1.5.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.5.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.5.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/solr/docs/1.5.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Couchbase 1.4 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-couchbase/1.4.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.4.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.4.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/couchbase/docs/1.4.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Cassandra 1.3 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-cassandra/1.3.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.3.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.3.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/cassandra/docs/1.3.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Elasticsearch 1.3 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-elasticsearch/1.3.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.3.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.3.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/elasticsearch/docs/1.3.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Gemfire 1.7 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-gemfire/1.7.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.7.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.7.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/gemfire/docs/1.7.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data Redis 1.6 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-redis/1.6.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.6.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.6.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/redis/docs/1.6.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data KeyValue 1.0 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-keyvalue/1.0.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/1.0.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/1.0.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/keyvalue/docs/1.0.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring Data REST 2.4 RC1 - &lt;a href="https://repo.spring.io/libs-milestone/org/springframework/data/spring-data-rest-webmvc/2.4.0.RC1"&gt;Artifacts&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.4.0.RC1/api"&gt;JavaDocs&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.4.0.RC1/reference/html"&gt;Documentation&lt;/a&gt; - &lt;a href="http://docs.spring.io/spring-data/rest/docs/2.4.0.RC1/changelog.txt"&gt;Changelog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;h2&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h2&gt;&lt;p&gt;Only a few more days until the early-bird pricing runs out for &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt;. It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. We&amp;rsquo;re going to showcase a lot of the work currently and progress and give an in-depth view into state of the art data access.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring for Apache Hadoop 2.3 Milestone 1 released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/04/spring-for-apache-hadoop-2-3-milestone-1-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Thomas Risberg</name>
+    </author>
+    <id>tag:spring.io,2015-08-04:2206</id>
+    <updated>2015-08-04T12:31:00Z</updated>
+    <content type="html">&lt;p&gt;We are pleased to announce the Spring for Apache Hadoop 2.3 M1 milestone release.&lt;/p&gt;&lt;p&gt;The most important enhancements in the Spring for Apache Hadoop 2.3 M1 version: &lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Add Hadoop 2.7.1 as the default release&lt;/li&gt;
+  &lt;li&gt;Add support for HDP 2.3 and CDH 5.4.4&lt;/li&gt;
+  &lt;li&gt;Bug fixes: Fix for append reopen may fail &lt;a href="https://jira.spring.io/browse/SHDP-510"&gt;SHDP-510&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Better boot support: Support boot config props metadata &lt;a href="https://jira.spring.io/browse/SHDP-452"&gt;SHDP-452&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Add support for Hive 1.x and HiveServer2&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;See the release &lt;a href="http://docs.spring.io/spring-hadoop/docs/2.3.0.M1/changelog.txt"&gt;changelog&lt;/a&gt; for details.&lt;/p&gt;&lt;p&gt;To be able to use Hive 1.x which dropped support for HiveServer1 and the corresponding Thrift client we had to rewrite the Hive support in Spring for Apache Hadoop. We now support HiveServer2 using the JDBC client and for the most common uses you only need to change the client configuration to use a hiveDataSource. Here is an example:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;hive-client-factory id=&amp;quot;hiveClientFactory&amp;quot; hive-data-source-ref=&amp;quot;hiveDataSource&amp;quot;/&amp;gt;&#xD;
+&amp;lt;beans:bean id=&amp;quot;hiveDriver&amp;quot; class=&amp;quot;org.apache.hive.jdbc.HiveDriver&amp;quot;/&amp;gt;&#xD;
+&amp;lt;beans:bean id=&amp;quot;hiveDataSource&amp;quot; class=&amp;quot;org.springframework.jdbc.datasource.SimpleDriverDataSource&amp;quot;&amp;gt;&#xD;
+	&amp;lt;beans:constructor-arg name=&amp;quot;driver&amp;quot; ref=&amp;quot;hiveDriver&amp;quot;/&amp;gt;&#xD;
+	&amp;lt;beans:constructor-arg name=&amp;quot;url&amp;quot; value=&amp;quot;jdbc:hive2://localhost:10000&amp;quot;/&amp;gt;&#xD;
+&amp;lt;/beans:bean&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;If you used the &lt;code&gt;org.apache.hadoop.hive.service.HiveClient&lt;/code&gt; directly in your code you need to switch to use the new &lt;code&gt;org.springframework.data.hadoop.hive.HiveClient&lt;/code&gt; which mimics the old Thrift based client but uses the JDBC driver to communicate with the HiveServer2. &lt;/p&gt;&lt;p&gt;The changes that we made to the Spring for Apache Hadoop &lt;a href="https://github.com/spring-projects/spring-hadoop-samples/tree/master/hive"&gt;Hive example&lt;/a&gt; code can be seen in this &lt;a href="https://github.com/spring-projects/spring-hadoop-samples/commit/b1569e5f9f1fdfde9530e44bf0b32c0d1d3798d1"&gt;commit&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;We continue to provide version specific artifacts with their respective transitive dependencies in the Spring IO milestone repository:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;2.3.0.M1 (default - Apache Hadoop stable 2.7.1)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M1-hadoop26 (Apache Hadoop 2.6.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M1-phd30 (Pivotal HD 3.0)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M1-cdh5 (Cloudera CDH 5.4)&lt;/li&gt;
+  &lt;li&gt;2.3.0.M1-hdp23 (Hortonworks HDP 2.3)&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;Please provide feedback so we can prioritize the work on new features scheduled for 2.3 (see previous &lt;a href="https://spring.io/blog/2015/05/21/spring-for-apache-hadoop-2-2-rc1-released"&gt;blog post&lt;/a&gt; for a list) and any additional feature requests. You can use JIRA issues or GitHub issues (see project page for links).&lt;/p&gt;&lt;p&gt;The project page is at - &lt;a href="http://projects.spring.io/spring-hadoop/"&gt;http://projects.spring.io/spring-hadoop/&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Statemachine 1.0.0.M3 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/04/spring-statemachine-1-0-0-m3-released" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Janne Valkealahti</name>
+    </author>
+    <id>tag:spring.io,2015-08-02:2203</id>
+    <updated>2015-08-04T08:50:00Z</updated>
+    <content type="html">&lt;p&gt;We¡¯re pleased to announce a third milestone release of &lt;a href="http://projects.spring.io/spring-statemachine/"&gt;Spring Statemachine&lt;/a&gt; 1.0.0.M3.&lt;/p&gt;&lt;p&gt;A lot has happened since a previous milestone and getting here took a bit more time we originally estimated. Now that we&amp;rsquo;re here, let&amp;rsquo;s crack it and see what new features we have in this release.&lt;/p&gt;&lt;p&gt;Beyond usual bug fixes here is a list of main new features:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Distributed state machine&lt;/li&gt;
+  &lt;li&gt;Persisting state machine context&lt;/li&gt;
+  &lt;li&gt;Relax use of enums as states and events&lt;/li&gt;
+  &lt;li&gt;Programmatic instantiation of state machines&lt;/li&gt;
+  &lt;li&gt;New recipe modules&lt;/li&gt;
+  &lt;li&gt;New samples (persist, zookeeper, web)&lt;/li&gt;
+&lt;/ul&gt;&lt;h1&gt;&lt;a href="#distributed-state-machine" class="anchor" name="distributed-state-machine"&gt;&lt;/a&gt;Distributed state machine&lt;/h1&gt;&lt;p&gt;&lt;code&gt;Distributed state&lt;/code&gt; is a new exciting feature which is meant to span state machine concepts through a jvm&amp;rsquo;s boundaries. Let&amp;rsquo;s think about this a second, if there is a state machine running on a single jvm, wouldn&amp;rsquo;t it be nice if a state change on one jvm could automatically fire a state change on other participating state machines on a different jvm&amp;rsquo;s.&lt;/p&gt;&lt;p&gt;Naturally a concept of a distributed state is relatively complex topic and thus in this milestone release we provide this feature as a techinical preview to get a change to play and experience with it.&lt;/p&gt;&lt;p&gt;We do have a new abstraction how arbitrary state machine and jmv can join into a distributed state machine ensemble order to orchestrate state changes externally from a local state machine. First implementation of this abstraction is based on a &lt;a href="http://zookeeper.apache.org/"&gt;Zookeeper&lt;/a&gt;. We have two samples around this topic, &lt;code&gt;zookeeper&lt;/code&gt; and &lt;code&gt;web&lt;/code&gt; samples.&lt;/p&gt;&lt;p&gt;We have a relatively nice sample on top of this and you can read more about it either from our &lt;a href="http://docs.spring.io/spring-statemachine/docs/1.0.0.M3/reference/htmlsingle/#statemachine-examples-web"&gt;reference docs&lt;/a&gt; or later in this blog post.&lt;/p&gt;&lt;p&gt;&lt;img src="http://docs.spring.io/spring-statemachine/docs/1.0.0.M3/reference/htmlsingle/images/sm-dist-n1-4.png" alt="Web Sample" /&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#persist-state-machine" class="anchor" name="persist-state-machine"&gt;&lt;/a&gt;Persist state machine&lt;/h1&gt;&lt;p&gt;Persisting a state machine context was requested by a community order to ease concepts of how a simple state machine instance can be i.e. used to update tables in a database. Essentially this feature is also used in a &lt;code&gt;distributed state machine&lt;/code&gt; but also allows a user to reset a &lt;code&gt;state machine&lt;/code&gt; state in order to work with arbitrary repository updates without having a need to build a new state machine instance for every action. The problem in building a new state machine instance is that instantiation is a relatively heavy operation so able to reset a state machine is much more lightwave operation.&lt;/p&gt;&lt;p&gt;Also, around this feature, we have a new &lt;code&gt;interceptor&lt;/code&gt; feature which allows user to communicate to external systems and i.e. stop a state transition logic if something cannot be persisted into an external storage.&lt;/p&gt;&lt;h1&gt;&lt;a href="#builder-patters-for-building-state-machines" class="anchor" name="builder-patters-for-building-state-machines"&gt;&lt;/a&gt;Builder patters for building state machines&lt;/h1&gt;&lt;p&gt;While using enums as state and event types is a nice concept because it gives you a compile time guarantee of possible combinations, it limits you to compile time exactly. You would not have any change to build a state machine where states and events are build dynamically.&lt;/p&gt;&lt;p&gt;We relaxed requirement of using &lt;code&gt;enums&lt;/code&gt; and it is now possible to use &lt;code&gt;strings&lt;/code&gt; as states and events. This requirement was also one of a multiple requests from a community and probably one of a best feature requests.&lt;/p&gt;&lt;p&gt;Now that we are able to step away from enums, it opened up an interesting chance to implement a real &lt;code&gt;builder pattern&lt;/code&gt; which allows to build state machine instances on demand. We still use same familiar interfaces from the annotation config model, but instead of setting things up at compile time, everything can be build dynamically on demand.&lt;/p&gt;&lt;p&gt;Simplified example of this shown below where transitions are not configured:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;StateMachine&amp;lt;String, String&amp;gt; buildMachine() throws Exception {&#xD;
+  Builder&amp;lt;String, String&amp;gt; builder = StateMachineBuilder.builder();&#xD;
+  builder.configureStates()&#xD;
+    .withStates()&#xD;
+      .initial(&amp;quot;SI&amp;quot;)&#xD;
+      .end(&amp;quot;SF&amp;quot;)&#xD;
+      .states(new HashSet&amp;lt;String&amp;gt;(Arrays.asList(&amp;quot;S1&amp;quot;,&amp;quot;S2&amp;quot;,&amp;quot;S3&amp;quot;,&amp;quot;S4&amp;quot;)));&#xD;
+  return builder.build();&#xD;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;h1&gt;&lt;a href="#recipes" class="anchor" name="recipes"&gt;&lt;/a&gt;Recipes&lt;/h1&gt;&lt;p&gt;In some Spring projects we&amp;rsquo;re starting to use a concept of a &lt;code&gt;recipe&lt;/code&gt;. Recipe concept is familiar from a &lt;a href="http://zookeeper.apache.org/"&gt;Zookeeper&lt;/a&gt; and &lt;a href="http://curator.apache.org/"&gt;Curator&lt;/a&gt; where correct usa of a base system might have fealt a little difficult. People had similar uses cases and copypasting code became a usual manner and these usual use cases were transferred into recipes.&lt;/p&gt;&lt;p&gt;We&amp;rsquo;re simply taking this same concept into a &lt;code&gt;Spring Statemachine&lt;/code&gt; by starting to add recipes for common use cases. First two recipes are &lt;code&gt;tasks&lt;/code&gt; and &lt;code&gt;persist&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;You can find more info about these from a &lt;a href="http://docs.spring.io/spring-statemachine/docs/1.0.0.M3/reference/htmlsingle"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;h1&gt;&lt;a href="#samples" class="anchor" name="samples"&gt;&lt;/a&gt;Samples&lt;/h1&gt;&lt;p&gt;Samples are always the bread and butter to understand how things are used. We have three new samples, &lt;code&gt;zookeeper&lt;/code&gt; and &lt;code&gt;web&lt;/code&gt; which are samples for a distributed state machine, &lt;code&gt;persist&lt;/code&gt; is a sample showing how an arbitrary database change can be handled via a state machine.&lt;/p&gt;&lt;p&gt;Web sample is a little more complicated example what it really needs be because we added an UI layer which is using JS fronted and communicates with backend server over websockets to notify state machine state changes. State machine is running inside a &lt;code&gt;Spring Boot&lt;/code&gt; app and UI is updated automatically from changes in a state machine. &lt;/p&gt;&lt;p&gt;Where do we go from here? Currently we&amp;rsquo;re expecting this release to be a last milestone and next release should be a first release candicate. We are mostly feature complete and in terms of adding new big features we&amp;rsquo;re going to step into a code freeze. Topics of getting into a RC phase is to fix more bugs, getting core as stable as possible, and especially getting distributed states feature stable.&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt;. Super Early Bird Price expires June 12th! It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback.&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Spring Session 1.0.2 Released</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/03/spring-session-1-0-2-released" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Rob Winch</name>
+    </author>
+    <id>tag:spring.io,2015-08-03:2204</id>
+    <updated>2015-08-03T21:28:40Z</updated>
+    <content type="html">&lt;p&gt;I&amp;rsquo;m pleased to announce the release of &lt;a href="http://projects.spring.io/spring-session/"&gt;Spring Session&lt;/a&gt; 1.0.2.RELEASE. You can find the release in &lt;a href="http://repo1.maven.org/maven2/org/springframework/session/"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;This release fixes &lt;a href="https://github.com/spring-projects/spring-session/issues?q=milestone%3A1.0.2"&gt;20+ tickets&lt;/a&gt;. The general goal was to close out bugs before we start working on Spring Session 1.1. You can find the highlights below:&lt;/p&gt;&lt;h2&gt;&lt;a href="#highlights" class="anchor" name="highlights"&gt;&lt;/a&gt;Highlights&lt;/h2&gt;&lt;p&gt;The highlights of Spring Session 1.0.2 are available below:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;ERROR dispatch can cause two sessions to be created (&lt;a href="https://github.com/spring-projects/spring-session/issues/229"&gt;#229&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;CookieHttpSessionStrategy can write the same Session id twice (&lt;a href="https://github.com/spring-projects/spring-session/issues/251"&gt;#251&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Updates to previous HttpSession references are not reflected after changeSessionId() invoked (&lt;a href="https://github.com/spring-projects/spring-session/issues/227"&gt;#227&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Official support for Spring Framework 4.2 (&lt;a href="https://github.com/spring-projects/spring-session/issues/120"&gt;#120&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Our samples remove Embedded Redis (&lt;a href="https://github.com/spring-projects/spring-session/issues/248"&gt;#248&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Documentation improvements and fixes&lt;/li&gt;
+&lt;/ul&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-session/"&gt;Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-session/docs/current/reference/html5/"&gt;Documentation&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-session/docs/current/api/"&gt;Javadoc&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-session/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://stackoverflow.com/questions/tagged/spring-session"&gt;Help&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-session"&gt;Source&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-session/issues?q=milestone%3A1.0.2"&gt;Changelog&lt;/a&gt;&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>Coming up in 2016: Spring Framework 4.3 &amp; 5.0</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/08/03/coming-up-in-2016-spring-framework-4-3-5-0" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Juergen Hoeller</name>
+    </author>
+    <id>tag:spring.io,2015-07-31:2202</id>
+    <updated>2015-08-03T14:40:03Z</updated>
+    <content type="html">&lt;p&gt;As a follow-up to the &lt;a href="https://spring.io/blog/2015/07/31/spring-framework-4-2-goes-ga"&gt;Spring Framework 4.2 GA announcement&lt;/a&gt; and also to my earlier post on &lt;a href="https://spring.io/blog/2015/06/10/feedback-welcome-spring-5-system-requirements"&gt;Spring Framework 5 system requirements&lt;/a&gt;, I&amp;rsquo;d like to take the opportunity to summarize our core framework plans for next year:&lt;/p&gt;&lt;h1&gt;&lt;a href="#spring-framework-4-3" class="anchor" name="spring-framework-4-3"&gt;&lt;/a&gt;Spring Framework 4.3&lt;/h1&gt;&lt;p&gt;First up will be Spring Framework 4.3 in Q2 2016, as a final feature release in the 4.x series.&lt;br/&gt;As mentioned, this will still be designed for the general Spring 4 system requirements (Java 6+, Servlet 2.5+) and getting prepared for an extended 4.3.x support life until 2019, in particular for users on JDK 6 and 7 but also for applications deployed to older app servers on JDK 8.&lt;/p&gt;&lt;p&gt;A key part of our 4.3 plan is to selectively upgrade our third-party dependency arrangement: e.g. fully embracing &lt;a href="https://github.com/junit-team/junit/blob/master/doc/ReleaseNotes4.12.md"&gt;JUnit 4.12&lt;/a&gt;, the &lt;a href="https://github.com/FasterXML/jackson/wiki/Jackson-Release-2.5"&gt;Jackson 2.5+ APIs&lt;/a&gt;, the new &lt;a href="http://sourceforge.net/projects/jasperreports/files/jasperreports/JasperReports%205.5.2/"&gt;JasperReports Exporter API&lt;/a&gt;&amp;hellip; in order to make our corresponding integration classes forward-compatible with future generations of those libraries (through avoiding the use of deprecated types and methods).&lt;/p&gt;&lt;p&gt;Of course, there is also the opportunity to fine-tune recent framework features, in the core configuration model as well as across the various messaging endpoint variants. Check the current &lt;a href="https://jira.spring.io/issues/?jql=fixVersion%20%3D%20%224.3%20Backlog%22%20AND%20project%20%3D%20SPR%20ORDER%20BY%20issuetype%20DESC"&gt;4.3 Backlog on JIRA&lt;/a&gt; for a list of candidate improvements. Make sure you&amp;rsquo;re voicing your opinion on the importance of specific issues through comments and votes on JIRA!&lt;/p&gt;&lt;h1&gt;&lt;a href="#spring-framework-5-0" class="anchor" name="spring-framework-5-0"&gt;&lt;/a&gt;Spring Framework 5.0&lt;/h1&gt;&lt;p&gt;At the same time, we plan towards a Spring Framework 5 generation, with 5.0 GA in Q4 2016. A key step is to require Java 8+, allowing us to apply the Java 8 language level to the entire framework codebase. Currently, we auto-adapt to many Java 8 constructs in your application components but cannot use them ourselves in the core framework codebase yet; in particular, we cannot expose them in core interfaces yet. 5.0 will be an important enabler in that respect.&lt;/p&gt;&lt;p&gt;While Java 8 is the minimum requirement, Spring Framework 5.0 will be built on &lt;a href="http://openjdk.java.net/projects/jdk9/"&gt;JDK 9&lt;/a&gt; right from the start, providing comprehensive support for the upcoming generation of the JDK: including the &lt;a href="http://openjdk.java.net/jeps/110"&gt;new HTTP client API&lt;/a&gt;, &lt;a href="http://cs.oswego.edu/pipermail/concurrency-interest/2015-January/013641.html"&gt;concurrency enhancements&lt;/a&gt;, etc. We will also track the planned JSR-330 (Dependency Injection for Java) revision and provide early support for EE 8 level specs such as &lt;a href="https://www.jcp.org/en/jsr/detail?id=369"&gt;Servlet 4.0&lt;/a&gt; and &lt;a href="https://java.net/projects/jms-spec/pages/JMS21"&gt;JMS 2.1&lt;/a&gt; (as far as feasible against the upcoming previews).&lt;/p&gt;&lt;p&gt;Our &lt;a href="https://jira.spring.io/issues/?jql=project%20%3D%20SPR%20AND%20fixVersion%20%3D%20%225.0%20Backlog%22%20ORDER%20BY%20issuetype%20DESC"&gt;5.0 Backlog on JIRA&lt;/a&gt; indicates various key steps already. This is still in its early planning stages, but nevertheless, feel free to voice your opinion there as well&amp;hellip;&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Framework 4.2 goes GA</title>
     <link rel="alternate" href="https://spring.io/blog/2015/07/31/spring-framework-4-2-goes-ga" />
@@ -202,494 +468,5 @@ public class MyTests {&#xD;
     &amp;lt;logout success-handler-ref=&amp;quot;successHandler&amp;quot;/&amp;gt;&#xD;
 &amp;lt;/http&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;&lt;a href="#changes-for-spring-cloud-security" class="anchor" name="changes-for-spring-cloud-security"&gt;&lt;/a&gt;Changes for Spring Cloud Security&lt;/h2&gt;&lt;p&gt;The release includes changes for Spring Cloud Security (i.e. AES/GCM support).&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-security/"&gt;Project Site&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/4.0.2.RELEASE/reference/htmlsingle/"&gt;Reference&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-security/site/docs/4.0.2.RELEASE/guides/html5/"&gt;Guides&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - July 21, 2015</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/22/this-week-in-spring-july-21-2015" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2015-07-22:2192</id>
-    <updated>2015-07-22T02:53:44Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;m in Denver, CO, at the amazing UberConf conference! As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring framework lead Juergen Hoeller just announced Spring framework 4.2 RC3 and a (slightly delayed!) &lt;a href="http://spring.io/blog/2015/07/15/spring-framework-4-2-rc3-released-ga-on-july-30"&gt;timeline for Spring 4.2 RELEASE: July 30&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Disid corporation just &lt;a href="http://spring.io/blog/2015/07/20/spring-roo-2-0-0-m1-refactors-addons-structures-for-collaboration"&gt;announced Spring Roo 2.0.0.M1&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;my pal Kenny Bastani gives a &lt;em&gt;very&lt;/em&gt; &lt;a href="http://www.kennybastani.com/2015/07/spring-cloud-docker-microservices.html"&gt;comprehensive look at building microservices with Spring Boot and Spring Cloud&lt;/a&gt;. Read this first!&lt;/li&gt;
-  &lt;li&gt;the VP of the cloud platform group, James Watters, put out a very &lt;a href="http://blog.pivotal.io/pivotal-cloud-foundry/features/mapping-the-cloud-native-journey"&gt;nice blog on the cloud-native journey&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;check out Bozhidar Bozhanov&amp;rsquo;s &lt;a href="http://www.javacodegeeks.com/2015/07/tomcats-default-connectors.html"&gt;great post on Tomcat&amp;rsquo;s connectors&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Voxxed did a great interview with Spring Boot and Spring Cloud co-founder &lt;a href="http://spring.io/team/dsyer"&gt;Dr. Dave Syer &lt;/a&gt; on the power &lt;a href="https://www.voxxed.com/blog/2015/07/spring-cloud-and-the-power-of-choice/"&gt;of choice in Spring Cloud&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Michael Nygard, who wrote one of my favorite books, &lt;em&gt;Release It!&lt;/em&gt;, put together &lt;a href="http://www.michaelnygard.com/blog/2015/07/the-fear-cycle/"&gt;a great post on the fear cycle&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;I loved this keynote from the CF Summit 2015 conference by Andy Zitney of Allstate Infrastructure Services: &lt;a href="https://www.youtube.com/watch?t=478&amp;v=04QFKBt6LCI"&gt;&lt;em&gt;Developing the Freedom to Disrupt&lt;/em&gt;&lt;/a&gt;. In it, he walks through Allstate&amp;rsquo;s need to be able to react, faster, and their embrace of Pivotal Cloud Foundry. It&amp;rsquo;s only ~20 minutes, so I won&amp;rsquo;t spoil it.&lt;/li&gt;
-  &lt;li&gt;I&amp;rsquo;m working on a talk and a blog called &lt;em&gt;The Operationalized Application&lt;/em&gt; that demonstrates some of the amazing operations-centric features in Spring Boot 1.3 and I wanted to - in advance of the finished blog - &lt;a href="https://github.com/joshlong/the-operationalized-application"&gt;share the example&lt;/a&gt;. There&amp;rsquo;s so much good stuff in Spring Boot 1.3, and this example only demonstrates a fraction of it, along with some other existing operations benefits: HATEOAS and the HAL browser; OpenTSDB metrics views, declarative HTTPS; executable &lt;code&gt;.jar&lt;/code&gt;s; Docker; Spring REST Docs-powered documentation for the Actuator endpoints; the remote shell; Git commit information in the Actuator &lt;code&gt;/info&lt;/code&gt; endpoint, and more.&lt;/li&gt;
-  &lt;li&gt;Check out this &lt;a href="http://www.infoq.com/interviews/randy-shoup-microservices?utm_source=infoq&amp;utm_medium=videos_homepage&amp;utm_campaign=videos_row3"&gt;succinct interview with Randy Shoup&lt;/a&gt; for a good discussion of the challenges of embracing microservices at scale. Randy draws from his previous experiences at Google and eBay.&lt;/li&gt;
-&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Roo 2.0.0.M1 refactors addons, structures for collaboration</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/20/spring-roo-2-0-0-m1-refactors-addons-structures-for-collaboration" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-07-20:2191</id>
-    <updated>2015-07-20T16:04:00Z</updated>
-    <content type="html">&lt;p&gt;On behalf on the Spring Roo team at &lt;a href="http://www.disid.com/en/"&gt;DISID Corporation&lt;/a&gt;, I am pleased to announce that Spring Roo 2.0.0.M1 has been released!&lt;/p&gt;&lt;p&gt;This first release of Spring Roo 2.0 is a large refactoring of Spring Roo project. We have moved Roo to be a smaller and easier to maintain project:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The OSGi container has been upgraded to OSGi R5.&lt;/li&gt;
-  &lt;li&gt;Spring Roo has defined its runtime. The Roo runtime contains everything that is needed to execute addons and it doesn&amp;rsquo;t contain any addon. By not containing any addons it is easier to keep the Roo runtime more stable and backward compatible.&lt;/li&gt;
-  &lt;li&gt;Today, Spring Roo is centered in Spring technologies - so addons like GWT and JSF have been moved to their own projects in order to be maintained by the Roo community.&lt;/li&gt;
-  &lt;li&gt;The &lt;a href="http://docs.spring.io/spring-roo/docs/2.0.0.M1/reference/html/"&gt;user guide&lt;/a&gt; has been migrated to ASCIIdoc.&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;If your organization would like to contribute to the Roo project by maintaining these addons please contact: springroo at disid.com. To learn more take a look at the &lt;a href="https://github.com/spring-projects/spring-roo-community-addons"&gt;Spring Roo Community addons&lt;/a&gt; source code. &lt;/p&gt;&lt;p&gt;This release also improves extensibility and increases potential for collaboration around the Spring Roo project:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The &lt;a href="http://projects.spring.io/spring-roo/marketplace"&gt;Roo Marketplace&lt;/a&gt; has been created as a place to share, to find and keep track on third party addons&lt;/li&gt;
-  &lt;li&gt;Roo provides a new way to package and distribute a set of addons together: the &amp;ldquo;Roo Addon Suite&amp;rdquo;. Roo Addon Suite is based on OSGi R5 Subsystems that provides a really convenient deployment model, without compromising the modularity of Roo.&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;As always, new version of Spring Roo, includes some bug fixes and improvements reported by the community.&lt;/p&gt;&lt;p&gt;For full details on the changes made in the new Spring Roo version, please refer to the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10340&amp;amp;version=14835"&gt;Spring Roo 2.0.0.M1 Release Notes&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Thanks to all of our awesome users who came up with useful bug reports and suggestions. Currently we are working on Spring Roo 2.0.0.M2 that will include the following improvements:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Update code generation to use latest versions: Spring framework 4, move from Spring framework dependencies to Spring IO Platform&lt;/li&gt;
-  &lt;li&gt;User Managed POM [&lt;a href="https://jira.spring.io/browse/ROO-3465"&gt;ROO-3465&lt;/a&gt;], [&lt;a href="https://jira.spring.io/browse/ROO-3478"&gt;ROO-3478&lt;/a&gt;]&lt;/li&gt;
-  &lt;li&gt;First version of the new Web UI [&lt;a href="https://jira.spring.io/browse/ROO-3629"&gt;ROO-3629&lt;/a&gt;]&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;Additionally &lt;a href="http://spring.io/tools"&gt;Spring Tool Suite&lt;/a&gt; (STS) team is working in releasing the STS 3.7.0 which will include the Spring IDE Roo Support for Roo 2.0.0. If you want to install the updated Roo components before, you would do it manually via the Spring IDE nightly update site. &lt;/p&gt;&lt;p&gt;For more specific information about Spring Roo project please see the&lt;br/&gt;&lt;a href="http://projects.spring.io/spring-roo/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-roo"&gt;GitHub&lt;/a&gt;&lt;/p&gt;&lt;p&gt;As always, you&amp;rsquo;ll also find Roo on Twitter - either follow&lt;br/&gt;&lt;a href="https://www.twitter.com/springroo"&gt;@SpringRoo&lt;/a&gt; or just include #SpringRoo in&lt;br/&gt;your tweets.&lt;/p&gt;&lt;p&gt;Stay tuned to Spring Roo news!&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Framework 4.2 RC3 released / GA on July 30</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/15/spring-framework-4-2-rc3-released-ga-on-july-30" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Juergen Hoeller</name>
-    </author>
-    <id>tag:spring.io,2015-07-13:2188</id>
-    <updated>2015-07-15T16:11:00Z</updated>
-    <content type="html">&lt;p&gt;Dear Spring community,&lt;/p&gt;&lt;p&gt;Spring Framework 4.2 is not going GA today quite yet, but it&amp;rsquo;s almost there: RC3 is available from &lt;a href="http://repo.spring.io"&gt;repo.spring.io&lt;/a&gt; now, as a last release candidate before we reach &lt;a href="https://jira.spring.io/browse/SPR/fixforversion/15244"&gt;GA&lt;/a&gt; on the 30th of July. This release includes &lt;a href="https://jira.spring.io/secure/ReleaseNote.jspa?projectId=10000&amp;version=14954"&gt;50 fixes and improvements&lt;/a&gt; over RC2, waiting for you to try them!&lt;/p&gt;&lt;p&gt;We decided to do another release candidate for several reasons: e.g. our continued wait for &lt;a href="https://github.com/FasterXML/jackson"&gt;Jackson&lt;/a&gt; 2.6 final and &lt;a href="http://hibernate.org/orm/"&gt;Hibernate ORM&lt;/a&gt; 5.0 final but also our recent build upgrade to &lt;a href="http://gradle.org/"&gt;Gradle&lt;/a&gt; 2.5 and some last-minute refinements within our 4.2 web story (based on RC1/RC2 feedback).&lt;/p&gt;&lt;p&gt;I&amp;rsquo;m pleased to announce that this is in fact the first release of Spring which builds fine not only on JDK 8 but also on &lt;a href="https://jdk9.java.net/download/"&gt;current JDK 9 snapshots&lt;/a&gt;! Our master build script is capable of running in both environments, so simply update your JAVA_HOME and trigger the framework build&amp;hellip;&lt;/p&gt;&lt;p&gt;&lt;b&gt;Note that Spring Framework 4.2 is runtime-compatible with Java 6, 7, 8 (including the upcoming 8u60) and early 9 (JDK 9 build 72) at this point, using the very same standard framework jars. However, for executing the framework build, you&amp;rsquo;ll have to use JDK 8 or 9.&lt;/b&gt;&lt;/p&gt;&lt;p&gt;Next stop: 4.2 GA on July 30, 2015! The countdown has started already&amp;hellip;&lt;/p&gt;&lt;p&gt;Cheers,&lt;br/&gt;Juergen&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - July 14th 2015</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/14/this-week-in-spring-july-14th-2015" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2015-07-14:2189</id>
-    <updated>2015-07-14T17:43:04Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring!&lt;/em&gt;&lt;/p&gt;&lt;p&gt;This week in I&amp;rsquo;m in Shanghai, China and Hangzhou, China and Shenzhen, China, talking to some of the world&amp;rsquo;s largest websites (of the same scale of Netflix!) about their use of Spring Boot and Spring Cloud. (More on that later!)&lt;/p&gt;&lt;p&gt;Anyway, without further ado..&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Paul Chapman put together a nice walkthrough Spring Cloud today. &lt;a href="https://spring.io/blog/2015/07/14/microservices-with-spring"&gt;Way to go Paul&lt;/a&gt;!&lt;/li&gt;
-  &lt;li&gt;Andy Wilkinson just &lt;a href="https://spring.io/blog/2015/07/13/spring-io-platform-1-1-3-released"&gt;announced the Spring IO Platform BOM 1.1.3 has been released&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href="https://spring.io/blog/2015/07/10/spring-boot-1-3-0-m2-available-now"&gt;Spring Boot 1.3M2&lt;/a&gt; - along with new support for JOOQ, &lt;code&gt;/flyway&lt;/code&gt; and &lt;code&gt;/liquibase&lt;/code&gt; Actuator endpoints, ANSI colored &lt;code&gt;banner.txt&lt;/code&gt;, and Apache Artemis integration (among &lt;em&gt;many&lt;/em&gt; other things) is now available! Check it out.&lt;/li&gt;
-  &lt;li&gt;If you missed Spring rockstar and Spring Boot ninja Greg Turnquist&amp;rsquo;s talk on debugging and maintaing Spring Boot applications (why would you miss it??), &lt;a href="https://spring.io/blog/2015/07/09/webinar-replay-debug-and-maintain-your-spring-boot-app"&gt;then check it out&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;This is a nice &lt;a href="https://dzone.com/articles/using-the-h2-database-console-in-spring-boot-with"&gt;post on using Spring Boot with the H2 database console&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I only just noticed DZone has a refcard &lt;a href="https://dzone.com/refcardz/cloud-foundry"&gt;on Cloud Foundry which seems like a worthy read&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;this is a great (Chinese-language) post on what Spring Boot is and how it works. I&amp;rsquo;ve asked a &lt;a href="http://twitter.com/resouer"&gt;friend&lt;/a&gt; and he - a native Mandarin Chinese speaker - insists it&amp;rsquo;s a good read. Enjoy!&lt;/li&gt;
-  &lt;li&gt;check out this &lt;a href="http://wanderbishty.blogspot.in/2015/07/spring-boot-using-boot-for-your.html"&gt;jumpstart into Spring Boot&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;our pal &lt;a href="http://twitter.com/making"&gt;@making&lt;/a&gt; is at it again, this time with a nice look at &lt;a href="https://blog.ik.am/#/entries/349"&gt;the upcoming Spring Boot 1.3&amp;rsquo;s DevTools integration&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;the &lt;em&gt;Codes and Notes&lt;/em&gt; blog has a nice post on &lt;a href="http://www.codesandnotes.be/2015/07/12/angularjs-web-apps-for-spring-based-rest-services-security-the-server-side-part-1/"&gt;using AngularJS web apps for Spring-based REST services&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>Webinar Replay: A Spring Showcase: Turkcell's Personal Cloud Storage App</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/14/webinar-replay-a-spring-showcase-turkcell-s-personal-cloud-storage-app" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-07-14:2190</id>
-    <updated>2015-07-14T11:52:00Z</updated>
-    <content type="html">&lt;p&gt;Webinar Replay: A Spring Showcase: Turkcell&amp;rsquo;s Personal Cloud Storage App&lt;br/&gt;&lt;p&gt;Speaker: Erdem Gunay &lt;/p&gt;&lt;br/&gt;&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/erdem-gunay-springshowcasewebinar"&gt;&lt;a href="http://www.slideshare.net/SpringCentral/erdem-gunay-springshowcasewebinar"&gt;http://www.slideshare.net/SpringCentral/erdem-gunay-springshowcasewebinar&lt;/a&gt; &lt;/a&gt;&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Turkcell launched a personal cloud storage service few years ago. Adding new business features was costly in terms of time and budget on the legacy solution. The user experience needed to be improved. Finally, it was decided to build a new solution where Spring Boot and Spring Framework projects play crucial role as the backbone. The project was completed just in 6 months starting from scratch. The solution was built on top of Spring Boot and many Spring IO Platform projects, allowing the development team focus on business logic instead of configuration &amp;amp; integration details. The project has been divided into deployable modules (API, backend, migration, test automation) accessing micro services that are responsible for one task only. Join Erdem for a review of the migration effort and new architecture - all enabled by Spring Boot.&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Learn about about Spring Boot at &lt;a href="http://projects.spring.io/spring-security"&gt;&lt;a href="http://projects.spring.io/spring-boot"&gt;http://projects.spring.io/spring-boot&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;&lt;br/&gt;&lt;p&gt;Learn about about Spring Framework at &lt;a href="http://projects.spring.io/spring-framework"&gt;&lt;a href="http://projects.spring.io/spring-framework"&gt;http://projects.spring.io/spring-framework&lt;/a&gt;&lt;/a&gt;&lt;/p&gt;&lt;br/&gt;&lt;p&gt; &lt;iframe width="420" height="315" src="https://www.youtube.com/embed/kAD2Q8e_iGM" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt; &lt;/p&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Microservices with Spring</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/14/microservices-with-spring" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Paul Chapman</name>
-    </author>
-    <id>tag:spring.io,2015-07-02:2181</id>
-    <updated>2015-07-14T06:28:00Z</updated>
-    <content type="html">&lt;h1&gt;&lt;a href="#introduction" class="anchor" name="introduction"&gt;&lt;/a&gt;Introduction&lt;/h1&gt;&lt;p&gt;A simple example of setting up a microservices system using Spring, Spring Boot and Spring Cloud.&lt;/p&gt;&lt;p&gt;&lt;a href="http://martinfowler.com/articles/microservices.html"&gt;Microservices&lt;/a&gt; allow large systems to be built up from a number of collaborating components. It does at the process level what Spring has always done at the component level: loosely coupled processes instead of loosely coupled components.&lt;/p&gt;&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/paulc4/microservices-demo/master/shopping-system.jpg"&gt;&lt;img src="https://raw.githubusercontent.com/paulc4/microservices-demo/master/shopping-system.jpg" title="Click to enlarge" alt="Shopping Application" style="width: 400px; float: right; margin: 0px 5px 5px 10px"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;For example imagine an online shop with separate microservices for user-accounts, product-catalog order-processing and shopping carts:&lt;/p&gt;&lt;p&gt;Inevitably there are a number of moving parts that you have to setup and configure to build such a system. How to get them working together is not obvious - you need to have good familiarity with Spring Boot since Spring Cloud leverages it heavily, several Netflix or other OSS projects are required and, of course, there is some Spring configuration &amp;ldquo;magic&amp;rdquo;!&lt;/p&gt;&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/paulc4/microservices-demo/master/mini-system.jpg"&gt;&lt;img src="https://raw.githubusercontent.com/paulc4/microservices-demo/master/mini-system.jpg" title="Click to enlarge" alt="Demo Application" style="width: 400px; float: left; margin: 5px 10px 5px 0" /&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;In this article I aim to clarify how things work by building the simplest possible system step-by-step. Therefore, I will only implement a small part of the big system - the user account service.&lt;/p&gt;&lt;p&gt;The &lt;em&gt;Web-Application&lt;/em&gt; will make requests to the &lt;em&gt;Account-Service&lt;/em&gt; microservice using a RESTful API. We will also need to add a &lt;em&gt;discovery&lt;/em&gt; service &amp;ndash; so the other processes can find each other.&lt;/p&gt;&lt;p&gt;The code for this application is here: &lt;a href="https://github.com/paulc4/microservices-demo"&gt;https://github.com/paulc4/microservices-demo&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#follow-up-1-other-resources" class="anchor" name="follow-up-1-other-resources"&gt;&lt;/a&gt;Follow-Up 1: Other Resources&lt;/h2&gt;&lt;p&gt;This article only discusses a minimal system. For more information, you might like to read Josh Long&amp;rsquo;s blog article &lt;a href="https://spring.io/blog/2015/01/20/microservice-registration-and-discovery-with-spring-cloud-and-netflix-s-eureka"&gt;Microservice Registration and Discovery with Spring Cloud and Netflix&amp;rsquo;s Eureka&lt;/a&gt; which shows running a complete microservice system on Cloud Foundry.&lt;/p&gt;&lt;p&gt;The Spring Cloud projects are &lt;a href="http://projects.spring.io/spring-cloud/"&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#follow-up-2-springone-2gx-2015" class="anchor" name="follow-up-2-springone-2gx-2015"&gt;&lt;/a&gt;Follow Up 2: SpringOne 2GX 2015&lt;/h2&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt; - simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. There will be an entire track on Spring Cloud and Cloud Native applications.&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;em&gt;OK, let&amp;rsquo;s get started &amp;hellip;&lt;/em&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#service-registration" class="anchor" name="service-registration"&gt;&lt;/a&gt;Service Registration&lt;/h1&gt;&lt;p&gt;When you have multiple processes working together they need to find each other. If you have ever used Java&amp;rsquo;s RMI mechanism you may recall that it relied on a central registry so that RMI processes could find each other. Microservices has the same requirement.&lt;/p&gt;&lt;p&gt;The developers at Netflix had this problem when building their systems and created a registration server called Eureka (&amp;ldquo;I have found it&amp;rdquo; in Greek). Fortunately for us, they made their discovery server open-source and Spring has incorporated into Spring Cloud, making it even easier to run up a Eureka server. Here is the &lt;em&gt;complete&lt;/em&gt; application:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@SpringBootApplication&#xD;
-@EnableEurekaServer&#xD;
-public class ServiceRegistrationServer {&#xD;
-&#xD;
-  public static void main(String[] args) {&#xD;
-    // Tell Boot to look for registration-server.yml&#xD;
-    System.setProperty(&amp;quot;spring.config.name&amp;quot;, &amp;quot;registration-server&amp;quot;);&#xD;
-    SpringApplication.run(ServiceRegistrationServer.class, args);&#xD;
-  }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;It really is that simple!&lt;/p&gt;&lt;p&gt;Spring Cloud is built on Spring Boot and utilizes parent and starter POMs. The important parts of the &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/pom.xml"&gt;POM&lt;/a&gt; are:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;    &amp;lt;parent&amp;gt;&#xD;
-        &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-        &amp;lt;artifactId&amp;gt;spring-cloud-starter-parent&amp;lt;/artifactId&amp;gt;&#xD;
-        &amp;lt;version&amp;gt;Angel.SR3&amp;lt;/version&amp;gt;  &amp;lt;!-- Name of release train --&amp;gt;&#xD;
-    &amp;lt;/parent&amp;gt;&#xD;
-    &amp;lt;dependencies&amp;gt;&#xD;
-        &amp;lt;dependency&amp;gt;&#xD;
-            &amp;lt;!-- Setup Spring Boot --&amp;gt;&#xD;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&#xD;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter&amp;lt;/artifactId&amp;gt;&#xD;
-        &amp;lt;/dependency&amp;gt;&#xD;
-&#xD;
-        &amp;lt;dependency&amp;gt;&#xD;
-            &amp;lt;!-- Setup Spring MVC &amp;amp; REST, use Embedded Tomcat --&amp;gt;&#xD;
-            &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;&#xD;
-            &amp;lt;artifactId&amp;gt;spring-boot-starter-web&amp;lt;/artifactId&amp;gt;&#xD;
-        &amp;lt;/dependency&amp;gt;&#xD;
-&#xD;
-        &amp;lt;dependency&amp;gt;&#xD;
-            &amp;lt;!-- Spring Cloud starter --&amp;gt;&#xD;
-            &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-            &amp;lt;artifactId&amp;gt;spring-cloud-starter&amp;lt;/artifactId&amp;gt;&#xD;
-        &amp;lt;/dependency&amp;gt;&#xD;
-&#xD;
-        &amp;lt;dependency&amp;gt;&#xD;
-            &amp;lt;!-- Eureka for service registration --&amp;gt;&#xD;
-            &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;&#xD;
-            &amp;lt;artifactId&amp;gt;spring-cloud-starter-eureka-server&amp;lt;/artifactId&amp;gt;&#xD;
-        &amp;lt;/dependency&amp;gt;&#xD;
-    &amp;lt;/dependencies&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;
-&lt;!-- Right floating Info-block --&gt;
-&lt;style&gt;&#xD;
-.infoblock {&#xD;
-border: 1px solid #AAF;&#xD;
-    background-color: white;&#xD;
-    color: #303030;&#xD;
-    margin: 0 0 0 0.5em;&#xD;
-    padding: 0.5em 0 0.5em 1em;&#xD;
-    float: right;&#xD;
-    font-size: 88%;&#xD;
-    width: 45%&#xD;
-}&#xD;
-&lt;/style&gt;
-&lt;div class="infoblock"&gt;&#xD;
-&lt;p style="margin: 0 0 0 0;"&gt;&#xD;
-&lt;b&gt;Note: &lt;/b&gt;Angel.SR3 is the current "release train" - a set of co-ordinated releases -- see note on Spring Cloud &lt;a href="http://projects.spring.io/spring-cloud"&gt;home page&lt;/a&gt; (scroll down to second section).&#xD;
-&lt;/p&gt;&#xD;
-&lt;/div&gt;&lt;p&gt;By default Spring Boot applications look for an &lt;code&gt;application.properties&lt;/code&gt; or &lt;code&gt;application.yml&lt;/code&gt; file for configuration. By setting the &lt;code&gt;spring.config.name&lt;/code&gt; property we can tell Spring Boot to look for a different file - useful if you have multiple Spring Boot applications in the same project - as I will do shortly.&lt;/p&gt;&lt;p&gt;This application looks for &lt;code&gt;registration-server.properties&lt;/code&gt; or &lt;code&gt;registration-server.yml&lt;/code&gt;. Here is the relevant configuration from &lt;code&gt;registration-server.yml&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;# Configure this Discovery Server&#xD;
-eureka:&#xD;
-  instance:&#xD;
-    hostname: localhost&#xD;
-  client:  # Not a client, don&amp;#39;t register with yourself&#xD;
-    registerWithEureka: false&#xD;
-    fetchRegistry: false&#xD;
-&#xD;
-server:&#xD;
-  port: 1111   # HTTP (Tomcat) port
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;By default Eureka runs on port 8761, but here we will use port &lt;code&gt;1111&lt;/code&gt; instead. Also by including the registration code in my process I might be a server or a client. The configuration specifies that I am not a client and stops the server process trying to register with itself.&lt;/p&gt;
-&lt;!-- Floating Infoblock --&gt;
-&lt;div class="infoblock"&gt;&#xD;
-&lt;h2 style="margin: 10px 0 15px -1em"&gt;Using Consul&lt;/h2&gt;&#xD;
-&lt;p style="margin-bottom: 10px"&gt;&#xD;
-Spring Cloud also supports &lt;a href="https://www.consul.io"&gt;Consul&lt;/a&gt; as an alternative to Eureka.  You start the Consul Agent (its registration server) using a script and then clients use it to find their microservices.  For details, see this blog &lt;a href="https://spring.io/blog/2015/05/27/spring-cloud-consul-1-0-0-m1-available-now"&gt;article&lt;/a&gt; or project &lt;a href="http://cloud.spring.io/spring-cloud-consul"&gt;home page&lt;/a&gt;.&#xD;
-&lt;/p&gt;&#xD;
-&lt;/div&gt;&lt;p&gt;Try running the &lt;em&gt;RegistrationServer&lt;/em&gt; now (see &lt;a href="#running-the-system"&gt;below&lt;/a&gt; for help on running the application). You can open the Eureka dashboard here: &lt;a href="http://localhost:1111"&gt;http://localhost:1111&lt;/a&gt; and the section showing Applications will be empty.&lt;/p&gt;&lt;p&gt;From now on we will refer to the &lt;em&gt;discovery-server&lt;/em&gt; since it could be Eureka or Consul (see side panel).&lt;/p&gt;&lt;h1&gt;&lt;a href="#creating-a-microservice-em-account-service-em" class="anchor" name="creating-a-microservice-em-account-service-em"&gt;&lt;/a&gt;Creating a Microservice: &lt;em&gt;Account-Service&lt;/em&gt;&lt;/h1&gt;&lt;p&gt;A microservice is a stand-alone process that handles a well-defined requirement. &lt;/p&gt;&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/paulc4/microservices-demo/master/beans-vs-processes.jpg"&gt;&lt;img src="https://raw.githubusercontent.com/paulc4/microservices-demo/master/beans-vs-processes.jpg" title="Click to enlarge" alt="Beans vs Processes" style="width: 400px; float: right; margin: 10px 0 5px 15px"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;When configuring applications with Spring we emphasize Loose Coupling and Tight Cohesion, These are not new concepts (Larry Constantine is credited with first defining these in the late 1960s - &lt;a href="https://en.wikipedia.org/wiki/Cohesion_%28computer_science%29"&gt;reference&lt;/a&gt;) but now we are applying them, not to interacting components (Spring Beans), but to interacting processes.&lt;/p&gt;&lt;p&gt;In this example, I have a simple Account management microservice that uses Spring Data to implement a JPA &lt;code&gt;AccountRepository&lt;/code&gt; and Spring REST to provide a RESTful interface to account information. In most respects this is a straightforward Spring Boot application.&lt;/p&gt;&lt;p&gt;What makes it special is that it registers itself with the &lt;em&gt;discovery-server&lt;/em&gt; at start-up. Here is the Spring Boot startup class:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@EnableAutoConfiguration&#xD;
-@EnableDiscoveryClient&#xD;
-@Import(AccountsWebApplication.class)&#xD;
-public class AccountsServer {&#xD;
-&#xD;
-    @Autowired&#xD;
-    AccountRepository accountRepository;&#xD;
-&#xD;
-    public static void main(String[] args) {&#xD;
-        // Will configure using accounts-server.yml&#xD;
-        System.setProperty(&amp;quot;spring.config.name&amp;quot;, &amp;quot;accounts-server&amp;quot;);&#xD;
-&#xD;
-        SpringApplication.run(AccountsServer.class, args);&#xD;
-    }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The annotations do the work:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;@EnableAutoConfiguration&lt;/code&gt; - defines this as a Spring Boot application.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;@EnableDiscoveryClient&lt;/code&gt; - this enables service registration and discovery. In this case, this process registers itself with the &lt;em&gt;discovery-server&lt;/em&gt; service using its application name (see below).&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;@Import(AccountsWebApplication.class)&lt;/code&gt; - this Java Configuration class sets up everything else (see &lt;a href="#accountswebapplication-configuration"&gt;below&lt;/a&gt; for more details).&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;What makes this a microservice is the registration with the &lt;em&gt;discovery-server&lt;/em&gt; via &lt;code&gt;@EnableDiscoveryClient&lt;/code&gt; and its YML configuration completes the setup:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;# Spring properties&#xD;
-spring:&#xD;
-  application:&#xD;
-     name: accounts-service&#xD;
-&#xD;
-# Discovery Server Access&#xD;
-eureka:&#xD;
-  client:&#xD;
-    serviceUrl:&#xD;
-      defaultZone: http://localhost:1111/eureka/&#xD;
-&#xD;
-# HTTP Server&#xD;
-server:&#xD;
-  port: 2222   # HTTP (Tomcat) port
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that this file&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Sets the application name as &lt;code&gt;accounts-service&lt;/code&gt;. This service registers under this name and can also be accessed by this name - see below.&lt;/li&gt;
-  &lt;li&gt;Specifies a custom port to listen on (2222). All my processes are using Tomcat, they can&amp;rsquo;t all listen on port 8080.&lt;/li&gt;
-  &lt;li&gt;The URL of the Eureka Service process - from the previous section.&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;&lt;a href="https://raw.githubusercontent.com/paulc4/microservices-demo/master/dashboard.png"&gt;&lt;img src="https://raw.githubusercontent.com/paulc4/microservices-demo/master/dashboard.png" title="Click to enlarge" alt="Eureka Dashboard" style="width: 450px; float: right; margin: 0px 5px 5px 10px"/&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;Run the &lt;em&gt;AccountsService&lt;/em&gt; application now and let it finish initializing. Refresh the dashboard &lt;a href="http://localhost:1111"&gt;http://localhost:1111&lt;/a&gt; and you should see the ACCOUNTS-SERVICE listed under Applications. Sometimes registration can take 10-20 seconds so be patient - check the log output from &lt;em&gt;RegistrationService&lt;/em&gt;&lt;/p&gt;
-&lt;!-- Floating Infoblock --&gt;
-&lt;div class="infoblock"&gt;&#xD;
-&lt;p style="margin: 0 0 0 0;"&gt;&#xD;
-&lt;b&gt;Warning: &lt;/b&gt;Do not try to display XML output using the internal web-viewer of Eclipse/STS because it cannot do so.  Use your favorite web browser instead.&#xD;
-&lt;/p&gt;&#xD;
-&lt;/div&gt;&lt;p&gt;For more detail, go here: &lt;a href="http://localhost:1111/eureka/apps/"&gt;http://localhost:1111/eureka/apps/&lt;/a&gt; and you should see something like this:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;&amp;lt;applications&amp;gt;&#xD;
-    &amp;lt;versions__delta&amp;gt;1&amp;lt;/versions__delta&amp;gt;&#xD;
-    &amp;lt;apps__hashcode&amp;gt;UP_1_&amp;lt;/apps__hashcode&amp;gt;&#xD;
-    &amp;lt;application&amp;gt;&#xD;
-        &amp;lt;name&amp;gt;ACCOUNTS-SERVICE&amp;lt;/name&amp;gt;&#xD;
-        &amp;lt;instance&amp;gt;&#xD;
-            &amp;lt;hostName&amp;gt;autgchapmp1m1.corp.emc.com&amp;lt;/hostName&amp;gt;&#xD;
-            &amp;lt;app&amp;gt;ACCOUNTS-SERVICE&amp;lt;/app&amp;gt;&#xD;
-            &amp;lt;ipAddr&amp;gt;172.16.84.1&amp;lt;/ipAddr&amp;gt;&amp;lt;status&amp;gt;UP&amp;lt;/status&amp;gt;&#xD;
-            &amp;lt;overriddenstatus&amp;gt;UNKNOWN&amp;lt;/overriddenstatus&amp;gt;&#xD;
-            &amp;lt;port enabled=&amp;quot;true&amp;quot;&amp;gt;3344&amp;lt;/port&amp;gt;&#xD;
-            &amp;lt;securePort enabled=&amp;quot;false&amp;quot;&amp;gt;443&amp;lt;/securePort&amp;gt;&#xD;
-            ...&#xD;
-        &amp;lt;/instance&amp;gt;&#xD;
-    &amp;lt;/application&amp;gt;&#xD;
-&amp;lt;/applications&amp;gt;&#xD;
-
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Alternatively go to &lt;a href="http://localhost:1111/eureka/apps/ACCOUNTS-SERVICE"&gt;http://localhost:1111/eureka/apps/ACCOUNTS-SERVICE&lt;/a&gt; and see just the details for &lt;em&gt;AccountsService&lt;/em&gt; - if it&amp;rsquo;s not registered you will get a 404. &lt;/p&gt;&lt;h1&gt;&lt;a href="#accessing-the-microservice-em-web-service-em" class="anchor" name="accessing-the-microservice-em-web-service-em"&gt;&lt;/a&gt;Accessing the Microservice: &lt;em&gt;Web-Service&lt;/em&gt;&lt;/h1&gt;&lt;p&gt;To consume a RESTful service, Spring provides the &lt;code&gt;RestTemplate&lt;/code&gt; class. This allows you to send HTTP requests to a RESTful server and fetch data in a number of formats - such as JSON and XML.&lt;/p&gt;
-&lt;!-- Floating Infoblock --&gt;
-&lt;div class="infoblock" style="width: 50%"&gt;&#xD;
-&lt;p style="margin: 0 0 0 0"&gt;&#xD;
-&lt;b&gt;Note: &lt;/b&gt;The Accounts microservice provides a RESTful interface over HTTP, but any suitable protocol could be used. Messaging using &lt;a href="http://rabbitmq.docs.pivotal.io"&gt;AMQP&lt;/a&gt; or JMS is an obvious alternative.&#xD;
-&lt;/p&gt;&#xD;
-&lt;/div&gt;&lt;p&gt;Which formats can be used depends on the presence of marshaling classes on the classpath - for example JAXB is always detected since it is a standard part of Java. JSON is supported if Jackson jars are present in the classpath.&lt;/p&gt;&lt;p&gt;A microservice (discovery) client can use a &lt;code&gt;RestTemplate&lt;/code&gt; and Spring will automatically configure it to be microservice aware (more of this in a moment).&lt;/p&gt;&lt;h2&gt;&lt;a href="#encapsulating-microservice-access" class="anchor" name="encapsulating-microservice-access"&gt;&lt;/a&gt;Encapsulating Microservice Access&lt;/h2&gt;&lt;p&gt;Here is part of the &lt;code&gt;WebAccountService&lt;/code&gt; for my &lt;em&gt;client&lt;/em&gt; application:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@Service&#xD;
-public class WebAccountsService {&#xD;
-&#xD;
-    @Autowired        // Created automatically by Spring Cloud&#xD;
-    @LoadBalanced&#xD;
-    protected RestTemplate restTemplate; &#xD;
-&#xD;
-    protected String serviceUrl;&#xD;
-&#xD;
-    public WebAccountsService(String serviceUrl) {&#xD;
-        this.serviceUrl = serviceUrl.startsWith(&amp;quot;http&amp;quot;) ?&#xD;
-               serviceUrl : &amp;quot;http://&amp;quot; + serviceUrl;&#xD;
-    }&#xD;
-&#xD;
-    public Account getByNumber(String accountNumber) {&#xD;
-        Account account = restTemplate.getForObject(serviceUrl&#xD;
-                + &amp;quot;/accounts/{number}&amp;quot;, Account.class, accountNumber);&#xD;
-&#xD;
-        if (account == null)&#xD;
-            throw new AccountNotFoundException(accountNumber);&#xD;
-        else&#xD;
-            return account;&#xD;
-    }&#xD;
-    ...&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note that my &lt;code&gt;WebAccountService&lt;/code&gt; is just a wrapper for the RestTemplate fetching data from the microservice. The interesting parts are the &lt;code&gt;serviceUrl&lt;/code&gt; and the &lt;code&gt;RestTemplate&lt;/code&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#accessing-the-microservice" class="anchor" name="accessing-the-microservice"&gt;&lt;/a&gt;Accessing the Microservice&lt;/h2&gt;&lt;p&gt;The &lt;code&gt;serviceUrl&lt;/code&gt; is provided by the main program to the &lt;code&gt;WebAccountController&lt;/code&gt; which in turn passes it to the &lt;code&gt;WebAccountService&lt;/code&gt; (as shown above):&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@SpringBootApplication&#xD;
-@EnableDiscoveryClient&#xD;
-@ComponentScan(useDefaultFilters=false)  // Disable component scanner&#xD;
-public class WebServer {&#xD;
-&#xD;
-    public static void main(String[] args) {&#xD;
-        // Will configure using web-server.yml&#xD;
-        System.setProperty(&amp;quot;spring.config.name&amp;quot;, &amp;quot;web-server&amp;quot;);&#xD;
-        SpringApplication.run(WebServer.class, args);&#xD;
-    }&#xD;
-&#xD;
-    @Bean&#xD;
-    public WebAccountsController accountsController() {&#xD;
-         // 1. Value should not be hard-coded, just to keep things simple&#xD;
-         //        in this example.&#xD;
-         // 2. Case insensitive: could also use: http://accounts-service&#xD;
-         return new WebAccountsController&#xD;
-                       (&amp;quot;http://ACCOUNTS-SERVICE&amp;quot;);  // serviceUrl&#xD;
-    }&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;A few points to note:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;The &lt;code&gt;WebController&lt;/code&gt; is a typical Spring MVC view-based controller returning HTML. The application uses Thymeleaf as the view-technology (for generating dynamic HTML)&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;WebServer&lt;/code&gt; is also a &lt;code&gt;@EnableDiscoveryClient&lt;/code&gt; but in this case as well as registering itself with the &lt;em&gt;discovery-server&lt;/em&gt; (which is not necessary since it offers no services of its own) it uses Eureka to locate the account service.&lt;/li&gt;
-  &lt;li&gt;The default component-scanner setup inherited from Spring Boot looks for &lt;code&gt;@Component&lt;/code&gt; classes and, in this case, finds my &lt;code&gt;WebAccountController&lt;/code&gt; and tries to create it. However, I want to create it myself, so I disable the scanner like this &lt;code&gt;@ComponentScan(useDefaultFilters=false)&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;The &lt;em&gt;service-url&lt;/em&gt; I am passing to the &lt;code&gt;WebAccountController&lt;/code&gt; is the name the service used to register itself with the &lt;em&gt;discovery-server&lt;/em&gt; - by default this is the same as the &lt;code&gt;spring.application.name&lt;/code&gt; for the process which is &lt;code&gt;account-service&lt;/code&gt; - see &lt;code&gt;account-service.yml&lt;/code&gt; above. The use of upper-case is not required but it does help emphasize that &lt;em&gt;ACCOUNTS-SERVICE&lt;/em&gt; is a logical host (that will be obtained via discovery) not an actual host.&lt;/li&gt;
-&lt;/ol&gt;&lt;h2&gt;&lt;a href="#load-balanced-resttemplate" class="anchor" name="load-balanced-resttemplate"&gt;&lt;/a&gt;Load Balanced RestTemplate&lt;/h2&gt;&lt;p&gt;The RestTemplate has been auto-configured by Spring Cloud to use a custom &lt;code&gt;HttpRequestClient&lt;/code&gt; that uses Netflix &lt;a href="http://techblog.netflix.com/2013/01/announcing-ribbon-tying-netflix-mid.html"&gt;Ribbon&lt;/a&gt; to do the micro-service lookup. Ribbon is also load-balancer so if you have multiple instances of a service available, it picks one for you. (Neither Eureka nor Consul on their own perform load-balancing so we use Ribbon to do it instead).&lt;/p&gt;&lt;p&gt;If you look in the &lt;a href="https://github.com/spring-cloud/spring-cloud-netflix/blob/master/spring-cloud-netflix-core/src/main/java/org/springframework/cloud/netflix/ribbon/RibbonClientHttpRequestFactory.java"&gt;RibbonClientHttpRequestFactory&lt;/a&gt; you will see this code:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;    String serviceId = originalUri.getHost();&#xD;
-    ServiceInstance instance =&#xD;
-             loadBalancer.choose(serviceId);  // loadBalancer uses Ribbon&#xD;
-    ... if instance non-null (service exists) ...&#xD;
-    URI uri = loadBalancer.reconstructURI(instance, originalUri);
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;The &lt;code&gt;loadBalancer&lt;/code&gt; takes the logical service-name (as registered with the &lt;em&gt;discovery-server&lt;/em&gt;) and converts it to the actual hostname of the chosen microservice.&lt;/p&gt;&lt;p&gt;A &lt;code&gt;RestTemplate&lt;/code&gt; instance is thread-safe and can be used to access any number of services in different parts of your application (for example, I might have a &lt;code&gt;CustomerService&lt;/code&gt; wrapping the same &lt;code&gt;RestTemplate&lt;/code&gt; instance accessing a customer data microservice).&lt;/p&gt;&lt;h2&gt;&lt;a href="#configuration" class="anchor" name="configuration"&gt;&lt;/a&gt;Configuration&lt;/h2&gt;&lt;p&gt;Below the relevant configuration from &lt;code&gt;web-server.yml&lt;/code&gt;. It is used to:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Set the application name&lt;/li&gt;
-  &lt;li&gt;Define the URL for accessing the discovery server&lt;/li&gt;
-  &lt;li&gt;Set the Tomcat port to 3333&lt;/li&gt;
-&lt;/ol&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;# Spring Properties&#xD;
-spring:&#xD;
-  application:&#xD;
-     name: web-service&#xD;
-&#xD;
-# Discovery Server Access&#xD;
-eureka:&#xD;
-  client:&#xD;
-    serviceUrl:&#xD;
-      defaultZone: http://localhost:1111/eureka/&#xD;
-&#xD;
-# HTTP Server&#xD;
-server:&#xD;
-  port: 3333   # HTTP (Tomcat) port
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a name="running-the-system"/&gt;&lt;/p&gt;&lt;h1&gt;&lt;a href="#how-to-run-the-demo" class="anchor" name="how-to-run-the-demo"&gt;&lt;/a&gt;How to Run the Demo&lt;/h1&gt;&lt;p&gt;A small demo of this system is at &lt;a href="http://github.com/paulc4/microservices-demo"&gt;http://github.com/paulc4/microservices-demo&lt;/a&gt;. Clone it and either load into your favorite IDE or use maven directly. Suggestions on how to run the demo are included in the &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/README.md"&gt;README&lt;/a&gt; on the project homepage.&lt;/p&gt;
-&lt;hr style="height:6px"/&gt;&lt;h1&gt;&lt;a href="#extra-notes" class="anchor" name="extra-notes"&gt;&lt;/a&gt;Extra Notes&lt;/h1&gt;&lt;p&gt;Some notes about Spring Boot usage by these applications. If you are not familiar with Spring Boot, this explains some of the &amp;ldquo;magic&amp;rdquo;!&lt;/p&gt;&lt;h2&gt;&lt;a href="#view-templating-engines" class="anchor" name="view-templating-engines"&gt;&lt;/a&gt;View Templating Engines&lt;/h2&gt;&lt;p&gt;The Eureka dashboard (inside &lt;code&gt;RegistrationServer&lt;/code&gt;) is implemented using FreeMarker templates but the other two applications use Thymeleaf. To make sure each uses the right view engine, there is extra configuration in each YML file.&lt;/p&gt;&lt;p&gt;This is at the end of &lt;code&gt;registration-server.yml&lt;/code&gt; to disable Thymeleaf.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;...&#xD;
-# Discovery Server Dashboard uses FreeMarker.  Don&amp;#39;t want Thymeleaf templates&#xD;
-spring:&#xD;
-  thymeleaf:&#xD;
-    enabled: false     # Disable Thymeleaf spring:
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Since both &lt;code&gt;AccountService&lt;/code&gt; and &lt;code&gt;WebService&lt;/code&gt; use thymeleaf, we also need to point each at their own templates. Here is part of &lt;code&gt;account-server.yml&lt;/code&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;# Spring properties&#xD;
-spring:&#xD;
-  application:&#xD;
-     name: accounts-service  # Service registers under this name&#xD;
-  freemarker:&#xD;
-    enabled: false      # Ignore Eureka dashboard FreeMarker templates&#xD;
-  thymeleaf:&#xD;
-    cache: false        # Allow Thymeleaf templates to be reloaded at runtime&#xD;
-    prefix: classpath:/accounts-server/templates/&#xD;
-                        # Template location for this application only&#xD;
-...
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;code&gt;web-server.yml&lt;/code&gt; is similar but its templates are defined by&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint yml"&gt;   prefix: classpath:/web-server/templates/
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Note the / on the end of each &lt;code&gt;spring.thymeleaf.prefix&lt;/code&gt; classpath - this is &lt;em&gt;crucial&lt;/em&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#command-line-execution" class="anchor" name="command-line-execution"&gt;&lt;/a&gt;Command-Line Execution&lt;/h2&gt;&lt;p&gt;The jar is compiled to automatically run &lt;code&gt;io.pivotal.microservices.services.Main&lt;/code&gt; when invoked from the command-line - see &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/src/main/java/io/pivotal/microservices/services/Main.java"&gt;Main.java&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;The Spring Boot option to set the &lt;code&gt;start-class&lt;/code&gt; can be seen in the &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/pom.xml"&gt;POM&lt;/a&gt;:&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint xml"&gt;    &amp;lt;properties&amp;gt;&#xD;
-        &amp;lt;!-- Stand-alone RESTFul application for testing only --&amp;gt;&#xD;
-        &amp;lt;start-class&amp;gt;io.pivotal.microservices.services.Main&amp;lt;/start-class&amp;gt;&#xD;
-    &amp;lt;/properties&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;&lt;a href="#accountswebapplication-configuration" class="anchor" name="accountswebapplication-configuration"&gt;&lt;/a&gt;AccountsWebApplication Configuration&lt;/h2&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;@SpringBootApplication&#xD;
-@EntityScan(&amp;quot;io.pivotal.microservices.accounts&amp;quot;)&#xD;
-@EnableJpaRepositories(&amp;quot;io.pivotal.microservices.accounts&amp;quot;)&#xD;
-@PropertySource(&amp;quot;classpath:db-config.properties&amp;quot;)&#xD;
-public class AccountsWebApplication {&#xD;
-...&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;This is the main configuration class for AccountService and is a classic Spring Boot application using Spring Data. The annotations do most of the work:&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;&lt;code&gt;@SpringBootApplication&lt;/code&gt; - defines this as a Spring Boot application. This convenient annotation combines &lt;code&gt;@EnableAutoConfiguration&lt;/code&gt;, &lt;code&gt;@Configuration&lt;/code&gt; and &lt;code&gt;@ComponentScan&lt;/code&gt; (which, by default, causes Spring to search the package containing this class, and its sub-packages, for components - potential Spring Beans: &lt;code&gt;AccountController&lt;/code&gt; and &lt;code&gt;AccountRepository&lt;/code&gt;) .&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;@EntityScan(&amp;quot;io.pivotal.microservices.accounts&amp;quot;)&lt;/code&gt; - because I am using JPA, I need to specify where the &lt;code&gt;@Entity&lt;/code&gt; classes are. Normally this is an option you specify in JPA&amp;rsquo;s &lt;code&gt;persistence.xml&lt;/code&gt; or when creating a &lt;code&gt;LocalContainerEntityManagerFactoryBean&lt;/code&gt;. Spring Boot will create this factory-bean for me because the &lt;code&gt;spring-boot-starter-data-jpa&lt;/code&gt; dependency is on the class path. So an alternative way of specifying where to find the &lt;code&gt;@Entity&lt;/code&gt; classes is by using&lt;code&gt;@EntityScan&lt;/code&gt;. This will find &lt;code&gt;Account&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;@EnableJpaRepositories(&amp;quot;io.pivotal.microservices.accounts&amp;quot;)&lt;/code&gt;- look for classes extending Spring Data&amp;rsquo;s &lt;code&gt;Repository&lt;/code&gt; marker interface and automatically implement them using JPA - see &lt;a href="http://projects.spring.io/spring-data-jpa"&gt;Spring Data JPA&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code&gt;@PropertySource(&amp;quot;classpath:db-config.properties&amp;quot;)&lt;/code&gt; - properties to configure my &lt;code&gt;DataSource&lt;/code&gt; &amp;ndash; see &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/src/main/resources/db-config.properties"&gt;db-config.properties&lt;/a&gt;.&lt;/li&gt;
-&lt;/ol&gt;&lt;p&gt;Note that the &lt;em&gt;AccountsWebApplication&lt;/em&gt; can be run as a stand-alone application in its own right which I found useful for testing. It listens to the default Tomcat port: 8080, so the home page is &lt;a href="http://localhost:8080"&gt;http://localhost:8080&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#configuring-properties" class="anchor" name="configuring-properties"&gt;&lt;/a&gt;Configuring Properties&lt;/h2&gt;&lt;p&gt;As mentioned above, Spring Boot applications look for either &lt;code&gt;application.properties&lt;/code&gt; or &lt;code&gt;application.yml&lt;/code&gt; to configure themselves. Since all three servers used in this application are in the same project, they would automatically use the same configuration.&lt;/p&gt;&lt;p&gt;To avoid that, each specifies an alternative file by setting the &lt;code&gt;spring.config.name&lt;/code&gt; property.&lt;/p&gt;&lt;p&gt;For example here is part of &lt;code&gt;WebServer.java&lt;/code&gt;.&lt;/p&gt;
-&lt;pre&gt;&lt;code class="prettyprint java"&gt;public static void main(String[] args) {&#xD;
-  // Tell server to look for web-server.properties or web-server.yml&#xD;
-  System.setProperty(&amp;quot;spring.config.name&amp;quot;, &amp;quot;web-server&amp;quot;);&#xD;
-  SpringApplication.run(WebServer.class, args);&#xD;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;At runtime, the application will find and use &lt;code&gt;web-server.yml&lt;/code&gt; in &lt;code&gt;src/main/resources&lt;/code&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#logging" class="anchor" name="logging"&gt;&lt;/a&gt;Logging&lt;/h2&gt;&lt;p&gt;Spring Boot sets up INFO level logging for Spring by default. Since we need to examine the logs for evidence of our microservices working, I have raised the level to WARN to reduce the amount of logging.&lt;/p&gt;&lt;p&gt;To do this, the logging level would need to be specified in each of the &lt;code&gt;xxxx-server.yml&lt;/code&gt; configuration files. This is usually the best place to define them as logging properties &lt;em&gt;cannot&lt;/em&gt; be specified in property files (logging has already been initialized before @PropertySource directives are processed). There is a note on this in the Spring Boot manual, but it&amp;rsquo;s easy to miss.&lt;/p&gt;&lt;p&gt;Rather than duplicate the logging configuration in each YAML file, I instead opted to put it in the logback configuration file, since Spring Boot uses logback - see &lt;a href="https://github.com/paulc4/microservices-demo/blob/master/src/main/resources/logback.xml"&gt;src/main/resources/logback.xml&lt;/a&gt;. All three services will share the same &lt;code&gt;logback.xml&lt;/code&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring IO Platform 1.1.3 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/13/spring-io-platform-1-1-3-released" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Andy Wilkinson</name>
-    </author>
-    <id>tag:spring.io,2015-07-13:2187</id>
-    <updated>2015-07-13T19:35:06Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that &lt;a href="http://platform.spring.io/platform"&gt;Spring IO Platform&lt;/a&gt; 1.1.3.RELEASE is now available from both &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3Aio.spring.platform"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;This maintenance release upgrades the versions of a number of the projects in the Platform to pick up their latest maintenance releases:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring AMQP 1.4.5&lt;/li&gt;
-  &lt;li&gt;Spring Batch 3.0.4&lt;/li&gt;
-  &lt;li&gt;Spring Boot 1.2.5&lt;/li&gt;
-  &lt;li&gt;Spring Data Evans SR3&lt;/li&gt;
-  &lt;li&gt;Spring Framework 4.1.7&lt;/li&gt;
-  &lt;li&gt;Spring Integration 4.1.5&lt;/li&gt;
-  &lt;li&gt;Spring LDAP 2.0.3&lt;/li&gt;
-  &lt;li&gt;Spring Mobile 1.1.4&lt;/li&gt;
-  &lt;li&gt;Spring Session 1.0.1&lt;/li&gt;
-  &lt;li&gt;Spring Social 1.1.2&lt;/li&gt;
-  &lt;li&gt;Spring Social Facebook 2.0.1&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;The versions of many third-party dependencies have also been updated.&lt;/p&gt;&lt;p&gt;&lt;a href="http://platform.spring.io/platform"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-io/platform/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/platform/docs/1.1.3.RELEASE/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 1.3.0.M2 Available Now</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/10/spring-boot-1-3-0-m2-available-now" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2015-07-10:2186</id>
-    <updated>2015-07-10T04:20:00Z</updated>
-    <content type="html">&lt;p&gt;Spring Boot v1.3.0.M2 is available now from the &lt;a href="http://repo.springsource.org/milestone/"&gt;Spring milestone repository&lt;/a&gt;. This release closes a whopping &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.3.0.M2+is%3Aissue+is%3Aclosed"&gt;73 issues&lt;/a&gt; and merges &lt;a href="https://github.com/spring-projects/spring-boot/pulls?q=milestone%3A1.3.0.M2+is%3Aclosed+is%3Apr"&gt;59 pull-requests&lt;/a&gt;! Thanks to everyone that has contributed.&lt;/p&gt;&lt;p&gt;Highlights of the new release include:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Auto-configuration support for &lt;a href="http://jooq.org"&gt;jOOQ&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Hypermedia support for actuator endpoints.&lt;/li&gt;
-  &lt;li&gt;Support for ANSI color &lt;code&gt;banner.txt&lt;/code&gt; files.&lt;/li&gt;
-  &lt;li&gt;An improved way to access &lt;code&gt;ApplicationArguments&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;New &lt;code&gt;/flyway&lt;/code&gt;, &lt;code&gt;/liquibase&lt;/code&gt; and &lt;code&gt;/logfile&lt;/code&gt; actuator endpoints.&lt;/li&gt;
-  &lt;li&gt;Auto-configuration support for &lt;a href="http://projects.spring.io/spring-session/"&gt;Spring Session&lt;/a&gt; with Redis.&lt;/li&gt;
-  &lt;li&gt;Property based configuration of Spring&amp;rsquo;s &lt;a href="http://docs.spring.io/spring/docs/current/spring-framework-reference/htmlsingle/#mvc-config-static-resources"&gt;&amp;ldquo;resource chains&amp;rdquo;&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;New logback &lt;code&gt;&amp;lt;springProfile&amp;gt;&lt;/code&gt; and &lt;code&gt;&amp;lt;springProperty&amp;gt;&lt;/code&gt; tags.&lt;/li&gt;
-  &lt;li&gt;Support for &lt;a href="http://activemq.apache.org/artemis/"&gt;Apache Artemis&lt;/a&gt; (following the donation of HornetQ to Apache).&lt;/li&gt;
-  &lt;li&gt;A new AntLib module to help create executable jars from Apache Ant.&lt;/li&gt;
-&lt;/ul&gt;&lt;p&gt;For a complete list of changes, and upgrade instructions, see the &lt;a href="https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-1.3-Release-Notes"&gt;Spring Boot 1.3 Release Notes&lt;/a&gt; on the WIKI and the updated &lt;a href="http://docs.spring.io/spring-boot/docs/1.3.0.M2/reference/htmlsingle/"&gt;reference documentation&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;As always, early feedback and &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;bug reports&lt;/a&gt; are extremely valuable to us and very welcome.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Webinar Replay: Debug and Maintain your Spring Boot App</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/09/webinar-replay-debug-and-maintain-your-spring-boot-app" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-07-09:2185</id>
-    <updated>2015-07-09T15:48:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: Greg Turnquist&lt;/p&gt;
-&lt;p&gt;So you have decided to build an application using Spring Boot? Sooner or later, something will go wrong. It does not matter how experienced we are. How will Spring Boot help us figure out what went wrong and fix things? This talk introduces lots of tools to help us debug and manage &amp;quot;bootiful&amp;quot; apps. You will learn how to use Boot's autoconfiguration report, override Boot's settings &amp;amp; beans, create custom metrics/health checks/app info, and create custom JMX info &amp;amp; custom CRaSH commands.&lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="https://speakerdeck.com/gregturn/debug-and-maintain-your-spring-boot-apps"&gt;https://speakerdeck.com/gregturn/debug-and-maintain-your-spring-boot-apps&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt; Code at&lt;a href="https://github.com/gregturn/debug-your-spring-boot-app"&gt; https://github.com/gregturn/debug-your-spring-boot-app &lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Learn about about Spring Boot at &lt;a href="http://projects.spring.io/spring-security"&gt;http://projects.spring.io/spring-boot&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Learn about about Spring Framework at &lt;a href="http://projects.spring.io/spring-framework"&gt;http://projects.spring.io/spring-framework&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt; &lt;iframe width="420" height="315" src="https://www.youtube.com/embed/L5JgndjwwBo" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt; &lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>This Week in Spring - July 7th, 2015</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/07/this-week-in-spring-july-7th-2015" />
-    <category term="engineering" label="Engineering" />
-    <author>
-      <name>Josh Long</name>
-    </author>
-    <id>tag:spring.io,2015-07-07:2183</id>
-    <updated>2015-07-07T20:09:26Z</updated>
-    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! As usual, we&amp;rsquo;ve got a lot to cover so let&amp;rsquo;s get to it! This week I&amp;rsquo;ll be in Shanghai, China, talking to some customers (say hi on Twitter!) and then it&amp;rsquo;s off to Shenzhen, China, where &lt;a href="http://www.archsummit.com/"&gt;I&amp;rsquo;ll be giving a keynote at the ArchSummit conference&lt;/a&gt;.&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Spring Integraton lead Gary Russell &lt;a href="https://spring.io/blog/2015/07/07/spring-integration-4-2-milestone-2-is-available-and-4-1-6"&gt;has just announced Spring Integration 4.2 and 4.1.6 are now available&lt;/a&gt;. The new release includes support for Apache Zookeeper, Java 8 &lt;code&gt;CompletableFuture&lt;/code&gt;s, (S)FTP &lt;code&gt;-stream&lt;/code&gt;s, and several performance improvements.&lt;/li&gt;
-  &lt;li&gt;Spring Boot co-lead Phil Webb &lt;a href="https://spring.io/blog/2015/07/02/spring-boot-1-2-5-released"&gt;has just announced Spring Boot 1.2.5&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Spring framework 4.2 is &lt;em&gt;fast&lt;/em&gt; approaching (in about a week!) and there are many new versions of many different (and sometimes new) projects supported. To find out more, check out &lt;a href="https://spring.io/blog/2015/07/01/hibernate-jackson-jetty-etc-support-in-spring-4-2"&gt;this detailed blog by Spring framework lead Juergen Hoeller&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Spring Data ninja Christoph Strobl has &lt;a href="https://spring.io/blog/2015/07/01/spring-data-fowler-sr-1-released"&gt;just announced the Spring Data Fowler SR1 release&lt;/a&gt;. This is a maintenance release packed with lots of new features so be sure to get the bits.&lt;/li&gt;
-  &lt;li&gt;Spring Data lead Oliver Gierke has just announced &lt;a href="https://spring.io/blog/2015/07/01/final-spring-data-service-releases-evans-sr3-and-dijkstra-sr6-released"&gt;the final Spring Data Service Releases (Evans SR3 and Dijkstra SR6)&lt;/a&gt;.&lt;/li&gt;
-  &lt;li&gt;Daniel Jagielski has put together a nice look at the pros/cons of using Spring Boot and DropWizard. It should be noted that we on &lt;a href="http://www.schibsted.pl/2015/07/spring-boot-and-dropwizard-in-microservices-development/"&gt;the Spring Boot team were definitely inspired by DropWizard &lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I found an oldie-but-goodie: this is Agile luminary &lt;a href="http://www.exampler.com/blog/2008/11/14/agile-development-practices-keynote-text/"&gt;Brian Marick&amp;rsquo;s review of agile development practices from this 2008 blog&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Want to catch up with all things Redis? &lt;a href="https://redislabs.com/redis-watch-archive/49"&gt;I quite like the Redislabs newsletter, whose latest issue I&amp;rsquo;m linking to&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Our pal Marten Deinum has put together a &lt;a href="https://mdeinum.wordpress.com/2015/07/01/spring-framework-hidden-gems/"&gt;nice look at some great Spring framework &lt;em&gt;gems&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I love &lt;em&gt;Cloud Foundry After Dark&lt;/em&gt; the livestream&amp;rsquo;d Google Hangout featuring various Cloud Foundry luminaries every Sunday. In this episode, &lt;a href="http://twitter.com/littleidea"&gt;one of our heros - Andrew Clay Shafer&lt;/a&gt; - &lt;a href="https://www.youtube.com/watch?v=MBl18nUde0U"&gt;shaves his head&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;I really dug &lt;a href="http://blog.pivotal.io/pivotal-conversations/features/the-agility-frontier-continuous-delivery-and-pivotal-cloud-foundry"&gt;Michael Cote&amp;rsquo;s interview on continuous delivery using Pivotal Cloud Foundry&lt;/a&gt; - check it out!&lt;/li&gt;
-&lt;/ul&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Integration 4.2 Milestone 2 is Available (and 4.1.6)</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/07/spring-integration-4-2-milestone-2-is-available-and-4-1-6" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Gary Russell</name>
-    </author>
-    <id>tag:spring.io,2015-07-07:2182</id>
-    <updated>2015-07-07T16:22:00Z</updated>
-    <content type="html">&lt;p&gt;We are pleased to announce that the second milestone for the upcoming 4.2 release of Spring Integration is now available. In addition to those features in &lt;a href="https://spring.io/blog/2015/05/28/spring-integration-4-2-milestone-1-is-available"&gt;milestone 1&lt;/a&gt; this release includes:&lt;/p&gt;&lt;h2&gt;&lt;a href="#zookeeper-support" class="anchor" name="zookeeper-support"&gt;&lt;/a&gt;Zookeeper Support&lt;/h2&gt;&lt;p&gt;Several components have been added that use zookeeper, including a &lt;code&gt;LockRegistry&lt;/code&gt; and &lt;code&gt;MetadataStore&lt;/code&gt; but probably the most significant is the ability to assign endpoints to a leadership &lt;code&gt;Role&lt;/code&gt;, with the endpoint lifecycle being controlled by the leadership status. When an application context is granted leadership, all endpoints in the corresponding role are started automatically. Similarly when leadership is revoked, the endpoints are stopped.&lt;/p&gt;&lt;p&gt;This can be useful for configuring a hot-standby instance of an application.&lt;/p&gt;&lt;h2&gt;&lt;a href="#completablefuture" class="anchor" name="completablefuture"&gt;&lt;/a&gt;CompletableFuture&lt;/h2&gt;&lt;p&gt;When running with Java 8, gateway methods can now return &lt;code&gt;CompletableFuture&amp;lt;?&amp;gt;&lt;/code&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#aggregator" class="anchor" name="aggregator"&gt;&lt;/a&gt;Aggregator&lt;/h2&gt;&lt;p&gt;It is now possible to more easily configure an &lt;code&gt;aggregator&lt;/code&gt; as a message barrier where, when the message group is released (due to completion or timeout), each message is released individually rather than as a collection.&lt;/p&gt;&lt;h2&gt;&lt;a href="#s-ftp" class="anchor" name="s-ftp"&gt;&lt;/a&gt;(S)FTP&lt;/h2&gt;&lt;p&gt;The SFTP and FTP outbound gateways now support the &lt;code&gt;-stream&lt;/code&gt; option when &lt;code&gt;get&lt;/code&gt;ing files and the message payload is an &lt;code&gt;InputStream&lt;/code&gt; allowing direct streaming of the remote file. When using this feature for a text file, in conjunction with a &lt;code&gt;FileSplitter&lt;/code&gt; (&lt;code&gt;&amp;lt;int-file:splitter/&amp;gt;&lt;/code&gt;) each line can be processed individually without copying the file to local disk.&lt;/p&gt;&lt;h2&gt;&lt;a href="#performance-improvements" class="anchor" name="performance-improvements"&gt;&lt;/a&gt;Performance Improvements&lt;/h2&gt;&lt;p&gt;Some performance bottlenecks have been identified and corrected.&lt;/p&gt;&lt;p&gt;See the &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=15106"&gt;release notes&lt;/a&gt; for complete information and the &lt;a href="http://projects.spring.io/spring-integration/"&gt;project page&lt;/a&gt; for documentation and download details.&lt;/p&gt;&lt;p&gt;As a reminder, the &lt;a href="https://spring.io/blog/2015/06/19/spring-integration-kafka-1-2-is-available-with-0-8-2-support-and-performance-enhancements"&gt;Apache Kafka extension&lt;/a&gt; now supports version 0.8.2 of kafka.&lt;/p&gt;&lt;p&gt;The 4.1.6.RELEASE containing a &lt;a href="https://jira.spring.io/jira/secure/ReleaseNote.jspa?projectId=10121&amp;version=15215"&gt;few bug fixes and minor improvements&lt;/a&gt; is also available in the &lt;a href="https://repo.spring.io/release"&gt;spring repo&lt;/a&gt; and will be in maven central shortly.&lt;/p&gt;&lt;h1&gt;&lt;a href="#springone-2gx-2015-is-around-the-corner" class="anchor" name="springone-2gx-2015-is-around-the-corner"&gt;&lt;/a&gt;SpringOne 2GX 2015 is around the corner!&lt;/h1&gt;&lt;p&gt;Book your place at &lt;a href="http://www.springone2gx.com"&gt;SpringOne2GX in Washington, DC soon&lt;/a&gt;. Super Early Bird Price expires June 12th! It&amp;rsquo;s simply the best opportunity to find out first hand all that&amp;rsquo;s going on and to provide direct feedback. &lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>Spring Boot 1.2.5 released</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/07/02/spring-boot-1-2-5-released" />
-    <category term="releases" label="Releases" />
-    <author>
-      <name>Phil Webb</name>
-    </author>
-    <id>tag:spring.io,2015-07-02:2180</id>
-    <updated>2015-07-02T07:17:48Z</updated>
-    <content type="html">&lt;p&gt;Spring Boot 1.2.5 has been released and is available now from &lt;a href="http://repo.spring.io/release"&gt;repo.spring.io&lt;/a&gt; and &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22org.springframework.boot%22"&gt;Maven Central&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;This maintenance release includes a &lt;a href="https://github.com/spring-projects/spring-boot/issues?q=milestone%3A1.2.5"&gt;number of fixes&lt;/a&gt; and most importantly updates the managed Spring Framework dependency to &lt;a href="https://spring.io/blog/2015/06/30/spring-framework-4-1-7-3-2-14-released"&gt;version 4.1.7&lt;/a&gt; (which includes an important &lt;a href="http://pivotal.io/security/cve-2015-3192"&gt;security fix&lt;/a&gt;). &lt;/p&gt;&lt;p&gt;We recommend that all Spring Boot users upgrade.&lt;/p&gt;&lt;p&gt;&lt;a href="http://projects.spring.io/spring-boot/"&gt;Project Page&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot"&gt;GitHub&lt;/a&gt; | &lt;a href="https://github.com/spring-projects/spring-boot/issues"&gt;Issues&lt;/a&gt; | &lt;a href="http://docs.spring.io/spring-boot/docs/current/reference/htmlsingle"&gt;Documentation&lt;/a&gt;&lt;/p&gt;</content>
   </entry>
 </feed>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<!-- 把它设置为开发模式，发布时要设置为false -->
+	<constant name="struts.devMode" value="true" />
+
+	<!-- 设置在class被修改时是否热加载，发布时要设置为false -->
+	<constant name="struts.convention.classes.reload" value="true" />
+
+	<!-- 自动动态方法的调用，使用这个设置后可以这样调用：action!method -->
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+
+	<!-- 指定jsp文件所在的目录地址 -->
+	<constant name="struts.convention.result.path" value="/WebContent" />
+
+	<!-- 使用struts-default默认的转换器，如果是rest的使用：rest-default，rest需要rest的jar插件 -->
+	<constant name="struts.convention.default.parent.package"
+		value="struts-default" />
+
+	<!-- 用于配置包名后缀。默认为action、actions、struts -->
+	<constant name="struts.convention.package.locators" value="actions" />
+
+	<!-- 用于配置类名后缀，默认为Action，设置后，Struts2只会去找这种后缀名的类做映射 -->
+	<constant name="struts.convention.action.suffix" value="Action" />
+
+	<!-- 设置即使没有@Action注释，依然创建Action映射。默认值是false。因为Convention-Plugin是约定优于配置的风格， 
+		可以不通过注解根据预先的定义就能访问相应Action中的方法 -->
+	<constant name="struts.convention.action.mapAllMatches" value="true" />
+
+	<!-- 自定义jsp文件命名的分隔符 -->
+	<constant name="struts.convention.action.name.separator"
+		value="-" />
+
+	<!-- 国际化资源文件名称 -->
+	<constant name="struts.custom.i18n.resources" value="i18n" />
+
+	<!-- 是否自动加载国际化资源文件 -->
+	<constant name="struts.i18n.reload" value="true" />
+
+	<!-- 浏览器是否缓存静态内容 -->
+	<constant name="struts.serve.static.browserCache" value="false" />
+
+	<!-- 上传文件大小限制设置 -->
+	<constant name="struts.multipart.maxSize" value="-1" />
+
+	<!-- 主题，将值设置为simple，即不使用UI模板。这将不会生成额外的html标签 -->
+	<constant name="struts.ui.theme" value="simple" />
+
+	<!-- 编码格式 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+
+	<!-- package加载的路径名,默认值为/，namespace为设置的属性 -->
+	<package name="defult" extends="struts-default">
+		<action name="ahello" class="com.excute.action.NumberManagerAction">
+			<result>/helloworld.jsp</result>
+			<result name="afirst">/first.jsp</result>
+			<result name="asecond">/second.jsp</result>
+		</action>
+	</package>
+	<package name="test" extends="struts-default" namespace="/test">   <!-- 路径名 -->
+		<action name="ahello" class="com.excute.action.NumberManagerAction">
+			<result>/helloworld.jsp</result>
+			<result name="afirst">/first.jsp</result>
+			<result name="asecond">/second.jsp</result>
+		</action>
+	</package>
+</struts>
+

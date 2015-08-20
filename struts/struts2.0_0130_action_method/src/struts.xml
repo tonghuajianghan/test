@@ -11,7 +11,8 @@
     <constant name="struts.enable.DynamicMethodInvocation" value="true" /> 
 
     <!-- 动态调用class中的方法 -->
-    <package name="methodpackage" extends="struts-default">      
+    <package name="methodpackage" extends="struts-default">    
+    	<!--相当与对method进行action配置，这个action就是一个method的地址映射  -->  
         <action name="amethod" class="com.excute.action.MethodAction" method="add">
             <result name="ad">/page/method/managermethod.jsp</result>        
         </action>

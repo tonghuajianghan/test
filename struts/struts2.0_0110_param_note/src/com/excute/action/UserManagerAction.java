@@ -2,11 +2,14 @@ package com.excute.action;
 
 import com.excute.model.User;
 
-/*
- * 用于练习mvc框架
- * 还没成功
- */
 
+/** 
+* @ClassName: UserManagerAction 
+* @Description: TODO 
+* @author jh 
+* @date 2015-8-10 涓嬪崍10:01:28 
+*  
+*/
 public class UserManagerAction {
   private String name;
   private int age;

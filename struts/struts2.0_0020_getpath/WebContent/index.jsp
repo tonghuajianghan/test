@@ -13,8 +13,8 @@
 </head>
 <body>
  index.jsp<br>
- <a href="/structs2.0_0020/ahello.action">the load question</a><br>
- <a href="/structs2.0_0020/test/ahello.action">the load question2</a><br>
+ <a href="/struts2.0_0020_getpath/ahello.action">the load question</a><br>
+ <a href="/struts2.0_0020_getpath/ahello.action">the load question2</a><br>
  <a href="<%=basepath%>first.jsp">basepath load question</a><br>
  <%=basepath %>
 </body>

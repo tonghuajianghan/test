@@ -1,8 +1,13 @@
 package com.excute.action;
-/*
- * 用于练习前台通过url传参给后台
- */
 
+
+/** 
+* @ClassName: UserAction 
+* @Description: TODO 浼犱骇璋冪敤
+* @author jh 
+* @date 2015-8-10 涓嬪崍9:56:16 
+*  
+*/
 public class UserAction {
 
 	private String student;

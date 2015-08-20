@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+	<constant name="struts.enable.DynamicMethodInvocation" value="false" />
+	<constant name="struts.devMode" value="true" />
+
+	<!-- 基础 ，控制访问页面 -->
+	<package name="defult" extends="struts-default">
+		<action name="ahello" class="com.excute.action.NumberManagerAction">
+			<result name="afirst">/page/math/first.jsp</result>
+			<result name="asecond">/page/math/second.jsp</result>
+		</action>
+	</package>
+	<!-- 返回给result的名字，如何调用不是execute的方法返回给result参数 -->
+	<package name="permission" extends="struts-default" namespace="/permission">
+		<action name="ap" class="com.excute.action.PermissionAction">
+			<result name="ap1">/page/permissionpage/permission1.jsp</result>
+			<result name="ap2">/page/permissionpage/permission2.jsp</result>
+		</action>
+	</package>
+	<!--传参，mvc传参，basepath -->
+	<package name="user" extends="struts-default" namespace="/userpage">
+		<action name="au" class="com.excute.action.UserAction">
+			<result name="success">/page/user/usermanager.jsp</result>
+		</action>
+	</package>
+	<!-- 前后台传参 -->
+	<package name="usermanager" extends="struts-default" namespace="/usermanager">
+		<action name="userindex" class="com.excute.action.UserManagerAction"
+			method="getUserIndex">
+			<result name="/page/user/userindex.jsp">/page/user/userindex.jsp</result>
+		</action>
+		<action name="aum" class="com.excute.action.UserManagerAction"
+			method="addUser">
+			<result name="success">/page/user/usermanagerbetter.jsp</result>
+			<result name="addUser">/page/user/Usershow.jsp</result>
+		</action>
+	</package>
+
+</struts>
+
