@@ -1,0 +1,146 @@
+package com.wondersgroup.pss.controller;
+
+import java.io.IOException;
+import java.util.List;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.log4j.spi.ErrorCode;
+import org.apache.tiles.servlet.context.ServletUtil;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.wondersgroup.pss.bean.SearchCondition;
+import com.wondersgroup.pss.bo.PssQa;
+import com.wondersgroup.pss.bo.PssQaTag;
+import com.wondersgroup.pss.service.QAService;
+import com.wondersgroup.pss.service.UserService;
+
+/**
+ * 智能问答管理控制
+ * 
+ * @author huangjiabei
+ * 
+ */
+@Controller
+@RequestMapping("/qa")
+public class QAController {
+	@Autowired
+	private QAService qaService;
+
+	/**
+	 * 转至问题管理页面
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/qa_manager")
+	public String qamanager() {
+		return "qa/qa_manager";
+	}
+
+	/**
+	 * 
+	 * 转至新增问题页面
+	 * 
+	 * @param request
+	 * @param response
+	 * @param pssQa
+	 * @throws IOException
+	 * @throws ServletException
+	 */
+	@RequestMapping("/qa_add")
+	public void qa_add(HttpServletRequest request,
+			HttpServletResponse response, PssQa pssQa) throws IOException,
+			ServletException {
+		qaService.add(pssQa);
+		// ServletUtil.write2Client(response, new AjaxMessage(ErrorCode.SUCCESS,
+		// "操作成功！"));
+	}
+
+	/**
+	 * 转至问题删除页面
+	 * 
+	 * @param request
+	 * @param response
+	 * @param qaId
+	 */
+	@RequestMapping("/qa_delete")
+	public void qa_delete(HttpServletRequest request,
+			HttpServletResponse response, PssQa pssQa) {
+		qaService.delete(pssQa);
+		// ServletUtil.write2Client(response, new AjaxMessage(ErrorCode.SUCCESS,
+		// "操作成功！"));
+	}
+
+	/**
+	 * 转至问题修改页面
+	 * 
+	 * @param request
+	 * @param response
+	 * @param pssQa
+	 */
+	@RequestMapping("/qa_update")
+	public void qa_update(HttpServletRequest request,
+			HttpServletResponse response, PssQa pssQa) {
+		qaService.update(pssQa);
+		// ServletUtil.write2Client(response, new AjaxMessage(ErrorCode.SUCCESS,
+		// "操作成功！"));
+	}
+
+	/**
+	 * 转至问题查询页面
+	 * 
+	 * @param request
+	 * @param response
+	 * @param pssQa
+	 * @return
+	 */
+	@RequestMapping("/qa_search")
+	public ModelMap qa_search(HttpServletRequest request,
+			HttpServletResponse response, PssQa pssQa) {
+		ModelMap map = new ModelMap();
+		qaService.delete(pssQa);
+		return map;
+	}
+
+	/**
+	 * robot 根据jpql语句查询单个问题对象
+	 * 
+	 * @param model
+	 * @param pssQa
+	 * @return
+	 */
+	@RequestMapping("/getUniquePssQaByJPQL")
+	public String getUniquePssQaByJPQL(Model model, PssQa pssQa) {
+		PssQa pq = qaService.getUniquePssQaByJPQL(pssQa);
+		if (!pq.equals(null)) {
+			model.addAttribute("pq", pq);
+		}
+		return "web/web_robotchat";
+	}
+
+	/**
+	 * robot 通过sql语句访问数据库， 通过连表查询， 通过tagId查询qaCont
+	 * 
+	 * @param model
+	 * @param pssQa
+	 * @param pssQaTag
+	 * @return
+	 */
+	@RequestMapping("/searchRobot")
+	public String searchRobot(Model model, PssQa pssQa, PssQaTag pssQaTag) {
+		SearchCondition qacondition = new SearchCondition();
+		qacondition.setQa(pssQa);
+		qacondition.setTag(pssQaTag);
+		List<PssQa> listPssQa = qaService.searchRobot(qacondition);
+		if(listPssQa.size() != 0){
+			model.addAttribute("listPssQa", listPssQa);
+		}
+		return "web/web_robotchat";
+	}
+}

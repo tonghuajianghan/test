@@ -32,6 +32,8 @@ public class UserController {
 	* @return
 	*    
 	*/
+	
+	
 	@RequestMapping("/uM")
 	public String userManager(){
 		return "userpage/userManager";

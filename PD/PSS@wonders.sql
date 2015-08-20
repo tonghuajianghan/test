@@ -1,0 +1,33 @@
+SELECT
+	*
+FROM
+	PSS_QA
+WHERE
+	QA_DESC LIKE '%1%' OR
+	EXISTS(	SELECT
+				1 
+			FROM
+				PSS_QA_TAG
+			WHERE
+				PSS_QA.QA_ID =PSS_QA_TAG.QA_ID AND
+				TAG_DESC LIKE '%1%' )
+
+select PSS_QA.QA_CONT from PSS_QA
+inner join PSS_QA_TAG
+on PSS_QA.QA_ID = PSS_QA_TAG.QA_ID
+
+SELECT * FROM PSS_QA ,PSS_QA_TAG
+
+
+select * from PSS_QA 
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+package com.wondersgroup.pss.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 产品宣传网站
+ * 
+ * @author SHI
+ */
+@Controller
+public class WebController {  
+    /**
+     * 转至产品首页
+     * @return
+     */
+    @RequestMapping("/webhome")
+    public String webhome(){
+    	return "web/index";
+    }
+
+    /**
+     * 转至产品详情页面
+     * 
+     * @param id 产品ID
+     * @param model
+     * @return
+     */
+    
+    @RequestMapping("/webproductdemail")
+    public String webproductdemail(String id, Model model) {
+        return "web/web_productdemail";
+    }
+    
+    /**
+     * 转至智能机器人问答页面
+     * 
+     * @return
+     */
+    @RequestMapping("/webrobotchat")
+    public String webrobotchat(){
+    	return "web/web_robotchat";
+    }
+    
+    /**
+     * 转至问题管理页面
+     * 
+     * @return
+     */
+    @RequestMapping("/webqamanager")
+    public String webqamanager(){
+    	return "web/web_qamanager";
+    }
+    
+}

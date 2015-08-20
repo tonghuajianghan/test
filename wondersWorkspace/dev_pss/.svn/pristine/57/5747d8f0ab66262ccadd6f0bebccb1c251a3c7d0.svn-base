@@ -1,0 +1,80 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<form id="userForm" action="${base}user/list" method="post">
+	<dl class="banner">
+		<dd class="back"><a href="javascript:" onclick="window.history.go(-1);return false;"></a></dd>
+		<dt class="title">用户列表</dt>
+		<dd class="search"><a href="javascript:" onclick="$('#userForm').submit();return false;"></a></dd>
+		<dd class="cond">
+			<select name="user.userType">
+				<option value="">全部用户类型</option>
+				<c:forEach var="dic" items="${dicUserType}">
+					<option value="${dic.key}" ${condition.user.userType eq dic.key ? 'selected' : ''}>${dic.value}</option>
+				</c:forEach>
+			</select>
+		</dd>
+		<dt class="cond">用户类型</dt>
+		<dd class="cond"><input type="text" name="user.userName" value="${condition.user.userName}" /></dd>
+		<dt class="cond">用户名</dt>
+	</dl>
+	<input type="hidden" id="pageNo" name="pageNo" value="${condition.pageNo}" />
+</form>
+
+<table cellspace="0" cellpadding="0" class="list">
+	<col width="41px" /><col width="80px" /><col />
+	<tr>
+		<th>&nbsp;</th>
+		<th>批量管理</th>
+		<th>
+			<a href="javascript:" onclick="return false;" class="op add" title="新增用户"></a>
+			<a href="javascript:" onclick="return false;" class="op del" title="批量删除用户"></a>
+			<a href="javascript:" onclick="return false;" class="op off" title="批量禁用用户"></a>
+			<a href="javascript:" onclick="return false;" class="op on" title="批量激活用户"></a>
+			<a href="javascript:" onclick="return false;" class="op pwd" title="批量重置密码"></a>
+		</th>
+	</tr>
+</table>
+
+<table cellspace="0" cellpadding="0" class="list">
+	<col width="46px" /><col width="120px" /><col width="120px" /><col width="150px" /><col /><col width="250px" />
+	<tr>
+		<th class="center"><input type="checkbox" class="checkbox" /></th>
+		<th>用户名</th>
+		<th>用户昵称</th>
+		<th>用户类型</th>
+		<th>用户状态</th>
+		<th>操作</th>
+	</tr>
+	<c:forEach var="item" items="${page.result}">
+		<tr>
+			<td class="center"><input type="checkbox" class="checkbox" /></td>
+			<td><a href="javascript:" onclick="return false;">${item.userName}</a></td>
+			<td>${item.nickName}</td>
+			<td>${dicUserType[item.userType]}</td>
+			<td>${YES_VALUE eq item.valid ? "正常" : "禁用"}</td>
+			<td>
+				<input type="button" id="valide" value="禁用" />
+				<input type="button" id="del" value="删除" />
+				<input type="button" id="resetPwd" value="重置密码" />
+			</td>
+		</tr>
+	</c:forEach>
+	<tr>
+		<td colspan="6" class="page-container" />
+	</tr>
+</table>
+		
+<script type="text/javascript">
+	$(document).ready(function() {
+		//加入分页的绑定 
+		paging.form.init({
+			container: ".page-container",
+			numb: "#pageNo",
+			page: "${page.pageCount}",
+			total: "${page.count}",
+			form: "#userForm"
+		});
+	});
+</script>

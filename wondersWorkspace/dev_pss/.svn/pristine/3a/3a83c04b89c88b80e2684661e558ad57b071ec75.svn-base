@@ -1,0 +1,65 @@
+package com.wondersgroup.pss.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.wondersgroup.pss.service.PassportService;
+
+/**
+ * 个人账户管理
+ * 
+ * @author SHI
+ */
+@Controller
+@RequestMapping("/passport")
+public class PassportController {
+    @Autowired
+    private PassportService passportService;
+
+    /**
+     * 转至登录页面
+     * 
+     * @return
+     */
+    @RequestMapping("/login")
+    public String login() {
+        return "passport/login";
+    }
+
+    /**
+     * 验证用户登录
+     * 
+     * @param userId
+     * @param userPwd
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/login_verify")
+    public String verify(String userId, String userPwd) {
+        // 返回用户登录验证信息
+        return passportService.verify(userId, userPwd);
+    }
+
+    /**
+     * 转至个人中心页面
+     * 
+     * @return
+     */
+    @RequestMapping("/center")
+    public String center() {
+        return "passport/center";
+    }
+
+    /**
+     * 更新个人资料
+     * 
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping("/profile_update")
+    public String update() {
+        return "";
+    }
+}

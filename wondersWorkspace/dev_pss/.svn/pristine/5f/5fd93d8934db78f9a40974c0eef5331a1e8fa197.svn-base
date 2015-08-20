@@ -1,0 +1,86 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.wondersgroup.core.constant.GlobalConstants" %>
+<%@ page import="com.wondersgroup.core.constant.ConfigConstants" %>
+<%@ page import="org.apache.commons.lang.StringUtils"%>
+<%@ taglib uri="tools" prefix="t" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<%
+	// 服务器地址
+	String host = request.getServerName();
+	// 传送协议
+	String schema = ConfigConstants.getInstance().get("scheme.default");
+	schema = StringUtils.isBlank(schema) ? request.getScheme() : schema;
+	schema = ConfigConstants.getInstance().get("scheme.special.http").contains(host) ? "http" : schema;
+	schema = ConfigConstants.getInstance().get("scheme.special.https").contains(host) ? "https" : schema;
+	// 服务器端口
+	String port = ConfigConstants.getInstance().get("port.default");
+	port = StringUtils.isBlank(port) ? String.valueOf(request.getServerPort()) : port;
+	port = ConfigConstants.getInstance().get("port.special.empty").contains(host) ? "" : port;
+	String ports = ConfigConstants.getInstance().get("port.special.list");
+	if (StringUtils.isNotBlank(ports)) {
+	    for (String p : ports.split(",")) {
+	        String hosts = ConfigConstants.getInstance().get("port.special." + p);
+	        port = StringUtils.isNotBlank(hosts) && hosts.contains(host) ? p : port;
+	    }
+	}
+	port = StringUtils.equals("80", port) ? "" : ":" + port;
+	// 资源路径
+	String path = request.getContextPath();
+	
+	// 设置URL请求根路径
+	String base = schema + "://" + host + port + path + "/";
+
+	boolean debug = GlobalConstants.YES_VALUE.equals(ConfigConstants.getInstance().get("debug.on"));
+%>
+<head>
+	<title>用户详情</title>
+	<base href="<%=base%>" />
+
+	<style type="text/css">
+    	body, html { overflow:auto; height:100%; }
+    	.main { margin:10% auto; width:600px; line-height:200%; padding:15px; }
+    	.btn-bar { margin:0 auto; padding:10px; text-align:center; }
+    </style>
+    <!--[if lt IE 10]>
+   	<style type="text/css">
+   		.btn-01 { behavior:url(js/PIE.htc); }
+	</style>
+   	<![endif]-->
+</head>
+
+<body>
+	
+	<div class="main">
+		<form id="backdoorForm" action="<%=base%>backdoor">
+			<table cellspacing="0" cellpadding="0" class="info">
+				<col width="20%" /><col width="80%" />
+				<tr>
+					<th colspan="2" class="title">基本信息</th>
+				</tr>				
+				<tr name="test-info" rel="">
+					<th>用户姓名：</th>
+					<td>Admin</td>
+				</tr>
+				<tr name="test-info" rel="">
+					<th>昵称：</th>
+					<td>
+						张三
+					</td>
+				</tr>
+				<tr name="test-info" rel="">
+					<th>电子邮箱：</th>
+					<td>13455@qq.com</td>
+				</tr>
+				<tr name="test-info" rel="">
+					<th>联系电话：</th>
+					<td>15577106081</td>
+				</tr>
+			</table>
+		</form>
+		
+	</div>
+	
+
+</body>
+</html>

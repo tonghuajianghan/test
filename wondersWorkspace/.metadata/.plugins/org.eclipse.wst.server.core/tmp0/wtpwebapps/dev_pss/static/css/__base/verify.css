@@ -1,0 +1,5 @@
+/* Validation */
+label.error { margin-left:5px; cursor:pointer; }
+label.star { color:red; padding:0 5px; }
+input.error, select.error, textarea.error { border:1px red solid; }
+input[type=checkbox].error, input[type=radio].error { outline:1px red solid; outline-style:none\9; }

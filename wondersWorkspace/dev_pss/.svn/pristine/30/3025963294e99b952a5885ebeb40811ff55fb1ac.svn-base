@@ -1,0 +1,28 @@
+package com.wondersgroup.pss.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.wondersgroup.pss.dao.RobotDAO;
+
+/**
+ * 智能机器人问题
+ * 
+ * @author jianghan
+ * 
+ */
+@Service
+@Transactional
+public class RobotService {
+	@Autowired
+	private RobotDAO robotDAO;
+
+	/**
+	 * 
+     * 
+     */
+	public void getAnswer() {
+
+	}
+}

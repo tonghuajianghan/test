@@ -1,0 +1,244 @@
+package com.wondersgroup.pss.controller;
+
+import java.io.IOException;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.wondersgroup.core.bean.Page;
+import com.wondersgroup.core.exception.ServiceException;
+import com.wondersgroup.core.util.CascadeUtil;
+import com.wondersgroup.core.util.FormUtil;
+import com.wondersgroup.pss.annotation.Modual;
+import com.wondersgroup.pss.bean.SearchCondition;
+import com.wondersgroup.pss.bo.PssQa;
+import com.wondersgroup.pss.bo.PssQaTag;
+import com.wondersgroup.pss.constant.BusinessConstants;
+import com.wondersgroup.pss.service.QAService;
+import com.wondersgroup.pss.util.BusinessUtil;
+
+/**
+ * 智能问答管理控制
+ * 
+ * @author huangjiabei
+ */
+@Controller
+@RequestMapping("/qa")
+public class QAController {
+    @Autowired
+    private QAService qaService;
+
+    private Map<String, String> getProductDic() {
+        return qaService.getProductDic();
+    }
+
+    /**
+     * 转至问题管理页面
+     * 
+     * @return
+     */
+    @RequestMapping("/qa_manager")
+    public String qamanager() {
+        return "qa/qa_manager";
+    }
+
+    /**
+     * 转至新增问题页面
+     * 
+     * @param request
+     * @param response
+     * @param pssQa
+     * @throws IOException
+     * @throws ServletException
+     */
+    @RequestMapping("/qa_add")
+    public void qa_add(HttpServletRequest request, HttpServletResponse response, PssQa pssQa) throws IOException, ServletException {
+        qaService.add(pssQa);
+        // ServletUtil.write2Client(response, new AjaxMessage(ErrorCode.SUCCESS,
+        // "操作成功！"));
+    }
+
+    /**
+     * 转至问题删除页面
+     * 
+     * @param qaId
+     */
+    @ResponseBody
+    @RequestMapping("/qa_delete")
+    public String delete(String qaId) {
+        try {
+            // 根据Id找出pssQa
+            PssQa pssQa = qaService.findById(qaId);
+            // 删除pssQa
+            qaService.delete(pssQa);
+        } catch (Exception e) {
+            return "问题删除失败！";
+        }
+
+        return "success";
+
+    }
+
+    /**
+     * 批量删除选中问题
+     * 
+     * @param idStr
+     */
+    @ResponseBody
+    @RequestMapping("/batchDelete")
+    public String batchDelete(String idStr) {
+        // 拆分idStr为数组
+        String[] idArr = idStr.split(";");
+        try {
+            for (int i = 0; i < idArr.length; i++) {
+                PssQa pssQa = qaService.findById(idArr[i]);
+                qaService.delete(pssQa);
+            }
+        } catch (Exception e) {
+            return "问题删除失败！";
+        }
+
+        return "success";
+
+    }
+
+    /**
+     * robot 通过jpql语句访问数据库， 通过连表查询， 通过tagId查询qaCont
+     * 
+     * @param model
+     * @param searchRobot
+     * @return
+     * @throws IOException
+     */
+    @ResponseBody
+    @RequestMapping("/searchRobot")
+    public List<PssQa> searchRobot(String searchRobot) {
+        if (StringUtils.isBlank(searchRobot)) {
+            return null;
+        }
+
+        // 返回匹配的智能问答
+        return BusinessUtil.clearChain(qaService.searchRobot(searchRobot));
+    }
+
+    @ResponseBody
+    @RequestMapping("/testAjax")
+    public String testAjax(Model model, String searchRobot) {
+        System.out.println("mark1" + searchRobot);
+        String jh = "chenggong";
+        model.addAttribute("jhw", jh);
+        return jh;
+    }
+
+    /**
+     * 转至问题查询页面
+     * 
+     * @return
+     */
+    @Modual(BusinessConstants.MODUAL_QA_MANA)
+    @RequestMapping("/qa_list")
+    public String qa_list(SearchCondition qacondition, Model model) {
+        Map<String, String> productDic = this.getProductDic();
+        model.addAttribute("productDic", productDic);
+        if (qacondition == null) {
+            qacondition = new SearchCondition();
+            qacondition.setPageNo(1);
+            qacondition.setPageSize(10);
+        } else {
+            Page page = qaService.search(qacondition);
+            model.addAttribute("page", page);
+        }
+        model.addAttribute("condition", qacondition);
+        return "qa/qa_list";
+    }
+
+    @ResponseBody
+    @RequestMapping("/save")
+    public String save(@RequestBody
+    PssQa pssQa) {
+        try {
+            if (pssQa == null) {
+                throw new ServiceException("该问题不存在！");
+            }
+            // 获取问题ID
+            String id = pssQa.getQaId();
+
+            // 问题ID不为空，说明当前操作是编辑操作
+            if (StringUtils.isNotBlank(id)) {
+                // 当前已存在的问题对象
+                PssQa existedPssQa = qaService.get(id, 0);
+
+                // 将页面内容更新至问题对象
+                FormUtil.copyProperties(existedPssQa, pssQa);
+
+                // 将页面内容更新至问题产品关联集合
+                if (existedPssQa.getPssQaTagSet() == null) {
+                    Set<PssQaTag> pssQaTagSet = new LinkedHashSet<PssQaTag>();
+                    pssQaTagSet.addAll(pssQa.getPssQaTagSet());
+                    existedPssQa.setPssQaTagSet(pssQaTagSet);
+                } else {
+                    FormUtil.updateSet(existedPssQa.getPssQaTagSet(), pssQa.getPssQaTagSet());
+                }
+                // 级联设置用户对象主键
+                CascadeUtil.setRefProperty(pssQa, id, "qaId");
+                // 更新已有问题信息
+                qaService.update(existedPssQa);
+            } else {
+
+                // 保存新增问题信息
+                // 级联设置用户对象主键
+                CascadeUtil.setRefProperty(pssQa, BusinessUtil.randomUUID(), "qaId");
+
+                qaService.update(pssQa);
+
+            }
+        } catch (Throwable t) {
+            t.printStackTrace();
+            // 问题信息保存失败，返回失败信息
+            return "问题保存失败！";
+        }
+
+        // 保存成功，返回空信息
+        return "success";
+    }
+
+    /**
+     * 转至问题保存与修改页面
+     * 
+     * @param qaId
+     * @param model
+     * @return
+     */
+    @RequestMapping("/qa_edit")
+    public String qa_edit(String qaId, Model model) {
+        // 产品字典
+        Map<String, String> productDic = this.getProductDic();
+        model.addAttribute("productDic", productDic);
+        PssQa pssQa = new PssQa();
+        String editQa = "新增问题";
+        if (StringUtils.isNotEmpty(qaId)) {
+            pssQa = qaService.findById(qaId);
+            editQa = "修改问题";
+        }
+        // 把问题对象传至下一个页面
+        model.addAttribute("pssQa", pssQa);
+        // editQa为确认当前为新增问题还是修改问题
+        model.addAttribute("editQa", editQa);
+
+        return "qa/qa_edit";
+    }
+
+}

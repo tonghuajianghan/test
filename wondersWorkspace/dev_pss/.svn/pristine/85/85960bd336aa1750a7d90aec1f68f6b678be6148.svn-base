@@ -1,0 +1,21 @@
+package com.wondersgroup.pss.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.wondersgroup.pss.bo.PssUser;
+import com.wondersgroup.pss.dao.UserDAO;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+@Service
+@Transactional
+public class UserService {
+	
+	@Autowired
+	private UserDAO userDAO;
+	
+	public void saveUser(PssUser user) {
+		userDAO.saveUser(user);
+	}
+}

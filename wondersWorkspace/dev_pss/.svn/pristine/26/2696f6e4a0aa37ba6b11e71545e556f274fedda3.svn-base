@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd" version="1.0">
+	<!-- 实体bean集合名 -->
+	<persistence-unit name="pu_business" transaction-type="RESOURCE_LOCAL">
+		<!-- JPA驱动提供者 -->
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- hibernate相关配置 -->
+		<properties>
+			<property name="hibernate.dialect" value="com.wondersgroup.core.dialect.OracleDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="false" />
+			<property name="hibernate.ejb.interceptor" value="com.wondersgroup.core.interceptor.HibernateInterceptor" />
+		</properties>
+	</persistence-unit>
+
+	<!-- Test -->
+	<persistence-unit name="pu_jdbc" transaction-type="RESOURCE_LOCAL">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<properties>
+			<property name="hibernate.dialect" value="com.wondersgroup.core.dialect.OracleDialect" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+			<property name="hibernate.ejb.interceptor" value="com.wondersgroup.core.interceptor.HibernateInterceptor" />
+		</properties>
+	</persistence-unit>
+</persistence>

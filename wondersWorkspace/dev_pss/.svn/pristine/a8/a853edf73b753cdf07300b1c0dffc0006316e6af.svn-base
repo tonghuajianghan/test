@@ -1,0 +1,4 @@
+/* Page */
+.page ul { float:right; }
+.page li { float:left; padding:0 5px; }
+.page li a { text-decoration:none; }

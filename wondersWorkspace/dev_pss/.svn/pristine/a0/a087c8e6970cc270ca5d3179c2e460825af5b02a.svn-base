@@ -1,0 +1,49 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+
+<div align="center">
+	<div class="div1">
+	<span class="jie">用户名：</span>
+	<input type="text" name="userName" id="userName" style="width: 150px;"/>
+	</div>
+	<div class="div1">
+	<span class="jie">用户类别：</span>
+		<select name="userType" id="userType" style="width: 150px;">
+			<option value="">--</option>
+			<option value="1">产品信息维护人员</option>
+		</select>
+	</div>
+	<div class="div1">
+	<span class="jie">初始密码：</span>
+	<input type="text" name="pwd" id="pwd" value="111111" style="width: 150px;"/>
+	</div>
+	<div class="div1">
+	<span class="jie">管理产品：</span>
+		<select name="chanpin" id="chanpin" multiple="multiple" style="width: 150px;">
+			<option value="1">云南一体化系统</option>
+			<option value="2">云南一体化系统</option>
+			<option value="3">云南一体化系统</option>
+			<option value="4">云南一体化系统</option>
+			<option value="5">云南一体化系统</option>
+			<option value="6">云南一体化系统</option>
+			<option value="7">云南一体化系统</option>
+			<option value="8">云南一体化系统</option>
+			<option value="9">云南一体化系统</option>
+		</select>
+	</div>
+</div>
+
+<div align="center">
+	<input type="button" value="确定"/>
+	<input type="reset" value="取消"/>
+</div>
+
+<style>
+<!--
+	.jie{width:100px;text-align: left;}
+	.div1{height: 30px;}
+-->
+</style>
+
+<script type="text/javascript">
+	
+</script>

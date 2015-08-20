@@ -1,0 +1,35 @@
+package com.wondersgroup.pss.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 产品宣传网站
+ * 
+ * @author SHI
+ */
+@Controller
+public class WebController {
+    /**
+     * 转至网站首页
+     * 
+     * @return
+     */
+    @RequestMapping("/home")
+    public String home() {
+        return "web/home";
+    }
+
+    /**
+     * 转至产品详情页面
+     * 
+     * @param id 产品ID
+     * @param model
+     * @return
+     */
+    @RequestMapping("/prod")
+    public String prod(String id, Model model) {
+        return "web/prod";
+    }
+}

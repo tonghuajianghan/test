@@ -1,0 +1,135 @@
+package com.wondersgroup.pss.service;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.wondersgroup.core.bean.Page;
+import com.wondersgroup.core.constant.GlobalConstants;
+import com.wondersgroup.core.util.CascadeUtil;
+import com.wondersgroup.pss.bean.SearchCondition;
+import com.wondersgroup.pss.bo.PssQa;
+import com.wondersgroup.pss.bo.PssQaTag;
+import com.wondersgroup.pss.dao.QADAO;
+import com.wondersgroup.pss.util.RobotUtils;
+
+@Service
+@Transactional
+public class QAService {
+    @Autowired
+    private QADAO qaDAO;
+
+    public void add(PssQa pssQa) {
+        // TODO Auto-generated method stub
+        qaDAO.add(pssQa);
+    }
+
+    public void delete(PssQa pssQa) {
+        // TODO Auto-generated method stub
+        qaDAO.delete(pssQa);
+    }
+
+    public void update(PssQa pssQa) {
+        // TODO Auto-generated method stub
+        qaDAO.update(pssQa);
+    }
+
+    public Page search(SearchCondition qacondition) {
+        // TODO Auto-generated method stub
+        Page page = qaDAO.search(qacondition);
+        if (page != null) {
+            for (PssQa qa : (List<PssQa>) page.getResult()) {
+                CascadeUtil.lazyInit(qa.getPssQaTagSet());
+            }
+
+        }
+        return page;
+    }
+
+    public Map<String, String> getProductDic() {
+        return qaDAO.getProductDic();
+    }
+
+    /**
+     * robot 通过sql语句访问数据库， 通过连表查询， 通过tagId查询qaCont
+     * 
+     * @param searchRobot
+     * @return
+     */
+    public List<PssQa> searchRobot(String keywords) {
+        // 返回问题的答案
+        String robotQaCont = "";
+        //分词
+        List<PssQa> list = qaDAO.searchRobot(Arrays.asList(keywords.split(" ")));
+        //加权
+        int weight;
+        for (PssQa pssQa : list) {
+            weight = 0;
+            StringBuilder tags = new StringBuilder();
+            for (PssQaTag tagTmp : pssQa.getPssQaTagSet()) {
+                tags.append(tagTmp.getTagDesc());
+            }
+            for (String key : Arrays.asList(RobotUtils.getKeys(keywords))) {
+                if (pssQa.getQaDesc().indexOf(key) != -1) {
+                    weight = weight + GlobalConstants.QA_DESC_WEIGHT;
+                }
+                if (tags.indexOf(key) != -1) {
+                    weight = weight + GlobalConstants.TAG_DESC_WEIGHT;
+                }
+            }
+            pssQa.setPermission(weight);
+        }
+        //排序
+        Collections.sort(list, new Comparator<PssQa>() {
+            public int compare(PssQa arg0, PssQa arg1) {
+                return arg0.getPermission().compareTo(arg1.getPermission());
+            }
+        });
+        //逆序
+        Collections.reverse(list);
+        
+        for (PssQa pssQa : list) {
+            System.out.println("pssqa" + pssQa.getQaCont());
+        }
+
+        return list;
+    }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        return super.toString();
+    }
+
+    public PssQa findById(String qaId) {
+        PssQa pssQa = qaDAO.findById(qaId);
+        
+        CascadeUtil.lazyInit(pssQa.getPssQaTagSet());
+        return pssQa;
+    }
+    
+    public PssQa get(String id, int... loadMode) {
+        PssQa pssQa = qaDAO.findById(id);
+
+        if (pssQa != null && loadMode.length > 0) {
+            for (int m : loadMode) {
+                switch (m) {
+                case 0:
+                    CascadeUtil.lazyInit(pssQa); // 级联加载全部集合
+                    break;
+                default:
+                    break;
+                }
+            }
+        }
+
+        return pssQa;
+    }
+
+}

@@ -1,0 +1,71 @@
+package com.wondersgroup.pss.bo;
+
+import java.sql.Clob;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import com.wondersgroup.core.constant.GlobalConstants;
+
+/**
+ * 产品表(PSS_PROD)
+ * 
+ * @author jianghan
+ *
+ */
+@Entity
+@Table(name = "PSS" + GlobalConstants.DB_PREFIX + "PSS_PROD")
+public class PssProduct {
+
+	/**
+	 *  Fields
+	 */
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * 产品id
+	 */
+	private String prodId;
+	/**
+	 * 产品名字
+	 */
+	private String prodName;
+	/**
+	 * 产品介绍
+	 */
+	private Clob prodIntro;
+	
+	@Id
+	@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid",strategy = "uuid")
+	@Column(name="PROD_ID", unique = true,nullable = false,insertable = true, updatable = true, length = 2)
+	public String getProdId() {
+		return prodId;
+	}
+	public void setProdId(String prodId) {
+		this.prodId = prodId;
+	}
+	
+	@Column(name = "PROD_NAME", unique = true, nullable = false,insertable = true, updatable = true, length = 2)
+	public String getProdName() {
+		return prodName;
+	}
+	public void setProdName(String prodName) {
+		this.prodName = prodName;
+	}
+	
+	@Column(name = "PROD_INTRO", unique = false, nullable = false, insertable = true, updatable= true)
+	public Clob getProdIntro() {
+		return prodIntro;
+	}
+	public void setProdIntro(Clob prodIntro) {
+		this.prodIntro = prodIntro;
+	}
+	
+	
+}

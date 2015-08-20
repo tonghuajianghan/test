@@ -1,0 +1,11 @@
+/* Login */
+.login { width:1024px; margin:0 auto; position:relative; }
+.login .logo { position:absolute; z-index:1; top:18px; left:29px; width:141px; height:44px; background:url(../images/admin/login-logo.png) no-repeat top; } 
+.login .main { padding-top:269px; min-height:430px; _height:430px; background:#d4d4d4 url(../images/admin/login-bg.png) no-repeat top; }
+.login .main table { margin:0 auto; width:430px; border-collapse:collapse; table-layout:fixed; }
+.login .main table th, .login .main table td { height:50px; }
+.login .main table th { color:#766; font-size:15px; font-family:Simsum; font-weight:bold; letter-spacing:3px; }
+.login .main table td input { width:230px; color:#888; padding-left:3px; padding-top:2px; }
+.login .main .btn { margin-top:24px; margin-left:216px; width:91px; height:27px; }
+.login .main .btn a { background:url(../images/admin/login-btn.png) no-repeat top; display:block; }
+.login .bottom { width:1024px; height:68px; background:url(../images/admin/login-ft.png) no-repeat top; }

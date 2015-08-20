@@ -1,0 +1,18 @@
+package com.wondersgroup.pss.dao;
+
+import org.springframework.stereotype.Repository;
+
+import com.wondersgroup.pss.bo.PssQa;
+
+/**
+ * 智能机器人问答
+ * 
+ * @author jianghan
+ *
+ */
+@Repository
+public class RobotDAO {
+  public void getQa(PssQa pssQa){
+	  
+  }
+}

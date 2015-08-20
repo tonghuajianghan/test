@@ -1,0 +1,148 @@
+/* Robot */
+.robot {
+	margin: 15px auto;
+	width: 1024px;
+	_width: 1032px;
+	border: 1px solid #ccc;
+	padding: 3px;
+}
+
+
+.robot .rb-t {
+	height: 71px;
+	width: 1024px;
+	background: url(../images/web/robot-top.png) no-repeat top;
+	position: relative;
+}
+
+.robot .rb-t .logo {
+	position: absolute;
+	top: 7px;
+	left: 10px;
+	height: 54px;
+	width: 164px;
+	background: url(../images/web/robot-logo.png) no-repeat top;
+}
+
+.robot .rb-m {
+	clear: both;
+}
+
+.robot .rb-l {
+	float: left;
+	background: #fff;
+	min-height: 535px;
+	_height: 535px;
+	width: 729px;
+	_width: 717px;
+	_padding: 0 6px;
+}
+
+.robot .rb-l .disp {
+	min-height: 371px;
+	_height: 371px;
+	width: 716px;
+	margin: 5px auto;
+	overflow-y: auto;
+}
+
+.robot .rb-l .disp table {
+	clear: both;
+	width: auto;
+	margin-bottom: 18px;
+	border-collapse: collapse;
+	table-layout: fixed;
+	*table-layout: auto;
+}
+
+.robot .rb-l .disp table td,.robot .rb-l .disp table th {
+	word-break: break-all;
+	word-wrap: break-word;
+}
+
+.robot .rb-l .disp table td {
+	padding-left: 5px;
+	padding-right: 5px;
+	line-height: 30px;
+	font-size: 16px;
+	font-family: Microsoft Yahei;
+}
+
+.robot .rb-l .disp table td * {
+	line-height: 30px;
+	font-size: 16px;
+	font-family: Microsoft Yahei;
+}
+
+.robot .rb-l .disp table th {
+	height: 52px;
+	width: 60px;
+}
+
+.robot .rb-l .disp .say-r th {
+	background: url(../images/web/head-robot.png) no-repeat top left;
+}
+
+.robot .rb-l .disp .say-r td,.robot .rb-l .disp .say-r td * {
+	color: #000;
+	background: #e4e4e4;
+}
+
+.robot .rb-l .disp .say-i {
+	float: right;
+	margin-right: 5px;
+}
+
+.robot .rb-l .disp .say-i th {
+	background: url(../images/web/head-user.png) no-repeat top right;
+}
+
+.robot .rb-l .disp .say-i td,.robot .rb-l .disp .say-i td * {
+	color: #fff;
+	background: #52a1e9;
+}
+
+.robot .rb-l .talk {
+	height: 154px;
+	width: 716px;
+	margin: 0 auto;
+	background: url(../images/web/robot-talk.png) no-repeat top;
+	position: relative;
+}
+
+.robot .rb-l .talk textarea {
+	padding-left: 4px;
+	height: 140px;
+	width: 570px;
+	color: #888;
+	font-size: 16px;
+	font-family: Microsoft Yahei;
+	margin: 6px 5px;
+	border: 0;
+	resize: none;
+	overflow: auto;
+}
+
+.robot .rb-l .talk a {
+	position: absolute;
+	top: 110px;
+	right: 10px;
+	text-align: center;
+	width: 114px;
+	height: 38px;
+	line-height: 33px;
+	display: block;
+	color: #fff;
+	font-size: 16px;
+	font-family: Microsoft Yahei;
+	letter-spacing: 5px;
+	text-decoration: none;
+	background: url(../images/web/robot-send.png) no-repeat top;
+}
+
+.robot .rb-r {
+	float: right;
+	height: 535px;
+	width: 295px;
+	background: #9cc9f2 url(../images/web/robot-right.png) no-repeat top;
+}

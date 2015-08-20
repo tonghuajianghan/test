@@ -1,0 +1,73 @@
+package com.wondersgroup.pss.bo;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+
+import com.wondersgroup.core.constant.GlobalConstants;
+
+@Entity
+@Table(name = "PSS" + GlobalConstants.DB_PREFIX + "PSS_QA")
+public class PssQa implements java.io.Serializable {
+
+    // Fields
+
+    private static final long serialVersionUID = -6054326529985225088L;
+
+    // 问题id
+    private String qaId;
+
+    // 问题描述
+    private String qaDesc;
+
+    // 问题回复
+    private String qaCont;
+
+    // 产品id
+    private String prodId;
+
+    // Property accessors
+
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid")
+    @Column(name = "QA_ID", unique = true, nullable = false, insertable = true, updatable = true, length = 32)
+    public String getQaId() {
+        return this.qaId;
+    }
+
+    public void setQaId(String qaId) {
+        this.qaId = qaId;
+    }
+
+    @Column(name = "QA_DESC", unique = false, nullable = false, insertable = true, updatable = true, length = 50)
+    public String getQaDesc() {
+        return qaDesc;
+    }
+
+    public void setQaDesc(String qaDesc) {
+        this.qaDesc = qaDesc;
+    }
+
+    @Column(name = "QA_CONT", unique = false, nullable = false, insertable = true, updatable = true, length = 4000)
+    public String getQaCont() {
+        return qaCont;
+    }
+
+    public void setQaCont(String qaCont) {
+        this.qaCont = qaCont;
+    }
+
+    @Column(name = "PROD_ID", unique = false, nullable = false, insertable = true, updatable = true, length = 32)
+    public String getProdId() {
+        return prodId;
+    }
+
+    public void setProdId(String prodId) {
+        this.prodId = prodId;
+    }
+}

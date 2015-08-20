@@ -1,0 +1,328 @@
+<%@ page contentType="text/html; charset=UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core_rt" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+
+<form id="userForm" action="${base}user/list" method="post">
+	<dl class="banner">
+		<dd class="back"><a href="javascript:" onclick="window.history.go(-1);return false;"></a></dd>
+		<dt class="title">用户列表</dt>
+		<dd class="search"><a href="javascript:" onclick="$('#userForm').submit();return false;"></a></dd>
+		<dd class="cond">
+			<select name="user.userType">
+				<option value="">全部用户类型</option>
+				<c:forEach var="dic" items="${dicUserType}">
+					<option value="${dic.key}" ${condition.user.userType eq dic.key ? 'selected' : ''}>${dic.value}</option>
+				</c:forEach>
+			</select>
+		</dd>
+		<dt class="cond">用户类型</dt>
+		<dd class="cond"><input type="text" name="user.userName" value="${condition.user.userName}" /></dd>
+		<dt class="cond">用户名</dt>
+	</dl>
+	<input type="hidden" id="pageNo" name="pageNo" value="${condition.pageNo}" />
+</form>
+
+<table cellspace="0" cellpadding="0" class="list">
+	<col width="41px" /><col width="80px" /><col />
+	<tr>
+		<th>&nbsp;</th>
+		<th>批量管理</th>
+		<th>
+			<a href="javascript:" onclick="addUser();return false;" class="op add" title="新增用户"></a>
+			<a href="javascript:" onclick="batchDelete();return false;" class="op del" title="批量删除用户"></a>
+			<a href="javascript:" onclick="batchSetValid('fb');return false;" class="op off" title="批量禁用用户"></a>
+			<a href="javascript:" onclick="batchSetValid('av');return false;" class="op on" title="批量激活用户"></a>
+			<a href="javascript:" onclick="batchResetPwd();return false;" class="op pwd" title="批量重置密码"></a>
+		</th>
+	</tr>
+</table>
+
+<table cellspace="0" cellpadding="0" class="list">
+	<col width="46px" /><col width="120px" /><col width="120px" /><col width="150px" /><col /><col width="250px" />
+	<tr>
+		<th class="center"><input id="checkAll" type="checkbox" class="checkbox" /></th>
+		<th class="center">用户名</th>
+		<th class="center">用户昵称</th>
+		<th class="center">用户类型</th>
+		<th class="center">用户状态</th>
+		<th class="center">操作</th>
+	</tr>
+	<c:forEach var="item" items="${page.result}">
+		<tr>
+			<td class="center"><input type="checkbox" name="userId" value="${item.userId}" class="checkbox" /></td>
+			<td class="center"><a href="javascript:" onclick="updateUser('${item.userId}');return false;">${item.userName}</a></td>
+			<td class="center">${item.nickName}</td>
+			<td class="center">${dicUserType[item.userType]}</td>
+			<td class="center">${YES_VALUE eq item.valid ? "正常" : "禁用"}</td>
+			<td class="center">
+				<a href="javascript:" onclick="setValid('${item.userId}','${item.valid}');return false;">${YES_VALUE eq item.valid ? "禁用" : "启用"}</a>			
+				<a href="javascript:" onclick="delUser('${item.userId}','${item.userType}');return false;">删除</a>
+				<a href="javascript:" onclick="resetUser('${item.userId}');return false;">重置密码</a>
+			</td>
+		</tr>
+	</c:forEach>
+	<tr>
+		<td colspan="6" class="page-container" />
+	</tr>
+</table>
+		
+<script type="text/javascript">
+	$(document).ready(function() {
+		//加入分页的绑定 
+		paging.form.init({
+			container: ".page-container",
+			numb: "#pageNo",
+			page: "${page.pageCount}",
+			total: "${page.count}",
+			form: "#userForm"
+		});
+	});
+	
+	// 删除用户信息
+	function delUser(userId, userType) {
+		if(userType == '01') {
+			dialogMessage("该用户为系统管理员，禁止删除！", function(content) {
+				content.dialog("destroy").remove();
+				return false;
+			});
+		} else {
+			dialogMessage("确定要删除该用户！", function(content) {
+				content.dialog("destroy").remove();
+				ajaxCommon({
+					url: "user/del",
+					data:{
+						id: userId
+						}
+				}, function(message) {
+					if(message == "") {
+						// 返回信息为空，表示删除成功，弹出提示信息
+						dialogMessage("用户删除成功！", function(content) {
+							// 关闭提示窗口
+							content.dialog("destroy").remove();
+							// 刷新用户列表
+							$('#userForm').submit();
+						});
+					} else {
+						// 返回信息不为空，则表示保存失败，弹出失败信息
+						dialogMessage(message);
+					}
+				}); 
+			},true);	
+		}
+			
+	}
+	
+	//密码重置功能
+	function resetUser(userId) {
+		dialogMessage("确定要重置该用户密码！", function(content) {
+			content.dialog("destroy").remove();
+			ajaxCommon({
+				url:"user/reset_pwd",
+				data:{
+					id:userId
+					}
+			},function(message) {
+				if(message == "") {
+					// 返回信息为空，表示密码重置成功，弹出提示信息
+					dialogMessage("重置密码成功！",function(content) {
+						// 关闭提示窗口
+						content.dialog("destroy").remove();
+					});
+				} else {
+					// 返回信息不为空，则表示保存失败，弹出失败信息
+					dialogMessage(message);
+				}
+			});
+		}, true);
+	}
+	
+	//添加用户
+	function addUser(){
+		// 弹出窗口参数
+		var opt = {
+			url : "user/edit",
+			width : 300,
+			height : 500,
+			title : "增加用户",
+			id : "dialog-iframe-uploader",
+			loading : false,
+			buttons : null
+		};
+		// 弹出窗口
+		dialogIframe(opt);
+	}
+	
+	//编辑用户
+	function updateUser(userId){
+		// 弹出窗口参数
+		var opt = {
+			url : "user/edit?id="+userId,
+			width : 300,
+			height : 500,
+			title : "编辑用户",
+			id : "dialog-iframe-uploader",
+			loading : false,
+			buttons : null
+		};
+		// 弹出窗口
+		dialogIframe(opt);
+	}
+	
+	
+	//重新设置用户有效性
+	function setValid(userId, val) {
+		if(val == "0") {
+			val="1";
+		}else{
+			val="0";
+		}
+	
+		dialogMessage("确定要重新设置该用户的有效性！", function(content) {
+			content.dialog("destroy").remove();
+			ajaxCommon({
+				url:"user/valid_ctrl",
+				data: {
+					id: userId,
+					valid: val
+				}
+			},function(message) {
+				if(message == "") {
+					// 返回信息为空，表示用户有效性设置成功，弹出提示信息
+					dialogMessage("用户有效性设置成功！");
+					$('#userForm').submit();
+				} else {
+					// 返回信息不为空，则表示用户有效性设置失败，弹出失败信息
+					dialogMessage(message);
+				}
+			});
+		}, true);
+	}
+	
+	//批量删除选中用户
+	function batchDelete(){
+		var userIdStr="";
+		//将选中用户的id放入字符串userIdStr中
+		$("input[name='userId']:checked").each(function(i){
+			userIdStr += $(this).val()+";";
+		});
+		
+		//没有选中数据的话给出提示
+		if(userIdStr==''){
+			dialogMessage("请至少选择一条记录！", function(content) {
+				content.dialog("destroy").remove();
+				return false;
+			});
+		} else {
+			dialogMessage("确定要批量删除用户！", function(content) {
+				content.dialog("destroy").remove();
+				ajaxCommon({
+					url:"user/batchDelete",
+					data: {
+						idStr: userIdStr
+					}
+				},function(message) {
+					if(message == "") {
+						// 返回信息为空，表示批量删除成功，弹出提示信息
+						dialogMessage("批量删除用户成功！", function(content) {
+							//关闭提示窗口
+							content.dialog("destroy").remove();
+							//刷新用户列表
+							$('#userForm').submit();
+						});
+					} else {
+						// 返回信息不为空，则表示批量删除失败，弹出失败信息
+						dialogMessage(message);
+					}
+				});
+			}, true);
+		}
+	}
+	
+	//当前页面用户全选、全不选
+	$(function() {
+		$("#checkAll").click(function() {
+			 $("[name='userId']").attr("checked", this.checked);
+		});
+	});
+	
+	//批量设置用户有效性
+	function batchSetValid(par) {
+		var userIdStr = "";
+		//将选中用户的id放入字符串userIdStr中
+		$("input[name='userId']:checked").each(function(){
+			userIdStr += $(this).val() + ";" ;
+		});
+		
+		//没有选中数据的话给出提示
+		if(userIdStr==''){
+			dialogMessage("请至少选择一条记录！", function(content) {
+				content.dialog("destroy").remove();
+				return false;
+			});
+		} else {
+			var msg0 = (par == "fb"?"确定要批量禁用选中的用户！":"确定要批量激活选中的用户！");
+			dialogMessage(msg0, function(content) {
+				content.dialog("destroy").remove();
+				ajaxCommon({
+					url:"user/batchSetValid",
+					data: {
+						idStr: userIdStr,
+						setPar: par
+					}
+				},function(message) {
+					if(message == "") {
+						var msg = (par == "fb"?"用户批量禁用成功！":"用户批量激活成功！");
+						// 返回信息为空，表示用户批量禁用成功，弹出提示信息
+						dialogMessage(msg, function(content) {
+							// 关闭提示窗口
+							content.dialog("destroy").remove();
+							// 刷新用户列表
+							$('#userForm').submit();
+						});
+					} else {
+						// 返回信息不为空，则表示用户批量禁用失败，弹出失败信息
+						dialogMessage(message);
+					}
+				});
+			}, true); 
+		} 
+	}
+	
+	//批量重置密码
+	function batchResetPwd() {
+		var userIdStr = "";
+		//将选中用户的id放入字符串userIdStr中
+		$("input[name='userId']:checked").each(function(){
+			userIdStr += $(this).val() + ";" ;
+		});
+		
+		//没有选中数据的话给出提示
+		if(userIdStr==''){
+			dialogMessage("请至少选择一条记录！", function(content) {
+				content.dialog("destroy").remove();
+				return false;
+			});
+		} else {
+			dialogMessage("确定要批量重置密码？", function(content) {
+				content.dialog("destroy").remove();
+				ajaxCommon({
+					url:"user/batchResetPwd",
+					data: {
+						idStr: userIdStr
+					}
+				},function(message) {
+					if(message == "") {
+						// 返回信息为空，表示批量重置密码成功，弹出提示信息
+						dialogMessage("批量重置密码成功！", function(content) {
+							// 关闭提示窗口
+							content.dialog("destroy").remove();
+						});
+					} else {
+						// 返回信息不为空，则表示用户批量禁用失败，弹出失败信息
+						dialogMessage(message);
+					}
+				});
+			}, true); 
+		} 
+	}
+</script>
