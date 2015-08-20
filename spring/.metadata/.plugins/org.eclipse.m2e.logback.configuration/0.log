@@ -350,3 +350,11 @@ com.google.inject.ProvisionException: Guice provision errors:
 2015-08-19 23:25:35,271 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
 2015-08-19 23:25:35,275 [Worker-68] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
 2015-08-19 23:25:35,275 [Worker-68] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\spring\spring_test_hibernate_004\src\test\resources
+2015-08-20 19:39:31,726 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2015-08-20 19:39:31,850 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\spring\spring_test_002\src\main\resources
+2015-08-20 19:39:31,866 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2015-08-20 19:39:31,866 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\spring\spring_test_002\src\test\resources
+2015-08-20 19:39:32,989 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2015-08-20 19:39:32,989 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2015-08-20 19:39:33,005 [Worker-33] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (GBK actually) to copy filtered resources, i.e. build is platform dependent!
+2015-08-20 19:39:33,005 [Worker-33] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory E:\worksapce\GitReposity\spring\spring_test_hibernate_004\src\test\resources
