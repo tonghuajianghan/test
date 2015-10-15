@@ -1,3 +1,0 @@
-#Tomcat publish data
-#Mon Aug 10 22:06:46 CST 2015
-org.eclipse.jst.jee.server\:struts2.0_0120_data_valiation=D\:\\Java\\springsource\\vfabric-tc-server-developer-2.9.3.RELEASE\\base-instance\\wtpwebapps\\struts2.0_0120_data_valiation

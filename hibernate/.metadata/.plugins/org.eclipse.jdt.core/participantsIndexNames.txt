@@ -1,3 +1,0 @@
-INDEX VERSION 1.126
-E:\worksapce\GitReposity\hibernate\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2486887387.index
-\hibernate_0301_pagination\src

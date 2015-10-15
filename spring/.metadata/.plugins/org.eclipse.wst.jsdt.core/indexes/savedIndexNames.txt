@@ -1,4 +1,0 @@
-INDEX VERSION 1.122+E:\worksapce\GitReposity\spring\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-902289268.index
-1565243632.index
-632604858.index
