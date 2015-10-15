@@ -1,7 +1,0 @@
-.overlay { position:absolute; top:0; left:0; background:#fff; opacity:0; filter:Alpha(Opacity=0); overflow:hidden; z-index:99999; }
-.loading { position:fixed; top:0; left:0; background:#c44 url(../../images/loading.gif) no-repeat 5px 40%; width:auto; height:25px; z-index:100000; }
-.loading p { color:#fff; margin:0 10px 0 28px; line-height:25px; }
-.no_scroll { overflow:hidden\0; /* IE8 only */}
-/* IE6 Position Fixed Hack */
-*html { background-image:url(about:blank); background-attachment:fixed; }
-.loading { _position:absolute; _left:expression(eval(document.documentElement.scrollLeft)); _top:expression(eval(document.documentElement.scrollTop)); }

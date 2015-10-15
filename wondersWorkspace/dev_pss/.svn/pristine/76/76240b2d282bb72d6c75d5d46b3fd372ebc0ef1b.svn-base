@@ -1,2 +1,0 @@
-/* Button */
-.btn-01 { height:24px; padding:0 10px; *padding:0 2px; background:url(../../images/btn-01.gif) repeat-x; border:1px solid #369; border-radius:3px; -webkit-box-shadow:0px 0px 2px #ddd; -moz-box-shadow:0px 0px 2px #ddd; box-shadow:0px 0px 2px #ddd; font:bold 12px/24px Simsun;	color:#fff;	text-align:center; cursor:pointer; }
