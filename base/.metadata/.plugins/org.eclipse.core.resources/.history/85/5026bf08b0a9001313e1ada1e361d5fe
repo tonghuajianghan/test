@@ -1,5 +1,0 @@
-package com.cust.dew.dao.impl;
-
-public class AdministratorDBDao {
-  public void saveAdministator
-}

@@ -1,7 +1,0 @@
-<classpath>
-  <container id="structs2!org.eclipse.jst.j2ee.internal.web.container">
-    <entry id="F:/Users/pc/workspace/structs2/WebContent/WEB-INF/lib/xwork-core-2.3.4.1.jar">
-      <source-attachment-path>D:/structs/struts-2.3.4.1/src/core/src/main/java</source-attachment-path>
-    </entry>
-  </container>
-</classpath>

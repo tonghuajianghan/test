@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;usermanagerbetter.jsp&apos; to &apos;user&apos;&#x0D;&#x0A;- Original project: &apos;structs2.0_0110_param&apos;&#x0D;&#x0A;- Destination element: &apos;user&apos;&#x0D;&#x0A;- Original element: &apos;usermanagerbetter.jsp&apos;" description="Copy file" element1="WebContent/page/user/usermanagerbetter.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1374983324164" target="/structs2.0_0110_param/WebContent/page/user" units="0" version="1.0"/>
-</session>

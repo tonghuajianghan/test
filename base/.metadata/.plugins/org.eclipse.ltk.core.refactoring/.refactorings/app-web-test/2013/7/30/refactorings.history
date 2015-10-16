@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move element &apos;inputpage.jsp&apos; to &apos;input&apos;&#x0D;&#x0A;- Original project: &apos;appwebtest&apos;&#x0D;&#x0A;- Destination element: &apos;input&apos;&#x0D;&#x0A;- Original element: &apos;inputpage.jsp&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move file" element1="WebContent/page/inputpage.jsp" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1374377332291" target="WebContent/page/input" units="0" version="1.0"/>
-</session>

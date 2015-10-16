@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy element &apos;struts.xml&apos; to &apos;dew/src&apos;&#x0D;&#x0A;- Original project: &apos;struts2.0_0130_action_method&apos;&#x0D;&#x0A;- Destination element: &apos;dew/src&apos;&#x0D;&#x0A;- Original element: &apos;struts.xml&apos;" description="Copy file" destination="=dew/src" element1="src/struts.xml" files="1" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1377521012890" units="0" version="1.0"/>
-</session>

@@ -1,6 +1,0 @@
-package commitdatabase;
-
-public class Connection {
-  private static final String DBDRIVER = "com.mysql.jdbc.Driver";
-  
-}

@@ -1,8 +1,0 @@
-package test.cust.project;
-
-public class String {
-	public static void main(String[] args) {
-		String ss = "aa bb cc";
-		
-	}
-}

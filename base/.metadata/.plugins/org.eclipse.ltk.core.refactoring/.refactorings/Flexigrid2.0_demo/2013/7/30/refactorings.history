@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy 3 elements to &apos;page&apos;&#x0D;&#x0A;- Original project: &apos;Flexigrid2.0_demo&apos;&#x0D;&#x0A;- Destination element: &apos;page&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     images&#x0D;&#x0A;     css&#x0D;&#x0A;     js" description="Copy folders" element1="WebContent/page/images" element2="WebContent/page/css" element3="WebContent/page/js" files="0" flags="589830" folders="3" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1374371292739" target="/Flexigrid/WebContent/page" units="0" version="1.0"/>
-</session>

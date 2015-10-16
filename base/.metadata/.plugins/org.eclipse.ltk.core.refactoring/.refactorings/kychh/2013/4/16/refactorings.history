@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Move 5 elements to &apos;kychh/src&apos;&#x0D;&#x0A;- Original project: &apos;kychh&apos;&#x0D;&#x0A;- Destination element: &apos;kychh/src&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     log4j.properties&#x0D;&#x0A;     hibernate.cfg.xml&#x0D;&#x0A;     struts.xml&#x0D;&#x0A;     cust.jpg&#x0D;&#x0A;     cn&#x0D;&#x0A;- Update references to refactored element" description="Move elements" destination="/src" element1="kyc/src/log4j.properties" element2="kyc/src/hibernate.cfg.xml" element3="kyc/src/struts.xml" element4="kyc/src/cust.jpg" element5="kyc/src/cn" files="4" flags="589830" folders="1" id="org.eclipse.jdt.ui.move" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1366095898922" units="0" version="1.0"/>
-</session>
