@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+	<!-- 基础布局  模板 -->
+	<definition name="base.definition" template="/WEB-INF/page/common/layout_base.jsp">
+		<put-attribute name="title" value="" />
+		<put-attribute name="head" value="/WEB-INF/page/common/head.jsp" />
+		<put-attribute name="main" value="" />
+	</definition>
+	
+	<!-- name是访问路径 -->
+	<definition name="person/testTiles" extends="base.definition">
+		<put-attribute name="title" value="这是tiles title" />
+		<put-attribute name="main" value="/WEB-INF/page/person/person_tiles.jsp" />
+	</definition>
+</tiles-definitions>      
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="itcast" transaction-type="RESOURCE_LOCAL">
+
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<!-- 配置驱动类，当ctrl + 点击  可以连接到相应的类时就是可以加载 -->
+			<property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+			<property name="hibernate.connection.username" value="root" />
+			<property name="hibernate.connection.password" value="root" />
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://localhost:3306/user" />
+			<property name="hibernate.max_fetch_depth" value="3" />
+			<property name="hibernate.show_sql" value="true" />
+			
+			<!-- hibernate.hbm2ddl.auto参数的作用主要用于：自动创建|更新|验证数据库表结构 ,。如果不是此方面的需求建议set value="none"-->
+			<!--jPA自动创建数据库表  当配置create-drop时就会自动删除表 -->
+			<!-- 当value="create"时，会出现select时删除表中的数据的情况 -->
+			<property name="hibernate.hbm2ddl.auto" value="none" />
+		</properties>
+
+	</persistence-unit>
+</persistence>

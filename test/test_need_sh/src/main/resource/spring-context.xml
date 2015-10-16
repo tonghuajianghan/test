@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jee="http://www.springframework.org/schema/jee"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+     http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+     http://www.springframework.org/schema/context
+     http://www.springframework.org/schema/context/spring-context-3.1.xsd
+     http://www.springframework.org/schema/tx
+	 http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+	 http://www.springframework.org/schema/aop 
+	 http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+	 http://www.springframework.org/schema/jee
+	 http://www.springframework.org/schema/jee/spring-jee-3.1.xsd"
+	default-autowire="byName">
+
+	<!-- 自动扫描组件，过滤在spring-mvc.xml中配置的controller类，如果不去除会影响事务管理的。 -->
+	<!-- 除了具有<context:annotation-config />的功能之外，还具有自动将带有@component,@service,@Repository等注解的对象注册到spring容器中的功能。 -->
+	<!-- .component-scan标签默认情况下自动扫描指定路径下的包（含所有子包），
+			将带有@Component、@Repository、@Service、@Controller标签的类自动注册到spring容器。对标记了 Spring's
+			@Required、@Autowired、JSR250's @PostConstruct、@PreDestroy、@Resource、JAX-WS's
+			@WebServiceRef、EJB3's @EJB、JPA's @PersistenceContext、@PersistenceUnit等注解的类进行对应的操作使注解生效
+		            （包含了annotation-config标签的作用）。 -->
+		            
+	<context:component-scan base-package="com.jh">
+		<context:exclude-filter expression="org.springframework.stereotype.Controller"
+			type="annotation" />
+	</context:component-scan>
+
+	<!-- <context:annotation-config />和 <context:component-scan>同时存在的时候，前者会被忽略。 -->
+	<!-- 仅能够在已经在已经注册过的bean上面起作用 -->
+	<!-- 隐式注册AutowiredAnnotationBeanPostProcessor、CommonAnnotationBeanPostProcessor、PersistenceAnnotationBeanPostProcessor以及RequiredAnnotationBeanPostProcessor -->
+	<!-- 告诉spring 去读 @Transactional 标注 -->
+	<context:annotation-config />
+	
+	<!-- 需要pom单独引用相应的包 -->
+	<!-- 开启@AspectJ支持 -->
+	<aop:aspectj-autoproxy />
+	
+	<!-- 从文件中读取配置 -->
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+		<property name="ignoreUnresolvablePlaceholders" value="true" />
+	</bean>
+	
+	<!-- 需要pom单独引用spring-orm jar包 -->
+	<!-- JPA工厂管理 -->
+	<!-- LocalContainerEntityManagerFactoryBean 会自动检测 persistence units ，
+ 		实际上，就是META-INF/persistence.xml（/WEB-INF/classes/META-INF） 文件和web.xml中的persistence-unit-ref，
+ 		以及定义的environment naming -->
+ 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+ 		<property name="persistenceUnitName" value="${persistence.unit.name}" />
+ 	</bean>
+
+	<!-- JPA事务管理 -->
+	<!-- 定义一个事务管理对象 -->
+	<!-- 提供对单个javax.persistence.EntityManagerFactory事务支持，用于集成JPA实现框架时的事务管理； -->
+	<bean id="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+	
+	<!-- 通过注解声明事务 -->
+	<!-- 自动包装代码，生产事务管理 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+	
+</beans>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+    http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+    http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd
+    http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+    http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd">
+
+	<!-- 启用spring mvc 注解 -->
+	<!-- 自动注册基于注解风格的处理器需要的DefaultAnnotationHandlerMapping、AnnotationMethodHandlerAdapter 
+		支持Spring3的ConversionService自动注册 支持JSR-303验证框架的自动探测并注册（只需把JSR-303实现放置到classpath） 
+		自动注册相应的HttpMessageConverter（用于支持@RequestBody 和 @ResponseBody） （如XML输入输出转换器（只需将JAXP实现放置到classpath）、JSON输入输出转换器（只需将Jackson实现放置到classpath））等。 -->
+	<mvc:annotation-driven />
+
+	<!-- 设置使用注解的类所在的jar包 -->
+	<!-- 不要只扫描controller包，这是配置spring，而不是spring mvc必须的 -->
+	<context:component-scan base-package="base"
+		use-default-filters="false">
+		<context:include-filter expression="org.springframework.stereotype.Controller"
+			type="annotation" />
+	</context:component-scan>
+
+	<mvc:annotation-driven />
+
+	<!-- 完成请求和注解POJO的映射 -->
+	<bean
+		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+
+	<!-- Tiles配置及其相关视图解释类定义 -->
+	<!-- <bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="order" value="1" />
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>classpath:tiles.xml</value>
+			</list>
+		</property>
+	</bean> -->
+
+	<!-- 默认视图解析器 -->
+	<!-- 对转向页面的路径解析。prefix：前缀， suffix：后缀 -->
+	<!-- spring mvc 返回路径的上一级路径 -->
+	<!-- 配置spring mvc 路径的根路径 -->
+	<!-- 默认视图解释类定义（最后执行的ViewResolver） -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" /><!--可为空,方便实现自已的依据扩展名来选择视图解释类的逻辑 -->
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" /><!-- 默认，可以不配 -->
+	</bean>
+
+	<!-- 需要也别注意的是：使用此方式需要导入 org.springframework.web.servlet-3.1.4.RELEASE. jar包到WEB/lib目录下，而且版本要大于3.0.4，否则，在开发环境下会产生对 
+		resources元素没找到情况： -->
+	<mvc:resources mapping="/js/**" location="/js/" />
+
+</beans>
