@@ -1,6 +1,7 @@
 #frame work ignore 
 /framework/mybatis/.metadata/
 /framework/mybatis/RemoteSystemsTempFiles/
+/framework/mybatis/Servers/
 /framework/hibernate/.metadata/
 /framework/spring/.metadata/
 /framework/struts2.0/.metadata/
