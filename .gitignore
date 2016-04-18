@@ -1,0 +1,11 @@
+#frame worl ignore 
+/framework/mybatis/.metadata/
+/framework/hibernate/.metadata/
+/framework/spring/.metadata/
+/framework/struts2.0/.metadata/
+
+#test ignore
+/test/.metadata/
+
+#base ignore
+/base/.metadata/
