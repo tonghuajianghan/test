@@ -1,4 +1,4 @@
-package jh.mybatis002;
+package mybatis002;
 
 import java.io.IOException;
 import java.io.Reader;
