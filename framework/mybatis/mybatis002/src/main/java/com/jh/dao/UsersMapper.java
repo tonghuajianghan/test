@@ -42,4 +42,8 @@ public interface UsersMapper {
 	 *    
 	 */
 	public int deleteByPrimaryKey(String id);
+	
+	public void insertUsers(Users users);
+	
+	public void updateUsers(Users users);
 }

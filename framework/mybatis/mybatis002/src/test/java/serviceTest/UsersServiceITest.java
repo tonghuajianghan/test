@@ -29,12 +29,23 @@ public class UsersServiceITest {
 	
 	private UsersServiceI usersServiceI;
 
-	@Test
+	//@Test
 	public void testGetUserById() {
 		//fail("Not yet implemented");
 		usersServiceI = new UsersServiceImpl();
 		Users users = usersServiceI.getUserById("1");
 		System.out.println(users.getName());
+	}
+	
+	@Test
+	public void testInsertUsers(){
+		usersServiceI = new UsersServiceImpl();
+		Users users = new Users();
+		users.setId("3");
+		users.setName("eeewww");
+		users.setAge(45);
+		usersServiceI.insertUsers(users);
+		System.out.println("1");
 	}
 
 }

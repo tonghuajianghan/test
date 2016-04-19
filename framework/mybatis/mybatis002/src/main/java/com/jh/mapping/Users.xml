@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+	命名空间使得接口绑定成为可能
+ -->
 <mapper namespace="com.jh.dao.UsersMapper">
 	<resultMap id="BaseResultMap" type="com.jh.vo.Users">
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
 	</resultMap>
+	<!-- 可重复使用的sql语句定义 -->
 	<sql id="Base_Column_List">
 		id,name,age
 	</sql>
@@ -15,8 +19,19 @@
 		from users
 		where id = #{id,jdbcType=VARCHAR}
 	</select>
+	<!-- 参数（Parameters）,数据类型没有属性，因此直接用值填充 -->
 	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
 		delete from users
 		where id = #{id,jdbcType=VARCHAR}
 	</delete>
+	<!-- 参数的设置 自动查找参数类型的属性值，练习使用parameters定义 -->
+	<insert id="insertUsers" parameterType="com.jh.vo.Users">
+		insert into users (id,name,age) values (#{id,javaType=java.lang.String,jdbcType=VARCHAR},#{name},#{age})
+	</insert>
+	<update id="updateUsers" parameterType="com.jh.vo.Users">
+		update users set 
+			name = #{name},
+			age = #{age}
+		where id = #{id}
+	</update>
 </mapper>

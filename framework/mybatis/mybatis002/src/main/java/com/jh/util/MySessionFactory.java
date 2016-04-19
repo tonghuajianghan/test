@@ -39,6 +39,14 @@ public class MySessionFactory {
 
 	}
 
+	/** 
+	 * 从 XML 中构建 SqlSessionFactory
+	 *
+	 * @Title: getSqlSessionFactory 
+	 * @Author: jianghan
+	 * @return
+	 *    
+	 */
 	public SqlSessionFactory getSqlSessionFactory() {
 		String resource = "mybatis-config.xml";
 		SqlSessionFactory sqlSessionFactory = null;

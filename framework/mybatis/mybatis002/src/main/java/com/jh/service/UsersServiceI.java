@@ -21,4 +21,5 @@ import com.jh.vo.Users;
  */
 public interface UsersServiceI {
 	public Users getUserById(String id);
+	public void insertUsers(Users users);
 }

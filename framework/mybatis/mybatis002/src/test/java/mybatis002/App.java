@@ -31,6 +31,7 @@ public class App {
 			SqlSession sqlSession = sqlSessionFactory.openSession();
 			//用mybatis实现借口
 			UsersMapper usersMapper = sqlSession.getMapper(UsersMapper.class);
+			//查询
 			Users user = usersMapper.selectByPrimaryKey("1");
 			System.out.println(user.getName());
 			sqlSession.close();
