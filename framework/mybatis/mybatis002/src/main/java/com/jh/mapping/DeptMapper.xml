@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 
+	命名空间使得接口绑定成为可能
+	namespace 就是关联xml文件与mapper接口的桥梁
+ -->
+<mapper namespace="com.jh.dao.DeptMapper">
+	<!-- 学习使用resultMap  -->
+	<!-- 解决列名不匹配的另外一种方式 -->
+	<resultMap id="BaseResultMap" type="com.jh.vo.Dept">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="tag" property="tag" jdbcType="VARCHAR" />
+	</resultMap>
+	
+	<!-- 多对一的集合实现 -->
+	
+	
+	<!-- 使用结果集作为返回参数 -->
+	<!-- parameterType是java的类型 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String">
+		select * from dept where id = #{id}
+	</select>
+	
+	<!-- 返回list列表 -->
+	<select id="selectDeptList" resultMap="BaseResultMap">
+		select * from dept
+	</select>
+	
+	<!-- 两表关联查询 -->
+	<select id="selectDeptAndUsers">
+	
+	</select>
+</mapper>

@@ -17,5 +17,6 @@
 	<!-- mapping 文件路径配置 -->
 	<mappers>
 		<mapper resource="com/jh/mapping/Users.xml" />
+		<mapper resource="com/jh/mapping/DeptMapper.xml" />
 	</mappers>
 </configuration>

@@ -8,10 +8,11 @@
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
+		<result column="dept_id" property="deptId" jdbcType="VARCHAR" />
 	</resultMap>
 	<!-- 可重复使用的sql语句定义 -->
 	<sql id="Base_Column_List">
-		id,name,age
+		id,name,age,dept_id
 	</sql>
 	<select id="selectByPrimaryKey" resultType="com.jh.vo.Users" parameterType="java.lang.String">
 		select
@@ -26,7 +27,7 @@
 	</delete>
 	<!-- 参数的设置 自动查找参数类型的属性值，练习使用parameters定义 -->
 	<insert id="insertUsers" parameterType="com.jh.vo.Users">
-		insert into users (id,name,age) values (#{id,javaType=java.lang.String,jdbcType=VARCHAR},#{name},#{age})
+		insert into users (id,name,age,dept_id) values (#{id,javaType=java.lang.String,jdbcType=VARCHAR},#{name},#{age},#{deptId})
 	</insert>
 	<update id="updateUsers" parameterType="com.jh.vo.Users">
 		update users set 

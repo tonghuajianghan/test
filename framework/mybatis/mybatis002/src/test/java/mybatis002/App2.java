@@ -16,24 +16,23 @@ import com.jh.vo.Users;
  * mvn项目quick start 项目自动生成的开始类
  * 直观的总体测试类，可以看清整个执行过程
  */
-public class App {
+public class App2 {
 	public static void main(String[] args) {
-		System.out.println("Hello World!");
-		//mybatis 的配置文件
 		String resource = "mybatis-config.xml";
-		Reader reader;//涉及到io，因此需要catch io 异常
+		Reader reader;
 		try {
-			//使用MyBatis提供的Resources类加载mybatis的配置文件（它也加载关联的映射文件）
 			reader = Resources.getResourceAsReader(resource);
-			 //构建sqlSession的工厂
 			SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-			//创建能执行映射文件中sql的sqlSession
 			SqlSession sqlSession = sqlSessionFactory.openSession();
-			//用mybatis实现借口
 			UsersMapper usersMapper = sqlSession.getMapper(UsersMapper.class);
-			//查询
-			Users user = usersMapper.selectByPrimaryKey("2");
-			System.out.println(user.getName());
+			//新增
+			Users users = new Users();
+			users.setId("244");
+			users.setName("www");
+			users.setAge(23);
+			users.setDeptId("2");
+			usersMapper.insertUsers(users);
+			sqlSession.commit();
 			sqlSession.close();
 		} catch (IOException e) {
 			e.printStackTrace();

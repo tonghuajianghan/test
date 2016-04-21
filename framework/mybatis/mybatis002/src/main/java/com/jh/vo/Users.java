@@ -1,12 +1,12 @@
 package com.jh.vo;
 
-/** 
- * 实体类，对应test数据库中的users表 	
+/**
+ * 实体类，对应test数据库中的users表
  *
- * @ClassName: Users 
- * @author jh 
- * @date 2016年4月18日 下午7:44:21 
- *  
+ * @ClassName: Users
+ * @author jh
+ * @date 2016年4月18日 下午7:44:21
+ * 
  */
 public class Users {
 	/**
@@ -21,6 +21,7 @@ public class Users {
 	 * 年龄
 	 */
 	private int age;
+	private String deptId;
 
 	public String getId() {
 		return id;
@@ -44,6 +45,14 @@ public class Users {
 
 	public void setAge(int age) {
 		this.age = age;
+	}
+
+	public String getDeptId() {
+		return deptId;
+	}
+
+	public void setDeptId(String deptId) {
+		this.deptId = deptId;
 	}
 
 }
