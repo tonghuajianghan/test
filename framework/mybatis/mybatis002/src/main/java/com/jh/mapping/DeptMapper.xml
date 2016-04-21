@@ -13,7 +13,18 @@
 		<result column="tag" property="tag" jdbcType="VARCHAR" />
 	</resultMap>
 	
-	<!-- 多对一的集合实现 -->
+	<!-- 多对一的集合实现  多个users有一个dept-->
+	<resultMap type="com.jh.vo.Users" id="resultDeptAndUsersList">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="age" property="age" jdbcType="INTEGER" />
+		<!-- 类似于hibernate的@ManyToOne -->
+		<association property="dept" javaType="com.jh.vo.Dept">
+			<id column="id" property="id" jdbcType="VARCHAR" />
+			<result column="name" property="name" jdbcType="VARCHAR" />
+			<result column="tag" property="tag" jdbcType="VARCHAR" />
+		</association>
+	</resultMap>
 	
 	
 	<!-- 使用结果集作为返回参数 -->
@@ -28,7 +39,7 @@
 	</select>
 	
 	<!-- 两表关联查询 -->
-	<select id="selectDeptAndUsers">
-	
+	<select id="selectDeptAndUsers" resultMap="resultDeptAndUsersList">
+		select * from Users u,Dept d where u.dept_id = d.id
 	</select>
 </mapper>

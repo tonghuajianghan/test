@@ -21,7 +21,7 @@ public class Users {
 	 * 年龄
 	 */
 	private int age;
-	private String deptId;
+	private Dept dept;
 
 	public String getId() {
 		return id;
@@ -47,12 +47,12 @@ public class Users {
 		this.age = age;
 	}
 
-	public String getDeptId() {
-		return deptId;
+	public Dept getDept() {
+		return dept;
 	}
 
-	public void setDeptId(String deptId) {
-		this.deptId = deptId;
+	public void setDept(Dept dept) {
+		this.dept = dept;
 	}
 
 }

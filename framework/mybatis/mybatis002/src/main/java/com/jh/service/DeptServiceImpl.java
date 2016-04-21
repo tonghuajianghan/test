@@ -16,6 +16,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.jh.dao.DeptMapper;
 import com.jh.util.MySessionFactory;
 import com.jh.vo.Dept;
+import com.jh.vo.Users;
 
 public class DeptServiceImpl implements DeptServiceI {
 	@Override
@@ -46,5 +47,20 @@ public class DeptServiceImpl implements DeptServiceI {
 			sqlSession.close();
 		}
 		return deptList;
+	}
+
+	@Override
+	public List<Users> getUsersAssocationDept() {
+		SqlSession sqlSession = null;
+		DeptMapper deptMapper = null;
+		List<Users> usersList = null;
+		try {
+			sqlSession = MySessionFactory.getInstance().getSqlSessionFactory().openSession();
+			deptMapper = sqlSession.getMapper(DeptMapper.class);
+			usersList = deptMapper.selectDeptAndUsers();
+		} finally {
+			sqlSession.close();
+		}
+		return usersList;
 	}
 }

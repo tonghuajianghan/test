@@ -12,6 +12,7 @@ package com.jh.service;
 import java.util.List;
 
 import com.jh.vo.Dept;
+import com.jh.vo.Users;
 
 public interface DeptServiceI {
 	/** 
@@ -25,4 +26,6 @@ public interface DeptServiceI {
 	 */
 	public Dept getDept(String id);
 	public List<Dept> getDeptList();
+	
+	public List<Users> getUsersAssocationDept();
 }

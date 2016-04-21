@@ -12,9 +12,11 @@ package com.jh.dao;
 import java.util.List;
 
 import com.jh.vo.Dept;
+import com.jh.vo.Users;
 
 public interface DeptMapper {
 	public Dept selectByPrimaryKey(String id);
 	public List<Dept> selectDeptList();
+	public List<Users> selectDeptAndUsers();
 
 }

@@ -16,6 +16,7 @@ import org.junit.Test;
 import com.jh.service.DeptServiceI;
 import com.jh.service.DeptServiceImpl;
 import com.jh.vo.Dept;
+import com.jh.vo.Users;
 
 public class DeptServiceITest {
 	
@@ -29,12 +30,21 @@ public class DeptServiceITest {
 		System.out.println(dept.getName());
 	}
 
-	@Test
+	//@Test
 	public void testGetDeptList(){
 		deptServiceI = new DeptServiceImpl();
 		List<Dept> deptList = deptServiceI.getDeptList();
 		for(Dept dept : deptList){
 			System.out.println(dept.getName());
+		}
+	}
+	
+	@Test
+	public void testGetUsersAssocationDept(){
+		deptServiceI = new DeptServiceImpl();
+		List<Users> usersList = deptServiceI.getUsersAssocationDept();
+		for(Users users : usersList){
+			System.out.println(users.getDept().getName());
 		}
 	}
 }
