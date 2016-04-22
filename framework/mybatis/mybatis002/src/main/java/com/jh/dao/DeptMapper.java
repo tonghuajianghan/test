@@ -18,5 +18,6 @@ public interface DeptMapper {
 	public Dept selectByPrimaryKey(String id);
 	public List<Dept> selectDeptList();
 	public List<Users> selectDeptAndUsers();
+	public List<Dept> selectDeptCollectionUsers();
 
 }

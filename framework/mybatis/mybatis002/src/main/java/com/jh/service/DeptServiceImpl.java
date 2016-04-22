@@ -63,4 +63,19 @@ public class DeptServiceImpl implements DeptServiceI {
 		}
 		return usersList;
 	}
+
+	@Override
+	public List<Dept> getDeptCollectionUsers() {
+		SqlSession sqlSession = null;
+		DeptMapper deptMapper = null;
+		List<Dept> deptList = null;
+		try {
+			sqlSession = MySessionFactory.getInstance().getSqlSessionFactory().openSession();
+			deptMapper = sqlSession.getMapper(DeptMapper.class);
+			deptList = deptMapper.selectDeptCollectionUsers();
+		} finally {
+			sqlSession.close();
+		}
+		return deptList;
+	}
 }

@@ -47,4 +47,13 @@ public class DeptServiceITest {
 			System.out.println(users.getDept().getName());
 		}
 	}
+	
+	//@Test
+	public void testgetDeptCollectionUsers(){
+		deptServiceI = new DeptServiceImpl();
+		List<Dept> deptList = deptServiceI.getDeptCollectionUsers();
+		for(Dept dept : deptList){
+			System.out.println(dept.getUsers().get(0).getName());
+		}
+	}
 }

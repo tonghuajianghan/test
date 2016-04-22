@@ -9,10 +9,13 @@
 -------------------------------------------------------------------------*/
 package com.jh.vo;
 
+import java.util.List;
+
 public class Dept {
 	private String id;
 	private String name;
 	private String tag;
+	private List<Users> users;
 
 	public String getId() {
 		return id;
@@ -37,4 +40,13 @@ public class Dept {
 	public void setTag(String tag) {
 		this.tag = tag;
 	}
+
+	public List<Users> getUsers() {
+		return users;
+	}
+
+	public void setUsers(List<Users> users) {
+		this.users = users;
+	}
+
 }

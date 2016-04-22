@@ -28,4 +28,5 @@ public interface DeptServiceI {
 	public List<Dept> getDeptList();
 	
 	public List<Users> getUsersAssocationDept();
+	public List<Dept> getDeptCollectionUsers();
 }

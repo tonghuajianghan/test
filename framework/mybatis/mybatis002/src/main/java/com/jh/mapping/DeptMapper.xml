@@ -14,6 +14,7 @@
 	</resultMap>
 	
 	<!-- 多对一的集合实现  多个users有一个dept-->
+	<!-- 使用association集合的映射主表与从表不能有相同名字的列名 -->
 	<resultMap type="com.jh.vo.Users" id="resultDeptAndUsersList">
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="name" property="name" jdbcType="VARCHAR" />
@@ -24,6 +25,26 @@
 			<result column="name" property="name" jdbcType="VARCHAR" />
 			<result column="tag" property="tag" jdbcType="VARCHAR" />
 		</association>
+	</resultMap>
+	
+	<resultMap type="com.jh.vo.Dept" id="DeptCollectionUsers">
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="tag" property="tag" jdbcType="VARCHAR" />
+		<collection property="users" javaType="ArrayList" ofType="com.jh.vo.Users">
+			<id column="users_id" property="id" jdbcType="VARCHAR" />
+			<result column="users_name" property="name" jdbcType="VARCHAR" />
+			<result column="users_age" property="age" jdbcType="INTEGER" />
+		</collection>
+	</resultMap>
+	
+	<!-- 使用collection集合的映射主表与从表不能有相同名字的列名 -->
+	<!-- collection resultMap 的引用路径为mapper标签的namespace路径 -->
+	<resultMap type="com.jh.vo.Dept" id="DeptCollectionUsersRef" >
+		<id column="id" property="id" jdbcType="VARCHAR" />
+		<result column="name" property="name" jdbcType="VARCHAR" />
+		<result column="tag" property="tag" jdbcType="VARCHAR" />
+		<collection property="users" resultMap="com.jh.dao.UsersMapper.UsersResultMap" ofType="com.jh.vo.Users"/>
 	</resultMap>
 	
 	
@@ -38,8 +59,12 @@
 		select * from dept
 	</select>
 	
-	<!-- 两表关联查询 -->
+	<!-- 两表关联查询  association-->
 	<select id="selectDeptAndUsers" resultMap="resultDeptAndUsersList">
 		select * from Users u,Dept d where u.dept_id = d.id
+	</select>
+	
+	<select id="selectDeptCollectionUsers" resultMap="DeptCollectionUsersRef">
+		select * from Dept d ,Users u where d.id = u.dept_id
 	</select>
 </mapper>
